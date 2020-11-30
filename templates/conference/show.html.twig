@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    Livre d'or des Conférences - {{ conference }}
+{% endblock %}
+
+{% block body %}
+    <h2>Conférence de {{ conference }} </h2>
+
+    {% if comments|length > 0 %}
+        {% for comment in comments %}
+            {% if comment.photoFilename %}
+                <img src="{{ asset('uploads/photos/' ~ comment.photoFilename) }}" alt="{{ comment.photoFilename }}">
+            {% endif %}
+
+            <h4>{{ comment.author }}</h4>
+            <small>
+                {{ comment.createdAt|format_datetime('medium', 'short') }}
+            </small>
+
+            <p>{{ comment.text }}</p>
+        {% endfor %}
+    {% else %}
+        <div>Aucune comment n'a été posté pour cette conférence</div>
+    {% endif %}
+
+{% endblock %}
+
+

@@ -1,0 +1,28 @@
+easy_admin:
+    site_name: Conférences Livre d'Or
+
+    design:
+        menu:
+            - { route: 'homepage', 'label': 'Retour à l''accueil', icon: 'home' }
+            - { entity: 'Conference', 'label': 'Conférences', icon: 'map-marker' }
+            - { entity: 'Comment', 'label': 'Les commentaires', icon: 'comments' }
+    entities:
+        Conference:
+            class: App\Entity\Conference
+
+        Comment:
+            class: App\Entity\Comment
+            list:
+                fields:
+                    - author
+                    -  { property: 'email', type: 'email' }
+                    -  { property: 'createdAt', type: 'datetime' }
+                sort: [ 'createdAt', 'ASC' ]
+                filters: [ 'conference' ]
+            edit:
+                fields:
+                    - { property: 'conference' }
+                    - { property: 'createdAt' , type: datetime, type_options: { attr: { readonly: true } } }
+                    - 'author'
+                    - { property: 'email', type: 'email' }
+                    - text

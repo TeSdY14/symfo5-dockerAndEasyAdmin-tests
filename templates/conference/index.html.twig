@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Livre d'or des conférences{% endblock %}
+
+{% block body %}
+    <h2>Donnez votre avis !</h2>
+
+    {% for conference in conferences %}
+        <h4>{{ conference }}</h4>
+    {% endfor %}
+{% endblock %}
