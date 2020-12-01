@@ -27,8 +27,9 @@
 ```shell-script
 symfony composer req profiler --dev
 ```
-> '**req**' est l'alias pour le paquet : symfony/profiler-pack
-> Le **profiler** permet de gagner du temps quand on a besoin de trouver l'origine d'un problème
+> '**req**' est l'alias pour le paquet : **symfony/profiler-pack**
+
+> Le **PROFILER** permet de gagner du temps quand on a besoin de trouver l'origine d'un problème!
 
 ### Le LOGGER
 ```
@@ -47,8 +48,9 @@ symfony composer req debug --dev
 ```
 symfony composer req maker --dev
 ```
-> Le **maker bundle** permet de générer un grand nombre de classes différentes,
-> **pour voir la liste des commandes disponibles avec le maker bundle **
+> Le **maker-bundle** permet de générer un grand nombre de classes différentes.
+
+> **Pour voir la liste des commandes disponibles avec le maker bundle**
 ```
 symfony console list make 
 ```
@@ -61,7 +63,7 @@ composer require symfony/twig-bundle
 ```
 symfony composer req "twig/intl-extra:^3"
 ```
-> Le package **intl-extra** fournit les filtres _localizeddate_, _localizednumber_ et _localizedcurrency_ 
+> Le package **intl-extra** fournit les filtres **_localizeddate_**, **_localizednumber_** et **_localizedcurrency_** 
 
 
 ### EASYADMIN
@@ -71,8 +73,9 @@ symfony composer req "twig/intl-extra:^3"
 ```
 symfony composer req "admin:^2"
 ```
-> Une petite configuration pour améliorer le design de l'administration 
-_Editer fichier ./config/packages/easy_admin.yaml_
+> Un exemple de configurations pour améliorer le design de l'administration 
+_ Éditer le fichier ./config/packages/easy_admin.yaml_
+1. Configuration Basique 
 ``` yaml
 # Config Basic 
 easy_admin: 
@@ -81,7 +84,6 @@ easy_admin:
     - App\Entity\FooBarTwo 
 ``` 
 > Dans le cas de relation entre 2 classes il est utile d'ajouter une fonction __toString() aux entitées liées 
-_Exemple_
 ``` PHP
 class FooBarOne { 
   ...
@@ -90,6 +92,7 @@ class FooBarOne {
   }
 }
 ``` 
+2. Configuration Avancée
 ``` yaml 
 # Config Avancée
 easy_admin: 
@@ -143,6 +146,7 @@ _Installation de quelques dépendances_
 - Doctrine DBAL (Couche d'abstraction de BDD) 
 - Doctrine ORM (Bibliothèque afin de manipuler le contenu de la base de données)
 - Doctrine migrations (assistant pour construire la BDD)
+
 #### UNE FOIS INSTALLE 
 _Compléter le fichier .env avec les informations d'accès à la base de données_
 ```# DATABASE_URL="mysql://db_user:db_password@127.0.0.1:3306/db_name?serverVersion=5.7" <<< Ligne commentée```
@@ -152,6 +156,7 @@ _SYMFONY supporte le **YAML**, **XML**, **PHP** et les **annotations** comme for
 => [Plus d'informations](https://symfony.com/doc/current/configuration.html#configuration-formats)
 - Pour la configuration des paquets, **YAML** est préférable 
 - Pour la configuration liées au code PHP, les **annotations** sont plus appropriées, _les informations de configuration sont directement accessibles dans la classe utilisée_. 
+
 ### ANNOTATIONS
 ```
 symfony composer req annotations
@@ -162,6 +167,7 @@ symfony composer req annotations
 ```
 symfony console make:controller FooBarController
 ```
+
 > Générer une entité 
 ```
 symfony console make:entity NomEntity
@@ -176,10 +182,24 @@ Une fois la commande exécutée, deux fichiers sont générés :
 - Repository de l'entité (namespace App\Repository) 
 _Retaper la commande make:entity sur une entité déjà existante permettra d'ajouter de nouveaux champs)_
 
+## Une fois toutes les entités nécessaires générées 
+### Générer le fichier de migration
+```
+symfony console make:migration
+```
+### Vérifier les requêtes qui seront exécutées avant de faire la migrations 
+> vérifier le contenu du fichier _"./migrations/VersionAnneeMoisJourHeureMinutesSecondes.php"_
+### SI OK 
+```
+symfony console doctrine:migrations:migrate
+```
+> A la suite de cette commande, la base de données locale sera à jour et prète à stoker des données.
+
 > Générer un formulaire
 ```
 symfony console make:form NomDuForm
 ```
+
 > Générer un CRUD complet 
 ```
 symfony console make:crud NomDuneEntiteDejaCreee
@@ -196,20 +216,6 @@ symfony console make:crud NomDuneEntiteDejaCreee
 -  created: templates/nomduneentitedejacreee/show.html.twig
 ``` 
 
-## Une fois toutes les entités nécessaires générées 
-### Générer le fichier de migration
-```
-symfony console make:migration
-```
-### Vérifier les requêtes qui seront exécutées avant de faire la migrations 
-> vérifier le contenu du fichier _"./migrations/VersionAnneeMoisJourHeureMinutesSecondes.php"_
-### SI OK 
-```
-symfony console doctrine:migrations:migrate
-```
-> A la suite de cette commande, la base de données locale sera à jour et prète à stoker des données.
-
-
 ## Ce projet utilise HTTPS
 ### Installation avec la commande
 ``` 
@@ -217,7 +223,7 @@ symfony server:ca:install
 ``` 
 
 ## Lancer le serveur symfony
-### Lancer le server en arrière plan : 
+### Lancer le server en arrière plan
 ``` 
 symfony server:start -d 
 ``` 
@@ -262,16 +268,16 @@ docker-composer logs
 ## Accéder à la base de données
 Merci à la commande "**symfony**" qui permet de `détecter automatiquement les services Docker en cours d'utilisation`. 
 
-Les variables d'environnement étant exposées, on peut donc utiliser **psql** pour se connecter à la BDD
+Les **variables d'environnement** étant exposées, on peut donc utiliser **psql** pour se connecter à la **BDD**
 ```
 symfony run psql
 ```
 
-> (si psql n'eest pas disponible en local, Docker permet aussi de l'exécuter : 
+> (si **psql** n'eest pas disponible en local, **Docker** permet aussi de l'exécuter : 
 ```
 docker exec -it database_name_1 psql -U username -W password 
 ```
-> Ici dans notre cas cela donne  
+> Dans ce cas, cela peut donne  
 ```
 docker exec -it database_name_1 psql -U main -W main 
 ```
