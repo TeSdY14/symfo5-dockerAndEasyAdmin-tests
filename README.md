@@ -277,11 +277,7 @@ Les **variables d'environnement** étant exposées, on peut donc utiliser **psql
 symfony run psql
 ```
 
-> (si **psql** n'eest pas disponible en local, **Docker** permet aussi de l'exécuter : 
+> Si **psql** n'eest pas disponible en local, **Docker** permet aussi de l'exécuter
 ```
-docker exec -it database_name_1 psql -U username -W password 
-```
-> Dans ce cas, cela peut donne  
-```
-docker exec -it database_name_1 psql -U main -W main 
+docker exec -it database_name_1 psql -U username -W password
 ```
