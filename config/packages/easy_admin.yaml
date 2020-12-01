@@ -9,20 +9,32 @@ easy_admin:
     entities:
         Conference:
             class: App\Entity\Conference
-
+            label: 'Conférence'
+            new:
+                title: 'Ajouter une %%entity_label%%'
+            edit:
+                title: 'Éditer une %%entity_label%%'
         Comment:
             class: App\Entity\Comment
+            label: 'Commentaires'
+            form:
+                title: 'Ajouter/Éditer ou Supprimer un commentaire'
             list:
                 fields:
+                    - 'id'
                     - author
                     -  { property: 'email', type: 'email' }
                     -  { property: 'createdAt', type: 'datetime' }
                 sort: [ 'createdAt', 'ASC' ]
                 filters: [ 'conference' ]
+            new:
+                title: 'Ajouter un commentaire'
             edit:
+                title: 'Éditer un commentaire'
                 fields:
                     - { property: 'conference' }
                     - { property: 'createdAt' , type: datetime, type_options: { attr: { readonly: true } } }
                     - 'author'
+                    - 'photoFilename'
                     - { property: 'email', type: 'email' }
                     - text

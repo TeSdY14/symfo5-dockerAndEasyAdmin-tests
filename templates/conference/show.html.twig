@@ -8,6 +8,7 @@
     <h2>Conférence de {{ conference }} </h2>
 
     {% if comments|length > 0 %}
+        <div>Il y a {{ comments|length }} commentaires : </div>
         {% for comment in comments %}
             {% if comment.photoFilename %}
                 <img src="{{ asset('uploads/photos/' ~ comment.photoFilename) }}" alt="{{ comment.photoFilename }}">
@@ -20,8 +21,17 @@
 
             <p>{{ comment.text }}</p>
         {% endfor %}
+
+        {% if previous >= 0 %}
+            <a href="{{ path('conference_show', { 'id': conference.id, offset: previous }) }}">Précédent</a>
+        {% endif %}
+
+        {% if next < comments|length %}
+            <a href="{{ path('conference_show', { 'id': conference.id, offset: next }) }}">Suivant</a>
+        {% endif %}
+
     {% else %}
-        <div>Aucune comment n'a été posté pour cette conférence</div>
+        <div>Aucun commentaire n'a été posté pour cette conférence</div>
     {% endif %}
 
 {% endblock %}
