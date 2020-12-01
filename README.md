@@ -149,8 +149,12 @@ _Installation de quelques dépendances_
 
 #### UNE FOIS INSTALLE 
 _Compléter le fichier .env avec les informations d'accès à la base de données_
-```# DATABASE_URL="mysql://db_user:db_password@127.0.0.1:3306/db_name?serverVersion=5.7" <<< Ligne commentée```
-```DATABASE_URL="postgresql://127.0.0.1:5432/db?serverVersion=13&charset=utf8" # <<< Ligne ajoutée ```
+```yaml 
+#DATABASE_URL="mysql://db_user:db_password@127.0.0.1:3306/db_name?serverVersion=5.7" <<< Ligne commentée
+```
+```yaml 
+DATABASE_URL="postgresql://127.0.0.1:5432/db?serverVersion=13&charset=utf8" # <<< Ligne ajoutée
+```
 
 _SYMFONY supporte le **YAML**, **XML**, **PHP** et les **annotations** comme format de configuration_ 
 => [Plus d'informations](https://symfony.com/doc/current/configuration.html#configuration-formats)
