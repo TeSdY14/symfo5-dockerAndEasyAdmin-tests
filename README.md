@@ -261,12 +261,12 @@ docker-compose up -d
 ```
 ### Vérifier que tout fonctionne 
 ```
-docker-composer ps 
+docker-compose ps 
 ```
 _Cette commande doit afficher les conteneurs en cours d'exécution_
 ### Vérifier les logs
 ``` 
-docker-composer logs
+docker-compose logs
 ``` 
 
 ## Accéder à la base de données
