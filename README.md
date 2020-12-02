@@ -212,13 +212,13 @@ rediscache:
   image: redis:5-alpine
   ports: [6379]
 ```
-> Installer Redis au conteneurs Docker : 
+> On peut installer lancer Redis avec Docker : 
 
 1. Arreter Docker
 ```
 docker-compose stop
 ```
-2. Redémarrer Docker
+2. Redémarrer Docker avec redis 
 ```
 docker-compose up -d 
 ```
