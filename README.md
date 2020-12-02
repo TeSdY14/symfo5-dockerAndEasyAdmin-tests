@@ -277,6 +277,22 @@ symfony console make:crud NomDuneEntiteDejaCreee
 -  created: templates/nomduneentitedejacreee/show.html.twig
 ``` 
 
+> Générer un SUBSCRIBER
+
+**Rappel :** 
+
+Un [**_subscriber_**](https://symfony.com/doc/current/event_dispatcher.html) est un [**_listener_**](https://symfony.com/doc/current/event_dispatcher.html) qui contient une méthode statique `_getSubscriberEvents()_` qui retourne sa configration, cela permet aux [**_subscriber_**](https://symfony.com/doc/current/event_dispatcher.html) d'être enregistré automatiquement dans le [**_dispatcher_**](https://symfony.com/doc/current/components/event_dispatcher.html) Symfony 
+
+```
+symfony console make:subscriber ExempleTwigEventSubscriber
+```
+> Commande interactive, elle demandera quel événement ecouter [liste des Evenements](https://symfony.com/doc/current/reference/events.html), 
+
+_Cette liste est normalement affichée dans la console au moment du lancement de la commande_
+
+Une fois validée, la commande créera le fichier `./src/EventSubscriber/ExempleTwigEventSubscriber.php`
+
+
 ## Ce projet utilise HTTPS
 ### Installation avec la commande
 ``` 
