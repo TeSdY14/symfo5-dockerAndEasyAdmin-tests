@@ -10,6 +10,7 @@ runtime:
         - ctype
         - iconv
         - pdo_pgsql
+        - redis
         
 
 #variables:
@@ -22,6 +23,7 @@ build:
 
 relationships:
     database: "db:postgresql"
+    redis: "rediscache:redis"
 
 disk: 512
 

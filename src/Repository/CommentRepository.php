@@ -16,7 +16,6 @@ use Doctrine\Persistence\ManagerRegistry;
  */
 class CommentRepository extends ServiceEntityRepository
 {
-
     public const PAGINATOR_PER_PAGE = 2;
 
     public function __construct(ManagerRegistry $registry)
@@ -25,12 +24,13 @@ class CommentRepository extends ServiceEntityRepository
     }
 
     /**
-     * Retourne les commentaires avec une pagination
+     * Retourne les commentaires avec une pagination.
      * @param Conference $conference
      * @param int $offset
      * @return Paginator
      */
-    public function getCommentPaginator(Conference $conference, int $offset): Paginator {
+    public function getCommentPaginator(Conference $conference, int $offset): Paginator
+    {
         $query = $this->createQueryBuilder('c')
             ->andWhere('c.conference = :conference')
             ->setParameter('conference', $conference)
@@ -38,8 +38,7 @@ class CommentRepository extends ServiceEntityRepository
             ->setMaxResults(self::PAGINATOR_PER_PAGE)
             ->setFirstResult($offset)
             ->getQuery();
-        
-        return new Paginator($query);
 
+        return new Paginator($query);
     }
 }
