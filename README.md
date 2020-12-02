@@ -166,6 +166,63 @@ _SYMFONY supporte le **YAML**, **XML**, **PHP** et les **annotations** comme for
 symfony composer req annotations
 ```
 
+### REDIS
+```
+composer require predis/predis
+```
+Un peu de configuration 
+
+- symfony.cloud.yaml
+```yaml
+runtime: 
+ extension: 
+  - pdo_pgsl
+  - apcu
+  - redis # LIGNE A AJOUTER !
+  ...
+  ...
+relationships:
+ database: "db:postgresql"
+ redis: "rediscache:redis" # LIGNE A AJOUTER 
+```
+- .symfony/serices.yaml
+```yaml
+...
+# ajouter ce qui suit : 
+rediscache: 
+ type: redis:5.0
+```
+
+- config/packages/framework.yaml
+```yaml
+...
+session:
+ # REMPLACER 
+ # handler_id: null 
+ # PAR  
+ handler_id: '%env(REDIS_URL)%'
+rediscache: 
+ type: redis:5.0
+```
+
+- docker-compose.yaml
+```yaml
+...
+ redis:
+  image: redis:5-alpine
+  ports: [6379]
+```
+> Installer Redis au conteneurs Docker : 
+
+1. Arreter Docker
+```
+docker-compose stop
+```
+2. Redémarrer Docker
+```
+docker-compose up -d 
+```
+
 ## Commandes du MAKER BUNDLE courantes
 > Générer un controller 
 ```
