@@ -29,7 +29,7 @@ symfony composer req profiler --dev
 ```
 > '**req**' est l'alias pour le paquet : **symfony/profiler-pack**
 
-> Le **PROFILER** permet de gagner du temps quand on a besoin de trouver l'origine d'un problème!
+Le **PROFILER** permet de gagner du temps quand on a besoin de trouver l'origine d'un problème!
 
 ### Le LOGGER
 ```
@@ -41,16 +41,15 @@ symfony composer req logger
 ```
 symfony composer req debug --dev
 ```
->  Permet d'ajouter la **barre de debug** en bas de l'écran du navigateur
+Cela permet d'obtenir la **barre de debug** en bas de l'écran du navigateur
 
 ### Maker Bundle
 > Installé uniquement pour l'environnement de développement
 ```
 symfony composer req maker --dev
 ```
-> Le **maker-bundle** permet de générer un grand nombre de classes différentes.
-
-> **Pour voir la liste des commandes disponibles avec le maker bundle**
+Le **maker-bundle** permet de générer un grand nombre de classes différentes.
+**Pour voir la liste des commandes disponibles avec le maker bundle**
 ```
 symfony console list make 
 ```
@@ -59,6 +58,7 @@ symfony console list make
 ```
 composer require symfony/twig-bundle
 ```
+Cette commande installe le moteur de templte Twig 
 #### Complément pour Twig 
 ```
 symfony composer req "twig/intl-extra:^3"
@@ -67,9 +67,9 @@ symfony composer req "twig/intl-extra:^3"
 
 
 ### EASYADMIN
-> [Plus d'info - Symfony.com](https://symfony.com/doc/current/bundles/EasyAdminBundle/index.html)
+[Plus d'info sur Symfony.com](https://symfony.com/doc/current/bundles/EasyAdminBundle/index.html)
 
-> [Plus d'info - Github.com](https://github.com/EasyCorp/EasyAdminBundle)
+[Plus d'info sur Github.com](https://github.com/EasyCorp/EasyAdminBundle)
 ```
 symfony composer req "admin:^2"
 ```
@@ -83,7 +83,7 @@ easy_admin:
     - App\Entity\FooBarOne
     - App\Entity\FooBarTwo 
 ``` 
-> Dans le cas de relation entre 2 classes il est utile d'ajouter une fonction __toString() aux entitées liées 
+`Dans le cas de relation entre 2 classes il est utile d'ajouter une fonction "__toString()"" aux entitées liées!` 
 ``` PHP
 class FooBarOne { 
   ...
@@ -125,14 +125,14 @@ easy_admin:
           - { property: 'email', type: 'email' }
           - text
 ``` 
-> [Plus d'infos sur la customization d'EasyAdmin](https://symfony.com/doc/2.x/bundles/EasyAdminBundle/book/edit-new-configuration.html) 
+> [Plus d'infos sur la customization d'EasyAdmin sur symfony.com](https://symfony.com/doc/2.x/bundles/EasyAdminBundle/book/edit-new-configuration.html) 
 
-> [Plus d'infos sur la customization d'EasyAdmin](https://symfony.com/doc/current/bundles/EasyAdminBundle/index.html)
+> [Plus d'infos sur la customization d'EasyAdmin sur symfony.com](https://symfony.com/doc/current/bundles/EasyAdminBundle/index.html)
 
 
 ### PHP Coding Standards Fixer
-[Plus d'informations](https://github.com/FriendsOfPHP/PHP-CS-Fixer/blob/2.16/doc/installation.rst)
-> Installé uniquement pour l'environnement de développement
+[Plus d'informations sur GitHub](https://github.com/FriendsOfPHP/PHP-CS-Fixer/blob/2.16/doc/installation.rst)
+_Installé uniquement pour l'environnement de développement_ (ajout du flag `--dev`)
 ```
 symfony composer req friendsofphp/php-cs-fixer --dev 
 ```
@@ -141,14 +141,13 @@ symfony composer req friendsofphp/php-cs-fixer --dev
 ```
 symfony composer req "orm:^2"
 ```
-> Commande qui installe un ensemble de bibliothèque afin de gérer la base de données 
-_Installation de quelques dépendances_
+> Installe un ensemble de bibliothèque afin de gérer la base de données.
 - Doctrine DBAL (Couche d'abstraction de BDD) 
 - Doctrine ORM (Bibliothèque afin de manipuler le contenu de la base de données)
 - Doctrine migrations (assistant pour construire la BDD)
 
-#### UNE FOIS INSTALLE 
-_Compléter le fichier .env avec les informations d'accès à la base de données_
+UNE FOIS INSTALLE 
+_Compléter le fichier `.env` avec les informations d'accès à la base de données_
 ```yaml 
 #DATABASE_URL="mysql://db_user:db_password@127.0.0.1:3306/db_name?serverVersion=5.7" <<< Ligne commentée
 ```
@@ -212,7 +211,7 @@ rediscache:
   image: redis:5-alpine
   ports: [6379]
 ```
-> On peut installer lancer Redis avec Docker : 
+Mettre en route Redis avec Docker : 
 
 1. Arreter Docker
 ```
@@ -224,16 +223,16 @@ docker-compose up -d
 ```
 
 ## Commandes du MAKER BUNDLE courantes
-> Connaitre les routes disponibles 
+### Connaitre les routes disponibles 
 ```
 symfony console debug:router
 ```
-> Générer un controller 
+### Générer un controller 
 ```
 symfony console make:controller FooBarController
 ```
 
-> Générer une entité 
+### Générer une entité 
 ```
 symfony console make:entity NomEntity
 ```
@@ -247,29 +246,28 @@ Une fois la commande exécutée, deux fichiers sont générés :
 - Repository de l'entité (namespace App\Repository) 
 _Retaper la commande make:entity sur une entité déjà existante permettra d'ajouter de nouveaux champs)_
 
-## Une fois toutes les entités nécessaires générées 
-### Générer le fichier de migration
+#### Une fois toutes les entités nécessaires générées, Générer le fichier de migration
 ```
 symfony console make:migration
 ```
 ### Vérifier les requêtes qui seront exécutées avant de faire la migrations 
 > vérifier le contenu du fichier _"./migrations/VersionAnneeMoisJourHeureMinutesSecondes.php"_
-### SI OK 
+### OK ? On migre la BDD !
 ```
 symfony console doctrine:migrations:migrate
 ```
-> A la suite de cette commande, la base de données locale sera à jour et prète à stoker des données.
+A la suite de cette commande, la base de données locale sera à jour et prète à stoker des données.
 
-> Générer un formulaire
+#### Générer un formulaire
 ```
 symfony console make:form NomDuForm
 ```
 
-> Générer un CRUD complet 
+#### Générer un CRUD complet 
 ```
 symfony console make:crud NomDuneEntiteDejaCreee
 ```
-> Cette commande generera plusieurs fichiers
+Cette commande va générer plusieurs fichiers :
 ```yaml
 -  created: src/Controller/NomDuneEntiteDejaCreeeController.php
 -  created: src/Form/NomDuneEntiteDejaCreeeType.php
@@ -281,7 +279,7 @@ symfony console make:crud NomDuneEntiteDejaCreee
 -  created: templates/nomduneentitedejacreee/show.html.twig
 ``` 
 
-> Générer un SUBSCRIBER
+#### Générer un SUBSCRIBER
 
 **Rappel :** 
 
@@ -296,24 +294,16 @@ _Cette liste est normalement affichée dans la console au moment du lancement de
 
 Une fois validée, la commande créera le fichier `./src/EventSubscriber/ExempleTwigEventSubscriber.php`
 
-
-## Ce projet utilise HTTPS
-### Installation avec la commande
-``` 
-symfony server:ca:install 
-``` 
-
-## Lancer le serveur symfony
-### Lancer le server en arrière plan
+## Autres Commandes Utiles
+### Lancer le serveur symfony en arrière plan
 ``` 
 symfony server:start -d 
 ``` 
-### Ouvrir dans un navigateur 
+### Ouvrir l'application dans un navigateur 
 ``` 
 symfony open:local
 ``` 
 
-## Autres commandes utiles
 ### Consulter les logs 
 ``` 
 symfony server:log
@@ -331,22 +321,29 @@ symfony ssh
 symfony var:export
 ``` 
 
-## DOCKER 
-### Démarrer docker compose en arrière plan 
+## Ce projet utilise _**HTTPS**_
+### Installer un certificat  avec la commande
+``` 
+symfony server:ca:install 
+``` 
+
+## Gestion avec DOCKER 
+### Démarrer docker-compose en arrière plan 
 ```
 docker-compose up -d 
 ```
-### Vérifier que tout fonctionne 
+### Voir la liste des conteneurs (et leur état)
 ```
 docker-compose ps 
 ```
-_Cette commande doit afficher les conteneurs en cours d'exécution_
+_Commande qui affiche toutes les instances de docker qui tournent actuellement sur l'environnement. 
+Avec l’option `-a` : les containers stoppés seront aussi affichés._
 ### Vérifier les logs
 ``` 
 docker-compose logs
 ``` 
 
-## Accéder à la base de données
+## Accéder à notre base de données
 Merci à la commande "**symfony**" qui permet de `détecter automatiquement les services Docker en cours d'utilisation`. 
 
 Les **variables d'environnement** étant exposées, on peut donc utiliser **psql** pour se connecter à la **BDD**
