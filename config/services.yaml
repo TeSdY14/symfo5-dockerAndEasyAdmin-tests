@@ -10,7 +10,9 @@ services:
     _defaults:
         autowire: true      # Automatically injects dependencies in your services.
         autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
-
+        # On injecte le paramètre (de type String) qui donne le path où stocker les images des commentaires de conférence
+        bind:
+            $photoDir: "%kernel.project_dir%/public/uploads/photos"
     # makes classes in src/ available to be used as services
     # this creates a service per class whose id is the fully-qualified class name
     App\:
@@ -26,6 +28,10 @@ services:
     App\Controller\:
         resource: '../src/Controller/'
         tags: ['controller.service_arguments']
+    # Exemple de declaration d'un listener dans le conteneur de service
+    App\EntityListener\ConferenceEntityListener:
+        tags:
+            - { name: 'doctrine.orm.entity_listener', event: 'preUpdate', entity: 'App\Entity\Conference' }
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones

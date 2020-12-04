@@ -23,16 +23,20 @@
         {% endfor %}
 
         {% if previous >= 0 %}
-            <a href="{{ path('conference_show', { 'id': conference.id, offset: previous }) }}">Précédent</a>
+            <a href="{{ path('conference_show', { 'slug': conference.slug, offset: previous }) }}">Précédent</a>
         {% endif %}
 
         {% if next < comments|length %}
-            <a href="{{ path('conference_show', { 'id': conference.id, offset: next }) }}">Suivant</a>
+            <a href="{{ path('conference_show', { 'slug': conference.slug, offset: next }) }}">Suivant</a>
         {% endif %}
 
     {% else %}
         <div>Aucun commentaire n'a été posté pour cette conférence</div>
     {% endif %}
+
+    <h2>Ajouter votre propre commentaire</h2>
+
+    {{ form(comment_form) }}
 
 {% endblock %}
 
