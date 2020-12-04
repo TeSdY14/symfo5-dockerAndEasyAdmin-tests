@@ -49,6 +49,7 @@ Cela permet d'obtenir la **barre de debug** en bas de l'écran du navigateur
 symfony composer req maker --dev
 ```
 Le **maker-bundle** permet de générer un grand nombre de classes différentes.
+
 **Pour voir la liste des commandes disponibles avec le maker bundle**
 ```
 symfony console list make 
@@ -74,6 +75,7 @@ symfony composer req "twig/intl-extra:^3"
 symfony composer req "admin:^2"
 ```
 > Un exemple de configurations pour améliorer le design de l'administration 
+
 _ Éditer le fichier ./config/packages/easy_admin.yaml_
 1. Configuration Basique 
 ``` yaml
@@ -132,6 +134,7 @@ easy_admin:
 
 ### PHP Coding Standards Fixer
 [Plus d'informations sur GitHub](https://github.com/FriendsOfPHP/PHP-CS-Fixer/blob/2.16/doc/installation.rst)
+
 _Installé uniquement pour l'environnement de développement_ (ajout du flag `--dev`)
 ```
 symfony composer req friendsofphp/php-cs-fixer --dev 
