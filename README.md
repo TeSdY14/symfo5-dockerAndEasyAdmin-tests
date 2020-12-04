@@ -354,3 +354,65 @@ symfony run psql
 ```
 docker exec -it database_name_1 psql -U username -W password
 ```
+
+## SECURITÉ 
+> Composant `Symfony Security` : Permet de protéger l'accès de certaines pages du site aux utilisateurs
+```
+symfony composer req security
+```
+### Définir une entité User (ici nommé Admin)
+``` 
+symfony console make:user Admin
+``` 
+> Commande interactive : 
+```
+- Do you want to store user data in the database (via Doctrine)? (yes/no) [yes]: 
+YES
+```
+```
+- Enter a property name that will be the unique "display" name for the user (e.g. email, username, uuid) [email] : 
+username
+```
+```
+Does this app need to hash/check user passwords? (yes/no) [yes]:
+YES
+```
+
+_**Une fois la commande exécutée, les fichiers suivants seront générés/modifiés.**_ 
+```yaml
+created: src/Entity/Admin.php
+created: src/Repository/AdminRepository.php
+updated: src/Entity/Admin.php
+updated: config/packages/security.yaml
+           
+  Success! 
+           
+```
+Attardons nous sur le fichier config/packages/security.yaml. 
+
+Les lignes suivantes ont été automatiquement ajoutées au fichier : 
+```yaml
+security:
+    encoders: # Ajouté
+        App\Entity\Admin: # Ajouté
+            algorithm: auto # Ajouté
+
+    # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
+    # in_memory: { memory: null }  # RETIRÉ
+    providers:
+        # used to reload user from session & other features (e.g. switch_user)  # Ajouté
+        app_user_provider: # Ajouté
+            entity: # Ajouté
+                class: App\Entity\Admin # Ajouté
+                property: username # Ajouté
+    firewalls:
+    ....
+``` 
+
+Une fois ceci OK : pensez à générer la migration et migrer la BDD 
+```
+symfony console make:migration 
+symfony console doctrine:migration:migrate -n
+``` 
+_Flag -n => **--no-interaction** ou **-n** : Do not ask any interactive question._
+
