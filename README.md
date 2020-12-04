@@ -224,6 +224,10 @@ docker-compose up -d
 ```
 
 ## Commandes du MAKER BUNDLE courantes
+> Connaitre les routes disponibles 
+```
+symfony console debug:router
+```
 > Générer un controller 
 ```
 symfony console make:controller FooBarController
@@ -356,7 +360,7 @@ docker exec -it database_name_1 psql -U username -W password
 ```
 
 ## SECURITÉ 
-> Composant `Symfony Security` : Permet de protéger l'accès de certaines pages du site aux utilisateurs
+### Le Composant `Symfony Security` : Permet de protéger l'accès de certaines pages du site aux utilisateurs
 ```
 symfony composer req security
 ```
@@ -409,10 +413,89 @@ security:
     ....
 ``` 
 
-Une fois ceci OK : pensez à générer la migration et migrer la BDD 
+### Générer la migration et migrer la BDD 
 ```
 symfony console make:migration 
 symfony console doctrine:migration:migrate -n
 ``` 
 _Flag -n => **--no-interaction** ou **-n** : Do not ask any interactive question._
 
+### Générer un mot de passe encodé : 
+``` 
+symfony console security:encode-password
+``` 
+Cette commande l'utilitaire d'encodage de mot de passe 
+```yaml 
+Symfony Password Encoder Utility
+================================
+
+ Type in your password to be encoded:
+> admin
+ ------------------ ---------------------------------------------------------------------------------------------------
+  Key                Value                                                                                             
+ ------------------ ---------------------------------------------------------------------------------------------------
+  Encoder used       Symfony\Component\Security\Core\Encoder\MigratingPasswordEncoder
+  Encoded password   $argon2id$v=19$m=65536,t=4,p=1$KUtC39eZrJiWmGjxBpyrKA$KN1vUaevtOha+F1+bTdXM2+FgWvJw+p3QBoXM+QpRoA
+ ------------------ ---------------------------------------------------------------------------------------------------
+
+ ! [NOTE] Self-salting encoder used: the encoder generated its own built-in salt.                           
+ 
+ [OK] Password encoding succeeded                  
+```
+
+### Insérer un administrateur, utilisons une simple requête SQL 
+```sh
+symfony run psql -c "INSERT INTO admin (id, username, roles, password) VALUES (nextval('admin_id_seq'), 'admin', '[\"ROLE_ADMIN\"]', '$argon2id$v=19$m=65536,t=4,p=1$9G08Ahe3JnpX8TI1
+R0kolQ$HoQOUUnsabZvE87yWVLPP/pUJ251PyV3p2mK9xHmm1c');"
+```
+
+(Si problème avec le mot de passe, essayé avec des `\` devant les `$`)
+### Générer un système d'authentification
+```yaml
+symfony console make:auth
+ What style of authentication do you want? [Empty authenticator]:
+  [0] Empty authenticator
+  [1] Login form authenticator
+> 1 
+The class name of the authenticator to create (e.g. AppCustomAuthenticator):
+ > AppAuthenticator
+Choose a name for the controller class (e.g. SecurityController) [SecurityController]: 
+Entrée (ou taper 'SecurityController' et Entrée)
+ > SeurityController
+Do you want to generate a '/logout' URL? (yes/no) [yes]: Entrée (ou taper 'Yes' et Entrée)
+ > Yes
+created: src/Security/AppAuthenticator.php
+updated: config/packages/security.yaml
+created: src/Controller/SecurityController.php
+created: templates/security/login.html.twig
+
+           
+  Success! 
+           
+
+ Next:
+ - Customize your new authenticator.
+ - Finish the redirect "TODO" in the App\Security\AppAuthenticator::onAuthenticationSuccess() method.
+ - Review & adapt the login template: templates/security/login.html.twig.
+
+```
+
+De nouvelles lignes sont automatiquement ajoutées au fichier `./config/paclages/security.yaml`
+```
+main:
+            anonymous: lazy
+            provider: app_user_provider
+            guard: # AJOUTÉ
+                authenticators: # AJOUTÉ
+                    - App\Security\AppAuthenticator # AJOUTÉ
+            logout: # AJOUTÉ
+                path: app_logout # AJOUTÉ
+                # where to redirect after logout
+                # target: app_any_route
+
+            # activate different ways to authenticate
+```
+[Pour générer un système complet d'authentification par formulaire](https://symfony.com/doc/current/doctrine/registration_form.html)
+```
+symfony console make:registration-form
+```
