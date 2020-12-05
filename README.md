@@ -496,3 +496,14 @@ main:
 ```
 symfony console make:registration-form
 ```
+
+## TESTS 
+Symfony utilise `PHPUnit`
+```
+symfony composer req phpunit --dev 
+``` 
+
+- Générer un test
+```
+symfony console make:unit-test ClassATester
+```
