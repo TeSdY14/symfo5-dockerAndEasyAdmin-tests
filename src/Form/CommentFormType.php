@@ -19,11 +19,18 @@ class CommentFormType extends AbstractType
         $builder
             ->add('author', null, [
                 'label' => 'Votre nom',
+                'data' => 'viagra-test-123',
+                'empty_data' => 'viagra-test-123',
             ])
             ->add('text', TextareaType::class, [
                 'label' => 'Message',
+                'data' => 'viagra-test-123',
+                'empty_data' => 'viagra-test-123',
             ])
-            ->add('email', EmailType::class, [])
+            ->add('email', EmailType::class, [
+                'data' => 'akismet-guaranteed-spam@example.com',
+                'empty_data' => 'akismet-guaranteed-spam@example.com',
+                ])
             ->add('photo', FileType::class, [
                 'required' => false,
                 'mapped' => false,
