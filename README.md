@@ -14,13 +14,28 @@
 * Technos 
   * PHP 7.4 (extenstions => intl, pdo_pgsql, xsl, amqp, gd, openssl, sodium, ...) 
   * Symfony 5 (Moteur de template TWIG)
-  * PostgreSQL 
+  * Doctrine
+  * PostgreSQL
   * RabbitMQ 
+  * Redis
 
 * Bundles 
   * EasyAdmin
+ 
+* Divers 
+  * Profiler
+  * Logger
+  * Debug
+  * Maker
+  * Twig
+  * Annotations
+  * Tests PhpUnit
+  * Fixtures
+  * Subscriber
+  * MakeFile
   
   
+
 ## Dépendances supplémentaires 
 ### Le SYMFONY PROFILER 
 > Installé uniquement pour l'environnement de développement
@@ -518,5 +533,40 @@ symfony console make:functional-test Controller\\ConferenceController
 ```
 ### Pour ne tester qu'une seule classe précise : (exemple)
 ```symfony php bin/phpunit tests/Controller/ConferenceControllerTest.php``` 
+
+## FIXTURES 
+Les **fixtures** permettent de remplir une base de données avec des données "bidons" afin d'avoir un jeu de données 
+```
+symfony composer req orm-fixtures --dev
+```
+_Cette commande génère un répertoire "src/DataFixtures/"
+
+Une fois la classe de fixture complétée afin d'ajouter de fausses données
+```
+symfony console doctrine:fixtures:load
+```
+
+## Automatiser le Workflow avec un Makefile
+1. Installer GNUWine 32 pour obtenir l'executable make.exe >>> [ICI](http://gnuwin32.sourceforge.net/packages/make.htm)
+
+2. Sur Windows, ajouter la variable d'environnement
+
+3. Relancer PHPStorm pour prendre en compte les nouvelles variables d'environnement
+
+4. Ajouter un script (nom du fichier 'Makefile') à la racine du repertoire du projet 
+```yaml
+tests:
+	symfony console doctrine:fixtures:load -n
+	symfony php bin/phpunit
+.PHONY: tests
+``` 
+
+5. Lancer le terminal PHPstorm et éxecuter la commande 
+```
+make tests
+```
+
+`Les tests devraient s'exécuter !`
+
 
 
