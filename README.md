@@ -21,6 +21,7 @@
 
 * Bundles 
   * EasyAdmin
+  * dama/doctrine-test-bundle
  
 * Divers 
   * Profiler
@@ -568,5 +569,26 @@ make tests
 
 `Les tests devraient s'exécuter !`
 
+Afin de réinitialiser la base de données entre des tests
+
+```
+symfony composer req "dama/doctrine-test-bundle:^6" --dev
+```
+Valider la recette 
+
+Activer le listener de PHPUnit (fichier 'phpunit.xml.dist')
+```yaml
+<phpunit>
+....
+    <extensions> <!-- Ajout -->
+        <extension class="DAMA\DoctrineTestBundle\PHPUnit\PHPUnitExtension" /> <!-- Ajout -->
+    </extensions> <!-- Ajout -->
+    
+    <listeners> <!-- Déjà existant -->
+        <listener class="Symfony\Bridge\PhpUnit\SymfonyTestsListener" /> <!-- Déjà existant -->
+    </listeners> <!-- Déjà existant -->
+</phpunit>
+....
+```
 
 
