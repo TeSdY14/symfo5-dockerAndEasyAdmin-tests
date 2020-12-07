@@ -591,4 +591,6 @@ Activer le listener de PHPUnit (fichier 'phpunit.xml.dist')
 ....
 ```
 
+`Grace à cette commante, toute modification apportée pendant les tests est automatiquement annulée à la fin de chaque test.` 
+
 
