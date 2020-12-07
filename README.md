@@ -507,3 +507,16 @@ symfony composer req phpunit --dev
 ```
 symfony console make:unit-test ClassATester
 ```
+### Test de Controller 
+_Comme les tests des controlleurs doivent être soumis à des requetes HTTP, il nous faut quelques dépendances supplémentaires_
+```
+symfony composer req browser-kit --dev
+```
+`On peut aussi générer le test d'un controller avec` 
+```
+symfony console make:functional-test Controller\\ConferenceController
+```
+### Pour ne tester qu'une seule classe précise : (exemple)
+```symfony php bin/phpunit tests/Controller/ConferenceControllerTest.php``` 
+
+
