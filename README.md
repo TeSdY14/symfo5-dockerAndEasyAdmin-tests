@@ -183,6 +183,9 @@ symfony composer req annotations
 ```
 
 ### REDIS
+**Redis** est _un système de gestion de base de données_ clef-valeur hautes performances qui **stocke les informations en mémoire** (Les données sont stockées dans la mémoire et est donc plus rapide qu'une base de données qui stocke les données sur disque dur).
+
+Installation 
 ```
 composer require predis/predis
 ```
