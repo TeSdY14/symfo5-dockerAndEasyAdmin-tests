@@ -1,11 +1,11 @@
 # Projet Symfony 5
 
 ## ENVIRONNEMENT
-* Mon PC :D 
+* Mon PC (Portable Asus ROG Zephyrus GM501GS-EI003T)
   * Windows 10
-  * PHPSTORM
+  * PHPStorm
   * Terminal : Hyper && Phpstorm Terminal
-  * Git Bash 
+  * Git Bash
   * Composer
   * Chrome/Firefox 
   * **Docker && Docker-compose** (voir fin du readme pour plus d'infos) 
@@ -22,8 +22,13 @@
 * Bundles 
   * EasyAdmin
   * dama/doctrine-test-bundle
- 
-* Divers 
+  
+* Docker Images 
+  * postgres:11-alpine
+  * redis:5-alpine
+  * rabbitmq:3.8-management
+	
+* Dépendances diverses
   * Profiler
   * Logger
   * Debug
@@ -35,6 +40,7 @@
   * Subscriber
   * MakeFile
   * Messenger (faire de l'asynchrone)
+  
   
 ## PROFILER 
 > Installé uniquement pour l'environnement de développement
