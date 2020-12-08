@@ -3,25 +3,26 @@
 ## ENVIRONNEMENT
 * Mon PC (Portable Asus ROG Zephyrus GM501GS-EI003T)
   * Windows 10
-  * PHPStorm
-  * Terminal : Hyper && Phpstorm Terminal
-  * Git Bash
-  * Composer
-  * Chrome/Firefox 
-  * **Docker && Docker-compose** (voir fin du readme pour plus d'infos) 
-  * Symfony CLI 
+  * [PHPStorm](https://www.jetbrains.com/fr-fr/phpstorm/)
+  * Terminal : [Hyper](https://hyper.is/) && Phpstorm Terminal
+  * [Git Bash - for Windows](https://gitforwindows.org/)
+  * [Composer](https://getcomposer.org/)
+  * [Chrome](https://www.google.com/intl/fr_fr/chrome/)/[Firefox](https://www.mozilla.org/fr/firefox/new/)/[Edge](https://www.microsoft.com/fr-fr/edge)
+  * **[Docker && Docker-compose](https://www.docker.com/)** (voir fin du readme pour plus d'infos) 
+  * [Symfony CLI - x64](https://github.com/symfony/cli/releases/download/v4.21.2/symfony_windows_amd64.exe)
+  * [PHP Coding Standards Fixer](https://cs.symfony.com/)
   
 * Technos 
-  * PHP 7.4 (extenstions => intl, pdo_pgsql, xsl, amqp, gd, openssl, sodium, ...) 
-  * Symfony 5 (Moteur de template TWIG)
-  * Doctrine
-  * PostgreSQL
-  * RabbitMQ (faire de l'asynchrone)
-  * Redis
+  * [PHP](https://www.php.net/) 7.4 (extenstions => intl, pdo_pgsql, xsl, amqp, gd, openssl, sodium, ...) 
+  * [Symfony](https://symfony.com/) 5 (Moteur de template TWIG)
+  * [Doctrine](https://www.doctrine-project.org/projects/orm.html)
+  * [PostgreSQL](https://www.postgresql.org/)
+  * [RabbitMQ](https://www.rabbitmq.com/) (faire de l'asynchrone)
+  * [Redis](https://redis.io/)
 
 * Bundles 
-  * EasyAdmin
-  * dama/doctrine-test-bundle
+  * [EasyAdmin](https://symfony.com/doc/current/bundles/EasyAdminBundle/index.html)
+  * [dama/doctrine-test-bundle]
   
 * Docker Images 
   * postgres:11-alpine
@@ -29,29 +30,32 @@
   * rabbitmq:3.8-management
 	
 * Dépendances diverses
-  * Profiler
-  * Logger
-  * Debug
-  * Maker
-  * Twig
-  * Annotations
-  * Tests PhpUnit
-  * Fixtures
-  * Subscriber
-  * MakeFile
-  * Messenger (faire de l'asynchrone)
+  * [Profiler](https://symfony.com/doc/current/profiler.html)
+  * [Logger](https://symfony.com/doc/current/logging.html)
+  * [Debug - WARNING Deprecated depuis 4.4 - voir ErrorHandlerComponent](https://github.com/symfony/debug)
+  * [ErrorHandler Component](https://symfony.com/components/ErrorHandler)
+  * [Maker](https://symfony.com/doc/current/bundles/SymfonyMakerBundle/index.html)
+  * [Twig - official site](https://twig.symfony.com/doc/2.x/filters/index.html), [twig - symfony](https://symfony.com/doc/current/templates.html)
+  * [Annotations](https://symfony.com/doc/current/routing.html)
+  * [Tests PhpUnit](https://symfony.com/doc/current/testing.html)
+  * [Fixtures](https://symfony.com/doc/current/bundles/DoctrineFixturesBundle/index.html)
+  * [Subscriber - Events and Event Listeners](https://symfony.com/doc/current/event_dispatcher.html)
+  * [MakeFile - Developpez.com](https://gl.developpez.com/tutoriel/outil/makefile/)
+  * [Messenger - Component](https://symfony.com/doc/current/components/messenger.html) (faire de l'asynchrone)
   
+## OUTIL DEVELOPPEMENT : [PHP-FIG](https://www.php-fig.org/psr/)
+**>>> Recommandations relatives aux normes PHP <<<**
   
-## PROFILER 
+## [Profiler](https://symfony.com/doc/current/profiler.html)
 > Installé uniquement pour l'environnement de développement
 ```shell-script
 symfony composer req profiler --dev
 ```
 > '**req**' est l'alias pour le paquet : **symfony/profiler-pack**
 
-Le **PROFILER** permet de gagner du temps quand on a besoin de trouver l'origine d'un problème!
+Le **[Profiler](https://symfony.com/doc/current/profiler.html)** permet de gagner du temps quand on a besoin de trouver l'origine d'un problème!
 
-## LOGGER
+## [Logger](https://symfony.com/doc/current/logging.html)
 ```
 symfony composer req logger
 ```
@@ -625,15 +629,16 @@ Activer le listener de PHPUnit (fichier 'phpunit.xml.dist')
 
 `Grace à cette commande, toute modification apportée pendant les tests est automatiquement annulée à la fin de chaque test.` 
 
-## Messenger
-Le composant Messenger aide les applications à envoyer et à recevoir des messages vers / depuis d'autres applications ou via des files d'attente de messages. [Messenger](https://symfony.com/doc/current/components/messenger.html)
-_NB_ : Le composant Messenger aide les applications à envoyer et à recevoir des messages vers / depuis d'autres applications ou via des files d'attente de messages.
+## [Messenger](https://symfony.com/doc/current/messenger.html)
+(**TUTO** [SymfonyCast Messenger](https://symfonycasts.com/screencast/messenger))
+Le composant Messenger aide les applications à envoyer et à recevoir des messages vers/depuis d'autres applications ou via des files d'attente de messages. [Messenger](https://symfony.com/doc/current/messenger.html)
+_NB_ : Le composant [Messenger](https://symfony.com/doc/current/messenger.html) aide les applications à envoyer et à recevoir des messages vers / depuis d'autres applications ou via des files d'attente de messages.
 
 - Installation
 ``` symfony composer req messenger ```
 
 `> Note de Symfony`
-Lorsqu’une **action doit être exécutée de manière asynchrone, envoyez un message à un messenger bus**. Le bus stocke le message dans une file d’attente et rend immédiatement la main pour permettre au flux des opérations de reprendre aussi vite que possible.
+Lorsqu’une **action doit être exécutée de manière asynchrone, envoyez un message à un [Messenger](https://symfony.com/doc/current/messenger.html) [bus](https://fr.wikipedia.org/wiki/Enterprise_service_bus)**. Le [bus](https://fr.wikipedia.org/wiki/Enterprise_service_bus) stocke le message dans une file d’attente et rend immédiatement la main pour permettre au flux des opérations de reprendre aussi vite que possible.
 
 Un **consumer s’exécute continuellement en arrière-plan pour lire les nouveaux messages dans la file d’attente** et exécuter la logique associée.
 
@@ -643,9 +648,9 @@ C’est très **similaire** à la façon dont les **requêtes HTTP** sont trait�
 Pour un usage simple, voir les fichiers de ce projet : 
 - `src/Message/CommentMessage.php` - simple classe de données 
 - `src/MessageHandler/CommentMessageHandler.php` - à pour rôle de gestionnaire de messages 
-- `src/Controller/ConferenceController` - Montre comment envoyer un message dans le bus, afin que le gestionnaire puisse décider ce qu'il va en faire (ce code ne dépend plus du SpamChecker) 
+- `src/Controller/ConferenceController` - Montre comment envoyer un message dans le [bus](https://fr.wikipedia.org/wiki/Enterprise_service_bus), afin que le gestionnaire puisse décider ce qu'il va en faire (ce code ne dépend plus du SpamChecker) 
 
-## RabbitMQ
+## [RabbitMQ](https://www.rabbitmq.com/documentation.html)
 Afin de faire vraiment de l'asynchrone
 ### "Installation d'amqp"
 - Télécharger l'extension [php_amqp](https://pecl.php.net/package/amqp)
@@ -656,7 +661,7 @@ Afin de faire vraiment de l'asynchrone
 - Redémarrer le serveur (apache ou fermer et relancer le shell) pour prendre en compte la nouvelle extension
 - Vérifier avec `php -m` que l'extension est chargée et qu'aucune erreur de chargement de module php 
 
-### Installation de RabbitMQ 
+### Installation de [RabbitMQ](https://www.rabbitmq.com/documentation.html)
 #### Version `docker`
 
 Se rendre dans le repertoire du projet, modifier (ajouter dans) le fichier `docker-compose.yaml`
@@ -700,10 +705,10 @@ framework:
 
 - Eteindre docker si celui ci est en cours d'exécution 
 ```docker-compose stop```
-- Redémarrer docker avec le nouveau service rabbitmq
+- Redémarrer docker avec le nouveau service [RabbitMQ](https://www.rabbitmq.com/documentation.html)
 ```docker-compose up -d```
 
-- Normalement, l'interface Rabbitmq est accessible `http://127.0.0.1:32784/#/` 
+- Normalement, l'interface [RabbitMQ](https://www.rabbitmq.com/documentation.html) est accessible `http://127.0.0.1:32784/#/` 
 - Ou disponible avec la commande 
 ```
 symfony open:local:rabbitmq
@@ -715,7 +720,7 @@ Pour tester,
 - se rendre par exemple : `https://127.0.0.1:8000/conference/bruxelles-2021` 
 - Compléter le formulaire de commentaire 
 - Soumettre
-- Normalement, le message n'apparait pas, il est en "queue" dans rabbitmq
+- Normalement, le message n'apparait pas, il est en "queue" dans [RabbitMQ](https://www.rabbitmq.com/documentation.html)
 - Se rendre à `http://127.0.0.1:32784/#/queues` et constater dans le tableau Overview 1 ligne **messages** avec **Ready** à 1
 - Pour consommer le message, se rendre dans le terminal : 
 ```
@@ -735,3 +740,31 @@ Stream the logs via symfony.exe server:log
 _info :_ 
 - **l'option --watch dit à Symfony que la commande est à redémarrer à chaque changement dans un des fichiers config/, vendor/, src/ et templates/**
 - Ne pas utiliser le flag -vv afin d'éviter des doublons dans server:log
+
+#### Gestion des message echoués
+Messenger propose un mecanisme de relance lorsqu'un problème se produit durant le traitement d'un message 
+
+- Un peu de config : `config/packages/messenger.yaml`
+```yaml
+framework:
+    messenger:
+        # Uncomment this (and the failed transport below) to send failed messages to this transport for later handling.
+        # failure_transport: failed
+
+        transports:
+            # https://symfony.com/doc/current/messenger.html#transport-configuration
+            async:
+                dsn: '%env(RABBITMQ_DSN)%'
+                retry_strategy:
+                    max_retries: 3
+                    multiplier: 2
+            failed: 'doctrine://default?queue_name=failed'
+            # failed: 'doctrine://default?queue_name=failed'
+            # sync: 'sync://'
+        failure_transport: failed
+
+        routing:
+            # Route your messages to the transports
+            # 'App\Message\YourMessage': async
+            App\Message\CommentMessage: async
+```
