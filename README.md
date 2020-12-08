@@ -66,14 +66,14 @@ _Installé uniquement pour l'environnement de développement_ (ajout du flag `--
 symfony composer req friendsofphp/php-cs-fixer --dev 
 ```
 
-## DOCTRINE ORM 
+## [DOCTRINE ORM](https://www.doctrine-project.org/projects/orm.html)
 ```
 symfony composer req "orm:^2"
 ```
-> Installe un ensemble de bibliothèque afin de gérer la base de données.
-- Doctrine DBAL (Couche d'abstraction de BDD) 
-- Doctrine ORM (Bibliothèque afin de manipuler le contenu de la base de données)
-- Doctrine migrations (assistant pour construire la BDD)
+> Installe un ensemble de bibliothèque afin de gérer la base de données._
+- [Doctrine DBAL](https://www.doctrine-project.org/projects/doctrine-dbal/en/latest/index.html) - Couche d'abstraction de BDD 
+- [Doctrine ORM](https://www.doctrine-project.org/projects/orm.html) - Bibliothèque afin de manipuler le contenu de la base de données
+- [Doctrine migrations](https://symfony.com/doc/current/bundles/DoctrineMigrationsBundle/index.html) - Assistant pour construire la BDD
 
 UNE FOIS INSTALLE 
 _Compléter le fichier `.env` avec les informations d'accès à la base de données_
@@ -89,7 +89,7 @@ _SYMFONY supporte le **YAML**, **XML**, **PHP** et les **annotations** comme for
 - Pour la configuration des paquets, **YAML** est préférable 
 - Pour la configuration liées au code PHP, les **annotations** sont plus appropriées, _les informations de configuration sont directement accessibles dans la classe utilisée_. 
 
-## ANNOTATIONS
+## [Annotations](https://symfony.com/doc/current/routing.html)
 ```
 symfony composer req annotations
 ```
