@@ -841,3 +841,8 @@ Valider le workflow avec
 ```
 symfony console workflow:dump comment | dot -Tpng -o workflow.png
 ```
+
+_L'image du workflow (ici **workflow.png**) est ajouté dans le repertoire courant_ 
+
+### Utiliser le workflow 
+Voir fichier : `src/MessageHandler/CommentMessageHandler.php`
