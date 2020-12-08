@@ -595,7 +595,7 @@ Activer le listener de PHPUnit (fichier 'phpunit.xml.dist')
 ....
 ```
 
-`Grace à cette commante, toute modification apportée pendant les tests est automatiquement annulée à la fin de chaque test.` 
+`Grace à cette commande, toute modification apportée pendant les tests est automatiquement annulée à la fin de chaque test.` 
 
 ## Messenger
 Le composant Messenger aide les applications à envoyer et à recevoir des messages vers / depuis d'autres applications ou via des files d'attente de messages. [Messenger](https://symfony.com/doc/current/components/messenger.html)
