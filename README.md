@@ -42,6 +42,7 @@
   * [Subscriber - Events and Event Listeners](https://symfony.com/doc/current/event_dispatcher.html)
   * [MakeFile - Developpez.com](https://gl.developpez.com/tutoriel/outil/makefile/)
   * [Messenger - Component](https://symfony.com/doc/current/components/messenger.html) (faire de l'asynchrone)
+  * [Workflow - Component](https://symfony.com/doc/current/components/workflow.html)
   
 ## OUTIL DEVELOPPEMENT : [PHP-FIG](https://www.php-fig.org/psr/)
 **>>> Recommandations relatives aux normes PHP <<<**
@@ -780,3 +781,64 @@ framework:
             # 'App\Message\YourMessage': async
             App\Message\CommentMessage: async
 ```
+## [WORKFLOW](https://symfony.com/doc/current/components/workflow.html)
+Afin d'avoir une représentation graphique, il faut [Graphviz](https://www.graphviz.org/)
+```
+choco install graphviz
+```
+_Avec graphviz on peut desormais utiliser la commande `dot`_
+
+Installer le composant Workflow de Symfony 
+```
+symfony composer req workflow
+```
+Cette commande ajoute le fichier `config/workflow/workflow.yaml` qu'il faut éditer comme suit (pour notre cas ici de gestion de message en queue) 
+```yaml
+framework:
+    workflows:
+        comment:
+            type: state_machine
+            audit_trail:
+                enabled: "%kernel.debug%"
+            making_store:
+                type: 'method'
+                property: 'state'
+            supports:
+                - App\Entity\Comment
+            initial_marking: submitted
+            places:
+                - submitted
+                - ham
+                - potential_spam
+                - spam
+                - rejected
+                - published
+            transitions:
+                accept:
+                    from: submitted
+                    to: ham
+                might_be_spam:
+                    from: submitted
+                    to: potential_spam
+                reject_spam:
+                    from: submitted
+                    to: spam
+                publish:
+                    from: potential_spam
+                    to: published
+                reject:
+                    from: potential_spam
+                    to: rejected
+                publish_ham:
+                    from: ham
+                    to: published
+                reject_ham:
+                    from: ham
+                    to: rejected
+```
+
+```
+
+
+
+Un peu de configuration 
