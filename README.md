@@ -8,7 +8,7 @@
   * [Git Bash - for Windows](https://gitforwindows.org/)
   * [Composer](https://getcomposer.org/)
   * [Chrome](https://www.google.com/intl/fr_fr/chrome/)/[Firefox](https://www.mozilla.org/fr/firefox/new/)/[Edge](https://www.microsoft.com/fr-fr/edge)
-  * **[Docker && Docker-compose](https://www.docker.com/)** (voir fin du readme pour plus d'infos) 
+  * [Docker && Docker-compose](https://www.docker.com/)** (voir fin du readme pour plus d'infos) 
   * [Symfony CLI - x64](https://github.com/symfony/cli/releases/download/v4.21.2/symfony_windows_amd64.exe)
   * [PHP Coding Standards Fixer](https://cs.symfony.com/)
   
