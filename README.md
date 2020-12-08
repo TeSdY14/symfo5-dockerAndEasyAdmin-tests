@@ -190,7 +190,7 @@ _Cette liste est normalement affichée dans la console au moment du lancement de
 
 Une fois validée, la commande créera le fichier `./src/EventSubscriber/ExempleTwigEventSubscriber.php`
 
-## [TWIG - official site](https://twig.symfony.com/doc/2.x/filters/index.html)
+## [TWIG - official site](https://twig.symfony.com/doc/2.x/filters/index.html) :eyeglasses: :sunglasses: 
 ```
 composer require symfony/twig-bundle
 ```
