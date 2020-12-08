@@ -376,6 +376,15 @@ symfony run psql
 docker exec -it database_name_1 psql -U username -W password
 ```
 
+`ATTENTION !!!`
+***Ne pas appeller `docker-compose down`*** afin de ne pas perdre les données. Ou faire une sauvegarde au préalable. 
+***Utilisez `pg_dump` pour***
+- Sauvegarder la base de données :
+```symfony run pg_dump --data-only > dump.sql```
+- Restaurez les données :
+```symfony run psql < dump.sql```
+
+
 ## SECURITÉ 
 ### Le Composant `Symfony Security` : Permet de protéger l'accès de certaines pages du site aux utilisateurs
 ```
