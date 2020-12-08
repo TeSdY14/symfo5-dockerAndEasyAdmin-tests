@@ -94,6 +94,10 @@ _SYMFONY supporte le **YAML**, **XML**, **PHP** et les **annotations** comme for
 ```
 symfony composer req annotations
 ```
+### Connaitre les routes disponibles 
+```
+symfony console debug:router
+```
 
 ## [DEBUG](https://github.com/symfony/debug) ⛔:bug:⛔
 > :warning: **ATTENTION! Deprecated depuis v4.4 :**
@@ -118,11 +122,6 @@ Le **maker-bundle** permet de générer un grand nombre de classes différentes.
 symfony console list make 
 ```
 ## Commandes courantes du MAKER BUNDLE
-
-### Connaitre les routes disponibles 
-```
-symfony console debug:router
-```
 
 ### Générer un controller 
 ```
