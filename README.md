@@ -22,7 +22,7 @@
 
 * Bundles 
   * [EasyAdmin](https://symfony.com/doc/current/bundles/EasyAdminBundle/index.html)
-  * [dama/doctrine-test-bundle]
+  * [dama/doctrine-test-bundle](https://github.com/dmaicher/doctrine-test-bundle)
   
 * Docker Images 
   * postgres:11-alpine
