@@ -52,7 +52,7 @@
 ```shell-script
 symfony composer req profiler --dev
 ```
-> '**req**' est l'alias pour le paquet : **symfony/profiler-pack**
+> '**req**' est l'alias pour **require**
 
 Le **[Profiler](https://symfony.com/doc/current/profiler.html)** permet de gagner du temps quand on a besoin de trouver l'origine d'un problème ⌚!
 
