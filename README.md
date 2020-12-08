@@ -288,7 +288,7 @@ relationships:
  database: "db:postgresql"
  redis: "rediscache:redis" # LIGNE A AJOUTER 
 ```
-- .symfony/serices.yaml
+- .symfony/services.yaml
 ```yaml
 ...
 # ajouter ce qui suit : 
