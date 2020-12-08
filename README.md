@@ -1,8 +1,8 @@
-# symfo5-dockerAndEasyAdmin-tests
+# Projet Symfony 5
 
-## Projet Symfony 5 
-### Utilitaires
+## ENVIRONNEMENT
 * Mon PC :D 
+  * Windows 10
   * PHPSTORM
   * Terminal : Hyper && Phpstorm Terminal
   * Git Bash 
@@ -36,10 +36,7 @@
   * MakeFile
   * Messenger (faire de l'asynchrone)
   
-  
-
-## Dépendances supplémentaires 
-### Le SYMFONY PROFILER 
+## PROFILER 
 > Installé uniquement pour l'environnement de développement
 ```shell-script
 symfony composer req profiler --dev
@@ -48,19 +45,53 @@ symfony composer req profiler --dev
 
 Le **PROFILER** permet de gagner du temps quand on a besoin de trouver l'origine d'un problème!
 
-### Le LOGGER
+## LOGGER
 ```
 symfony composer req logger
 ```
+## PHP-CSF - PHP Coding Standards Fixer
+[Plus d'informations sur GitHub](https://github.com/FriendsOfPHP/PHP-CS-Fixer/blob/2.16/doc/installation.rst)
+_Installé uniquement pour l'environnement de développement_ (ajout du flag `--dev`)
+```
+symfony composer req friendsofphp/php-cs-fixer --dev 
+```
 
-### Outil de debogage
+## DOCTRINE ORM 
+```
+symfony composer req "orm:^2"
+```
+> Installe un ensemble de bibliothèque afin de gérer la base de données.
+- Doctrine DBAL (Couche d'abstraction de BDD) 
+- Doctrine ORM (Bibliothèque afin de manipuler le contenu de la base de données)
+- Doctrine migrations (assistant pour construire la BDD)
+
+UNE FOIS INSTALLE 
+_Compléter le fichier `.env` avec les informations d'accès à la base de données_
+```yaml 
+#DATABASE_URL="mysql://db_user:db_password@127.0.0.1:3306/db_name?serverVersion=5.7" <<< Ligne commentée
+```
+```yaml 
+DATABASE_URL="postgresql://127.0.0.1:5432/db?serverVersion=13&charset=utf8" # <<< Ligne ajoutée
+```
+
+_SYMFONY supporte le **YAML**, **XML**, **PHP** et les **annotations** comme format de configuration_ 
+=> [Plus d'informations](https://symfony.com/doc/current/configuration.html#configuration-formats)
+- Pour la configuration des paquets, **YAML** est préférable 
+- Pour la configuration liées au code PHP, les **annotations** sont plus appropriées, _les informations de configuration sont directement accessibles dans la classe utilisée_. 
+
+## ANNOTATIONS
+```
+symfony composer req annotations
+```
+
+## DEBUG
 > Installé uniquement pour l'environnement de développement
 ```
 symfony composer req debug --dev
 ```
 Cela permet d'obtenir la **barre de debug** en bas de l'écran du navigateur
 
-### Maker Bundle
+## MAKER
 > Installé uniquement pour l'environnement de développement
 ```
 symfony composer req maker --dev
@@ -70,8 +101,81 @@ Le **maker-bundle** permet de générer un grand nombre de classes différentes.
 ```
 symfony console list make 
 ```
+## Commandes courantes du MAKER BUNDLE
 
-### TWIG
+### Connaitre les routes disponibles 
+```
+symfony console debug:router
+```
+
+### Générer un controller 
+```
+symfony console make:controller FooBarController
+```
+
+### Générer une entité 
+```
+symfony console make:entity NomEntity
+```
+> Commande interactive, elle guide durant le processus d'ajout de champs dont l'entité a besoin 
+- Nom de la propriété 
+- Type de la propriété (taper '?' pour connaitre la liste des possibilités) 
+- Longueur (optionnel)
+- Nullable Yes-No ? 
+Une fois la commande exécutée, deux fichiers sont générés : 
+- Classe de l'entité (namespace App\Entity) 
+- Repository de l'entité (namespace App\Repository) 
+_Retaper la commande make:entity sur une entité déjà existante permettra d'ajouter de nouveaux champs)_
+
+#### Une fois toutes les entités nécessaires générées, Générer le fichier de migration
+```
+symfony console make:migration
+```
+#### Vérifier les requêtes qui seront exécutées avant de faire la migrations 
+> vérifier le contenu du fichier _"./migrations/VersionAnneeMoisJourHeureMinutesSecondes.php"_
+#### OK ? On migre la BDD !
+```
+symfony console doctrine:migrations:migrate
+```
+A la suite de cette commande, la base de données locale sera à jour et prète à stoker des données.
+
+### Générer un formulaire
+```
+symfony console make:form NomDuForm
+```
+
+### Générer un CRUD complet 
+```
+symfony console make:crud NomDuneEntiteDejaCreee
+```
+Cette commande va générer plusieurs fichiers :
+```yaml
+-  created: src/Controller/NomDuneEntiteDejaCreeeController.php
+-  created: src/Form/NomDuneEntiteDejaCreeeType.php
+-  created: templates/nomduneentitedejacreee/_delete_form.html.twig
+-  created: templates/nomduneentitedejacreee/_form.html.twig
+-  created: templates/nomduneentitedejacreee/edit.html.twig
+-  created: templates/nomduneentitedejacreee/index.html.twig
+-  created: templates/nomduneentitedejacreee/new.html.twig
+-  created: templates/nomduneentitedejacreee/show.html.twig
+``` 
+
+### Générer un SUBSCRIBER
+
+**Rappel :** 
+
+Un [**_subscriber_**](https://symfony.com/doc/current/event_dispatcher.html) est un [**_listener_**](https://symfony.com/doc/current/event_dispatcher.html) qui contient une méthode statique `_getSubscriberEvents()_` qui retourne sa configration, cela permet aux [**_subscriber_**](https://symfony.com/doc/current/event_dispatcher.html) d'être enregistré automatiquement dans le [**_dispatcher_**](https://symfony.com/doc/current/components/event_dispatcher.html) Symfony 
+
+```
+symfony console make:subscriber ExempleTwigEventSubscriber
+```
+> Commande interactive, elle demandera quel événement ecouter [liste des Evenements](https://symfony.com/doc/current/reference/events.html), 
+
+_Cette liste est normalement affichée dans la console au moment du lancement de la commande_
+
+Une fois validée, la commande créera le fichier `./src/EventSubscriber/ExempleTwigEventSubscriber.php`
+
+## TWIG
 ```
 composer require symfony/twig-bundle
 ```
@@ -83,7 +187,7 @@ symfony composer req "twig/intl-extra:^3"
 > Le package **intl-extra** fournit les filtres **_localizeddate_**, **_localizednumber_** et **_localizedcurrency_** 
 
 
-### EASYADMIN
+## EASYADMIN
 [Plus d'info sur Symfony.com](https://symfony.com/doc/current/bundles/EasyAdminBundle/index.html)
 
 [Plus d'info sur Github.com](https://github.com/EasyCorp/EasyAdminBundle)
@@ -147,42 +251,7 @@ easy_admin:
 > [Plus d'infos sur la customization d'EasyAdmin sur symfony.com](https://symfony.com/doc/current/bundles/EasyAdminBundle/index.html)
 
 
-### PHP Coding Standards Fixer
-[Plus d'informations sur GitHub](https://github.com/FriendsOfPHP/PHP-CS-Fixer/blob/2.16/doc/installation.rst)
-_Installé uniquement pour l'environnement de développement_ (ajout du flag `--dev`)
-```
-symfony composer req friendsofphp/php-cs-fixer --dev 
-```
-
-### ORM Doctrine
-```
-symfony composer req "orm:^2"
-```
-> Installe un ensemble de bibliothèque afin de gérer la base de données.
-- Doctrine DBAL (Couche d'abstraction de BDD) 
-- Doctrine ORM (Bibliothèque afin de manipuler le contenu de la base de données)
-- Doctrine migrations (assistant pour construire la BDD)
-
-UNE FOIS INSTALLE 
-_Compléter le fichier `.env` avec les informations d'accès à la base de données_
-```yaml 
-#DATABASE_URL="mysql://db_user:db_password@127.0.0.1:3306/db_name?serverVersion=5.7" <<< Ligne commentée
-```
-```yaml 
-DATABASE_URL="postgresql://127.0.0.1:5432/db?serverVersion=13&charset=utf8" # <<< Ligne ajoutée
-```
-
-_SYMFONY supporte le **YAML**, **XML**, **PHP** et les **annotations** comme format de configuration_ 
-=> [Plus d'informations](https://symfony.com/doc/current/configuration.html#configuration-formats)
-- Pour la configuration des paquets, **YAML** est préférable 
-- Pour la configuration liées au code PHP, les **annotations** sont plus appropriées, _les informations de configuration sont directement accessibles dans la classe utilisée_. 
-
-### ANNOTATIONS
-```
-symfony composer req annotations
-```
-
-### REDIS
+## REDIS
 **Redis** est _un système de gestion de base de données_ clef-valeur hautes performances qui **stocke les informations en mémoire** (Les données sont stockées dans la mémoire et est donc plus rapide qu'une base de données qui stocke les données sur disque dur).
 
 Installation 
@@ -242,79 +311,7 @@ docker-compose stop
 docker-compose up -d 
 ```
 
-## Commandes du MAKER BUNDLE courantes
-### Connaitre les routes disponibles 
-```
-symfony console debug:router
-```
-### Générer un controller 
-```
-symfony console make:controller FooBarController
-```
-
-### Générer une entité 
-```
-symfony console make:entity NomEntity
-```
-> Commande interactive, elle guide durant le processus d'ajout de champs dont l'entité a besoin 
-- Nom de la propriété 
-- Type de la propriété (taper '?' pour connaitre la liste des possibilités) 
-- Longueur (optionnel)
-- Nullable Yes-No ? 
-Une fois la commande exécutée, deux fichiers sont générés : 
-- Classe de l'entité (namespace App\Entity) 
-- Repository de l'entité (namespace App\Repository) 
-_Retaper la commande make:entity sur une entité déjà existante permettra d'ajouter de nouveaux champs)_
-
-#### Une fois toutes les entités nécessaires générées, Générer le fichier de migration
-```
-symfony console make:migration
-```
-### Vérifier les requêtes qui seront exécutées avant de faire la migrations 
-> vérifier le contenu du fichier _"./migrations/VersionAnneeMoisJourHeureMinutesSecondes.php"_
-### OK ? On migre la BDD !
-```
-symfony console doctrine:migrations:migrate
-```
-A la suite de cette commande, la base de données locale sera à jour et prète à stoker des données.
-
-#### Générer un formulaire
-```
-symfony console make:form NomDuForm
-```
-
-#### Générer un CRUD complet 
-```
-symfony console make:crud NomDuneEntiteDejaCreee
-```
-Cette commande va générer plusieurs fichiers :
-```yaml
--  created: src/Controller/NomDuneEntiteDejaCreeeController.php
--  created: src/Form/NomDuneEntiteDejaCreeeType.php
--  created: templates/nomduneentitedejacreee/_delete_form.html.twig
--  created: templates/nomduneentitedejacreee/_form.html.twig
--  created: templates/nomduneentitedejacreee/edit.html.twig
--  created: templates/nomduneentitedejacreee/index.html.twig
--  created: templates/nomduneentitedejacreee/new.html.twig
--  created: templates/nomduneentitedejacreee/show.html.twig
-``` 
-
-#### Générer un SUBSCRIBER
-
-**Rappel :** 
-
-Un [**_subscriber_**](https://symfony.com/doc/current/event_dispatcher.html) est un [**_listener_**](https://symfony.com/doc/current/event_dispatcher.html) qui contient une méthode statique `_getSubscriberEvents()_` qui retourne sa configration, cela permet aux [**_subscriber_**](https://symfony.com/doc/current/event_dispatcher.html) d'être enregistré automatiquement dans le [**_dispatcher_**](https://symfony.com/doc/current/components/event_dispatcher.html) Symfony 
-
-```
-symfony console make:subscriber ExempleTwigEventSubscriber
-```
-> Commande interactive, elle demandera quel événement ecouter [liste des Evenements](https://symfony.com/doc/current/reference/events.html), 
-
-_Cette liste est normalement affichée dans la console au moment du lancement de la commande_
-
-Une fois validée, la commande créera le fichier `./src/EventSubscriber/ExempleTwigEventSubscriber.php`
-
-## Autres Commandes Utiles
+## CHEAT SHEET Commands
 ### Lancer le serveur symfony en arrière plan
 ``` 
 symfony server:start -d 
@@ -354,30 +351,31 @@ symfony ssh
 symfony var:export
 ``` 
 
-## Ce projet utilise _**HTTPS**_
-### Installer un certificat  avec la commande
+## _**HTTPS**_
+### Activer TLS - Installer le certificat avec la commande 
 ``` 
 symfony server:ca:install 
 ``` 
 
-## Gestion avec DOCKER 
-### Démarrer docker-compose en arrière plan 
+## DOCKER 
+### Commandes
+#### Démarrer docker-compose en arrière plan 
 ```
 docker-compose up -d 
 ```
-### Voir la liste des conteneurs (et leur état)
+#### Voir la liste des conteneurs (et leur état)
 ```
 docker-compose ps 
 ```
 _Commande qui affiche toutes les instances de docker qui tournent actuellement sur l'environnement. 
 Avec l’option `-a` : les containers stoppés seront aussi affichés._
-### Vérifier les logs
+#### Vérifier les logs
 ``` 
 docker-compose logs
 ``` 
 
 ## Accéder à notre base de données
-Merci à la commande "**symfony**" qui permet de `détecter automatiquement les services Docker en cours d'utilisation`. 
+Merci à la commande "**symfony**" qui permet de **`détecter automatiquement les services Docker en cours d'utilisation`**. 
 
 Les **variables d'environnement** étant exposées, on peut donc utiliser **psql** pour se connecter à la **BDD**
 ```
@@ -643,7 +641,7 @@ Pour un usage simple, voir les fichiers de ce projet :
 
 ## RabbitMQ
 Afin de faire vraiment de l'asynchrone
-### Installation d'amqp
+### "Installation d'amqp"
 - Télécharger l'extension [php_amqp](https://pecl.php.net/package/amqp)
 - Extraire 
 	- php_amqp.dll et php_amqp.pdb => dans le reperoire `/ext/` de la version php en cours d'exécution
@@ -731,8 +729,3 @@ Stream the logs via symfony.exe server:log
 _info :_ 
 - **l'option --watch dit à Symfony que la commande est à redémarrer à chaque changement dans un des fichiers config/, vendor/, src/ et templates/**
 - Ne pas utiliser le flag -vv afin d'éviter des doublons dans server:log
-
-
-
-
-
