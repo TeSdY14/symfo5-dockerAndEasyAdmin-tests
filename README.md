@@ -16,7 +16,7 @@
   * Symfony 5 (Moteur de template TWIG)
   * Doctrine
   * PostgreSQL
-  * RabbitMQ 
+  * RabbitMQ (faire de l'asynchrone)
   * Redis
 
 * Bundles 
@@ -34,6 +34,7 @@
   * Fixtures
   * Subscriber
   * MakeFile
+  * Messenger (faire de l'asynchrone)
   
   
 
@@ -593,4 +594,71 @@ Activer le listener de PHPUnit (fichier 'phpunit.xml.dist')
 
 `Grace à cette commante, toute modification apportée pendant les tests est automatiquement annulée à la fin de chaque test.` 
 
+## Messenger
+La gestion du code asynchrone avec Symfony est faite par le composant [Messenger]
+``` symfony composer req messenger ```
+`Note de Symfony`
+Lorsqu’une action doit être exécutée de manière asynchrone, envoyez un message à un messenger bus. Le bus stocke le message dans une file d’attente et rend immédiatement la main pour permettre au flux des opérations de reprendre aussi vite que possible.
+
+Un consumer s’exécute continuellement en arrière-plan pour lire les nouveaux messages dans la file d’attente et exécuter la logique associée.
+
+Le consumer peut s’exécuter sur le même serveur que l’application web, ou sur un serveur séparé.
+C’est très similaire à la façon dont les requêtes HTTP sont traitées, sauf que nous n’avons pas de réponse.
+
+## RabbitMQ
+### Installation d'amqp
+- Télécharger l'extension [php_amqp](https://pecl.php.net/package/amqp)
+- Extraire 
+	- php_amqp.dll et php_amqp.pdb => dans le reperoire `/ext/` de la version php en cours d'exécution
+	- rabbitmq.4.dll et rabbitmq.4.pdb => dans le reperoire `racine` de php en cours d'exécution
+- Ajouter au fichier php.ini : `extension=amqp`
+- Redémarrer le serveur (apache ou fermer et relancer le shell) pour prendre en compte la nouvelle extension
+- Vérifier avec `php -m` que l'extension est chargée et qu'aucune erreur de chargement de module php 
+
+### Installation de RabbitMQ 
+#### Version `docker`
+
+Se rendre dans le repertoire du projet, modifier (ajouter dans) le fichier `docker-compose.yaml`
+```yaml
+...
+  redis:
+    image: redis:5-alpine
+    ports: [6379]
+
+  rabbitmq:
+    image: rabbitmq:3.8-management
+    hostname: rabbit
+    ports: [5672, 15672]
+    networks:
+      default:
+        aliases:
+          - service.rabbitmq
+    environment:
+      - RABBITMQ_DEFAULT_USER=guest
+      - RABBITMQ_DEFAULT_PASS=guest
+```
+
+modifier le fichier `messenger.yaml`
+```yaml
+framework:
+    messenger:
+        # Uncomment this (and the failed transport below) to send failed messages to this transport for later handling.
+        # failure_transport: failed
+
+        transports:
+            # https://symfony.com/doc/current/messenger.html#transport-configuration
+            async: '%env(RABBITMQ_DSN)%'
+            # failed: 'doctrine://default?queue_name=failed'
+            # sync: 'sync://'
+
+        routing:
+            # Route your messages to the transports
+            # 'App\Message\YourMessage': async
+            App\Message\CommentMessage: async
+```
+
+- Eteindre docker si celui ci est en cours d'exécution 
+```docker-compose stop```
+- Redémarrer docker avec le nouveau service rabbitmq
+```docker-compose up -d```
 
