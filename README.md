@@ -1,4 +1,4 @@
-# Projet Symfony 5
+# 👉 Projet Symfony 5 👈
 
 ## ENVIRONNEMENT
 * Mon PC (Portable Asus ROG Zephyrus GM501GS-EI003T)
@@ -46,7 +46,7 @@
 ## OUTIL DEVELOPPEMENT : [PHP-FIG](https://www.php-fig.org/psr/)
 **>>> Recommandations relatives aux normes PHP <<<**
   
-## [Profiler](https://symfony.com/doc/current/profiler.html)
+## [PROFILER](https://symfony.com/doc/current/profiler.html)
 > Installé uniquement pour l'environnement de développement
 ```shell-script
 symfony composer req profiler --dev
@@ -55,11 +55,11 @@ symfony composer req profiler --dev
 
 Le **[Profiler](https://symfony.com/doc/current/profiler.html)** permet de gagner du temps quand on a besoin de trouver l'origine d'un problème!
 
-## [Logger](https://symfony.com/doc/current/logging.html)
+## [LOGGER](https://symfony.com/doc/current/logging.html)
 ```
 symfony composer req logger
 ```
-## PHP-CSF - PHP Coding Standards Fixer
+## [PHP-CSF](https://cs.symfony.com/) - PHP Coding Standards Fixer
 [Plus d'informations sur GitHub](https://github.com/FriendsOfPHP/PHP-CS-Fixer/blob/2.16/doc/installation.rst)
 _Installé uniquement pour l'environnement de développement_ (ajout du flag `--dev`)
 ```
@@ -89,20 +89,25 @@ _SYMFONY supporte le **YAML**, **XML**, **PHP** et les **annotations** comme for
 - Pour la configuration des paquets, **YAML** est préférable 
 - Pour la configuration liées au code PHP, les **annotations** sont plus appropriées, _les informations de configuration sont directement accessibles dans la classe utilisée_. 
 
-## [Annotations](https://symfony.com/doc/current/routing.html)
+## [ANNOTATIONS](https://symfony.com/doc/current/routing.html)
 ```
 symfony composer req annotations
 ```
 
-## DEBUG
+## [DEBUG](https://github.com/symfony/debug)
+> :warning: **ATTENTION! Deprecated depuis v4.4 :**
+
+```
+CAUTION: this component is deprecated since Symfony 4.4. Instead, use the ErrorHandler component.
+```
 > Installé uniquement pour l'environnement de développement
 ```
 symfony composer req debug --dev
 ```
 Cela permet d'obtenir la **barre de debug** en bas de l'écran du navigateur
 
-## MAKER
-> Installé uniquement pour l'environnement de développement
+## [MAKER](https://symfony.com/doc/current/bundles/SymfonyMakerBundle/index.html)
+> Installé **uniquement pour l'environnement de développement**
 ```
 symfony composer req maker --dev
 ```
@@ -143,7 +148,7 @@ symfony console make:migration
 ```
 #### Vérifier les requêtes qui seront exécutées avant de faire la migrations 
 > vérifier le contenu du fichier _"./migrations/VersionAnneeMoisJourHeureMinutesSecondes.php"_
-#### OK ? On migre la BDD !
+#### ☑️ OK ? 🔄 On migre la BDD 👍 !
 ```
 symfony console doctrine:migrations:migrate
 ```
@@ -170,7 +175,7 @@ Cette commande va générer plusieurs fichiers :
 -  created: templates/nomduneentitedejacreee/show.html.twig
 ``` 
 
-### Générer un SUBSCRIBER
+### Générer un [SUBSCRIBER - Events and Event Listeners](https://symfony.com/doc/current/event_dispatcher.html)
 
 **Rappel :** 
 
@@ -185,7 +190,7 @@ _Cette liste est normalement affichée dans la console au moment du lancement de
 
 Une fois validée, la commande créera le fichier `./src/EventSubscriber/ExempleTwigEventSubscriber.php`
 
-## TWIG
+## [TWIG - official site](https://twig.symfony.com/doc/2.x/filters/index.html)
 ```
 composer require symfony/twig-bundle
 ```
@@ -197,7 +202,7 @@ symfony composer req "twig/intl-extra:^3"
 > Le package **intl-extra** fournit les filtres **_localizeddate_**, **_localizednumber_** et **_localizedcurrency_** 
 
 
-## EASYADMIN
+## [EASYADMIN](https://symfony.com/doc/current/bundles/EasyAdminBundle/index.html)
 [Plus d'info sur Symfony.com](https://symfony.com/doc/current/bundles/EasyAdminBundle/index.html)
 
 [Plus d'info sur Github.com](https://github.com/EasyCorp/EasyAdminBundle)
@@ -261,7 +266,7 @@ easy_admin:
 > [Plus d'infos sur la customization d'EasyAdmin sur symfony.com](https://symfony.com/doc/current/bundles/EasyAdminBundle/index.html)
 
 
-## REDIS
+## [REDIS](https://redis.io/)
 **Redis** est _un système de gestion de base de données_ clef-valeur hautes performances qui **stocke les informations en mémoire** (Les données sont stockées dans la mémoire et est donc plus rapide qu'une base de données qui stocke les données sur disque dur).
 
 Installation 
@@ -312,16 +317,23 @@ rediscache:
 ```
 Mettre en route Redis avec Docker : 
 
-1. Arreter Docker
+1. Arreter Docker 🔴
 ```
 docker-compose stop
 ```
-2. Redémarrer Docker avec redis 
+2. Redémarrer Docker avec redis ✅
 ```
 docker-compose up -d 
 ```
 
 ## CHEAT SHEET Commands
+- [The Symfony Framework Best Practices](https://symfony.com/doc/current/best_practices.html)
+- [cheat-sheets.org #Symfony](http://www.cheat-sheets.org/#Symfony)
+- [Symfony Configuration Cheat Sheet - pdf](https://files.ripstech.com/cheatsheets/w_symfony_cheat_sheet.pdf)
+- [Symfony Configuration Cheat Sheet - webpage](https://blog.ripstech.com/2018/symfony-configuration-cheat-sheet/)
+- [Symfony 4 Cheat Sheet (DRAFT)](https://cheatography.com/pluk77/cheat-sheets/symfony-4/)
+- [Symfony MODEL DATABASE SCHEMA](https://andreiabohner.files.wordpress.com/2007/09/sfmodelsecondpartrefcard.pdf)
+
 ### Lancer le serveur symfony en arrière plan
 ``` 
 symfony server:start -d 
@@ -367,7 +379,7 @@ symfony var:export
 symfony server:ca:install 
 ``` 
 
-## DOCKER 
+## [DOCKER](https://www.docker.com/) 🐋
 ### Commandes
 #### Démarrer docker-compose en arrière plan 
 ```
@@ -408,8 +420,8 @@ docker exec -it database_name_1 psql -U username -W password
 ```symfony run psql < dump.sql```
 
 
-## SECURITÉ 
-### Le Composant `Symfony Security` : Permet de protéger l'accès de certaines pages du site aux utilisateurs
+## [SECURITY](https://symfony.com/doc/current/security.html)
+### Le Composant [`Symfony Security`](https://symfony.com/doc/current/security.html) : Permet de protéger l'accès de certaines pages du site aux utilisateurs
 ```
 symfony composer req security
 ```
@@ -467,13 +479,13 @@ security:
 symfony console make:migration 
 symfony console doctrine:migration:migrate -n
 ``` 
-_Flag -n => **--no-interaction** ou **-n** : Do not ask any interactive question._
+_Flag "-n" => **--no-interaction** ou **-n** : Do not ask any interactive question._
 
 ### Générer un mot de passe encodé : 
 ``` 
 symfony console security:encode-password
 ``` 
-Cette commande l'utilitaire d'encodage de mot de passe 
+Cette commande exécute l'utilitaire d'encodage de mot de passe 
 ```yaml 
 Symfony Password Encoder Utility
 ================================
@@ -492,7 +504,7 @@ Symfony Password Encoder Utility
  [OK] Password encoding succeeded                  
 ```
 
-### Insérer un administrateur, utilisons une simple requête SQL 
+### Insérer un administrateur via une requête SQL 
 ```sh
 symfony run psql -c "INSERT INTO admin (id, username, roles, password) VALUES (nextval('admin_id_seq'), 'admin', '[\"ROLE_ADMIN\"]', '$argon2id$v=19$m=65536,t=4,p=1$9G08Ahe3JnpX8TI1
 R0kolQ$HoQOUUnsabZvE87yWVLPP/pUJ251PyV3p2mK9xHmm1c');"
@@ -549,8 +561,8 @@ main:
 symfony console make:registration-form
 ```
 
-## TESTS 
-Symfony utilise `PHPUnit`
+## [TESTS](https://symfony.com/doc/current/testing.html) 
+Symfony utilise [`PHPUnit`](https://symfony.com/doc/current/testing.html)
 ```
 symfony composer req phpunit --dev 
 ``` 
@@ -571,7 +583,7 @@ symfony console make:functional-test Controller\\ConferenceController
 ### Pour ne tester qu'une seule classe précise : (exemple)
 ```symfony php bin/phpunit tests/Controller/ConferenceControllerTest.php``` 
 
-## FIXTURES 
+## [FIXTURES](https://symfony.com/doc/current/bundles/DoctrineFixturesBundle/index.html)
 Les **fixtures** permettent de remplir une base de données avec des données "bidons" afin d'avoir un jeu de données 
 ```
 symfony composer req orm-fixtures --dev
@@ -583,10 +595,10 @@ Une fois la classe de fixture complétée afin d'ajouter de fausses données
 symfony console doctrine:fixtures:load
 ```
 
-## Automatiser le Workflow avec un Makefile
-1. Installer GNUWine 32 pour obtenir l'executable make.exe >>> [ICI](http://gnuwin32.sourceforge.net/packages/make.htm)
+## Automatiser le Workflow avec un [Makefile](https://gl.developpez.com/tutoriel/outil/makefile/)
+1. Installer [GNUWine 32](http://gnuwin32.sourceforge.net/) [ou directement ici](http://gnuwin32.sourceforge.net/packages/make.htm)
 
-2. Sur Windows, ajouter la variable d'environnement
+2. Sur Windows, ajouter la variable d'environnement 
 
 3. Relancer PHPStorm pour prendre en compte les nouvelles variables d'environnement
 
@@ -612,7 +624,7 @@ symfony composer req "dama/doctrine-test-bundle:^6" --dev
 ```
 Valider la recette 
 
-Activer le listener de PHPUnit (fichier 'phpunit.xml.dist')
+Activer le listener de  [PHPUnit](https://phpunit.de/) (fichier 'phpunit.xml.dist')
 ```yaml
 <phpunit>
 ....
@@ -652,7 +664,7 @@ Pour un usage simple, voir les fichiers de ce projet :
 
 ## [RabbitMQ](https://www.rabbitmq.com/documentation.html)
 Afin de faire vraiment de l'asynchrone
-### "Installation d'amqp"
+### "Installation d'[amqp](https://pecl.php.net/package/amqp)"
 - Télécharger l'extension [php_amqp](https://pecl.php.net/package/amqp)
 - Extraire 
 	- php_amqp.dll et php_amqp.pdb => dans le reperoire `/ext/` de la version php en cours d'exécution
@@ -742,7 +754,7 @@ _info :_
 - Ne pas utiliser le flag -vv afin d'éviter des doublons dans server:log
 
 #### Gestion des message echoués
-Messenger propose un mecanisme de relance lorsqu'un problème se produit durant le traitement d'un message 
+Messenger propose un mecanisme de relance lorsqu'un problème se produit durant le traitement d'un message (_problème connextion API par exemple_) 
 
 - Un peu de config : `config/packages/messenger.yaml`
 ```yaml
