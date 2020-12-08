@@ -598,17 +598,27 @@ Activer le listener de PHPUnit (fichier 'phpunit.xml.dist')
 `Grace à cette commante, toute modification apportée pendant les tests est automatiquement annulée à la fin de chaque test.` 
 
 ## Messenger
-La gestion du code asynchrone avec Symfony est faite par le composant [Messenger]
-``` symfony composer req messenger ```
-`Note de Symfony`
-Lorsqu’une action doit être exécutée de manière asynchrone, envoyez un message à un messenger bus. Le bus stocke le message dans une file d’attente et rend immédiatement la main pour permettre au flux des opérations de reprendre aussi vite que possible.
+Le composant Messenger aide les applications à envoyer et à recevoir des messages vers / depuis d'autres applications ou via des files d'attente de messages. [Messenger](https://symfony.com/doc/current/components/messenger.html)
+_NB_ : Le composant Messenger aide les applications à envoyer et à recevoir des messages vers / depuis d'autres applications ou via des files d'attente de messages.
 
-Un consumer s’exécute continuellement en arrière-plan pour lire les nouveaux messages dans la file d’attente et exécuter la logique associée.
+- Installation
+``` symfony composer req messenger ```
+
+`> Note de Symfony`
+Lorsqu’une **action doit être exécutée de manière asynchrone, envoyez un message à un messenger bus**. Le bus stocke le message dans une file d’attente et rend immédiatement la main pour permettre au flux des opérations de reprendre aussi vite que possible.
+
+Un **consumer s’exécute continuellement en arrière-plan pour lire les nouveaux messages dans la file d’attente** et exécuter la logique associée.
 
 Le consumer peut s’exécuter sur le même serveur que l’application web, ou sur un serveur séparé.
-C’est très similaire à la façon dont les requêtes HTTP sont traitées, sauf que nous n’avons pas de réponse.
+C’est très **similaire** à la façon dont les **requêtes HTTP** sont traitées, *sauf que nous n’avons pas de réponse*.
+
+Pour un usage simple, voir les fichiers de ce projet : 
+- `src/Message/CommentMessage.php` - simple classe de données 
+- `src/MessageHandler/CommentMessageHandler.php` - à pour rôle de gestionnaire de messages 
+- `src/Controller/ConferenceController` - Montre comment envoyer un message dans le bus, afin que le gestionnaire puisse décider ce qu'il va en faire (ce code ne dépend plus du SpamChecker) 
 
 ## RabbitMQ
+Afin de faire vraiment de l'asynchrone
 ### Installation d'amqp
 - Télécharger l'extension [php_amqp](https://pecl.php.net/package/amqp)
 - Extraire 
