@@ -792,7 +792,7 @@ Installer le composant Workflow de Symfony
 ```
 symfony composer req workflow
 ```
-Cette commande ajoute le fichier `config/workflow/workflow.yaml` qu'il faut éditer comme suit (pour notre cas ici de gestion de message en queue) 
+- Cette commande ajoute le fichier `config/workflow/workflow.yaml` qu'il faut éditer comme suit (pour notre cas ici de gestion de message en queue)
 ```yaml
 framework:
     workflows:
@@ -800,7 +800,7 @@ framework:
             type: state_machine
             audit_trail:
                 enabled: "%kernel.debug%"
-            making_store:
+            marking_store:
                 type: 'method'
                 property: 'state'
             supports:
@@ -837,8 +837,7 @@ framework:
                     to: rejected
 ```
 
+Valider le workflow avec 
 ```
-
-
-
-Un peu de configuration 
+symfony console workflow:dump comment | dot -Tpng -o workflow.png
+```
