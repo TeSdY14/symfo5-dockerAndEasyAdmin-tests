@@ -47,26 +47,26 @@
 **>>> Recommandations relatives aux normes PHP <<<**
   
 ## [PROFILER](https://symfony.com/doc/current/profiler.html)
-> Installé uniquement pour l'environnement de développement
+❕Installé uniquement pour l'environnement de développement❕
 ```shell-script
 symfony composer req profiler --dev
 ```
 > '**req**' est l'alias pour le paquet : **symfony/profiler-pack**
 
-Le **[Profiler](https://symfony.com/doc/current/profiler.html)** permet de gagner du temps quand on a besoin de trouver l'origine d'un problème!
+Le **[Profiler](https://symfony.com/doc/current/profiler.html)** permet de gagner du temps quand on a besoin de trouver l'origine d'un problème ⌚!
 
-## [LOGGER](https://symfony.com/doc/current/logging.html)
+## [LOGGER](https://symfony.com/doc/current/logging.html) 📑
 ```
 symfony composer req logger
 ```
-## [PHP-CSF](https://cs.symfony.com/) - PHP Coding Standards Fixer
+## [PHP-CSF](https://cs.symfony.com/) - PHP Coding Standards Fixer :blue_heart:
 [Plus d'informations sur GitHub](https://github.com/FriendsOfPHP/PHP-CS-Fixer/blob/2.16/doc/installation.rst)
 _Installé uniquement pour l'environnement de développement_ (ajout du flag `--dev`)
 ```
 symfony composer req friendsofphp/php-cs-fixer --dev 
 ```
 
-## [DOCTRINE ORM](https://www.doctrine-project.org/projects/orm.html)
+## [DOCTRINE ORM](https://www.doctrine-project.org/projects/orm.html) :open_file_folder:
 ```
 symfony composer req "orm:^2"
 ```
@@ -89,12 +89,12 @@ _SYMFONY supporte le **YAML**, **XML**, **PHP** et les **annotations** comme for
 - Pour la configuration des paquets, **YAML** est préférable 
 - Pour la configuration liées au code PHP, les **annotations** sont plus appropriées, _les informations de configuration sont directement accessibles dans la classe utilisée_. 
 
-## [ANNOTATIONS](https://symfony.com/doc/current/routing.html)
+## [ANNOTATIONS](https://symfony.com/doc/current/routing.html) :pencil2:
 ```
 symfony composer req annotations
 ```
 
-## [DEBUG](https://github.com/symfony/debug)
+## [DEBUG](https://github.com/symfony/debug) ⛔:bug:⛔
 > :warning: **ATTENTION! Deprecated depuis v4.4 :**
 
 ```
@@ -106,7 +106,7 @@ symfony composer req debug --dev
 ```
 Cela permet d'obtenir la **barre de debug** en bas de l'écran du navigateur
 
-## [MAKER](https://symfony.com/doc/current/bundles/SymfonyMakerBundle/index.html)
+## [MAKER](https://symfony.com/doc/current/bundles/SymfonyMakerBundle/index.html) :factory:
 > Installé **uniquement pour l'environnement de développement**
 ```
 symfony composer req maker --dev
@@ -175,7 +175,7 @@ Cette commande va générer plusieurs fichiers :
 -  created: templates/nomduneentitedejacreee/show.html.twig
 ``` 
 
-### Générer un [SUBSCRIBER - Events and Event Listeners](https://symfony.com/doc/current/event_dispatcher.html)
+### Générer un [SUBSCRIBER - Events and Event Listeners](https://symfony.com/doc/current/event_dispatcher.html) :clipboard:
 
 **Rappel :** 
 
@@ -202,7 +202,7 @@ symfony composer req "twig/intl-extra:^3"
 > Le package **intl-extra** fournit les filtres **_localizeddate_**, **_localizednumber_** et **_localizedcurrency_** 
 
 
-## [EASYADMIN](https://symfony.com/doc/current/bundles/EasyAdminBundle/index.html)
+## [EASYADMIN](https://symfony.com/doc/current/bundles/EasyAdminBundle/index.html) :cop:
 [Plus d'info sur Symfony.com](https://symfony.com/doc/current/bundles/EasyAdminBundle/index.html)
 
 [Plus d'info sur Github.com](https://github.com/EasyCorp/EasyAdminBundle)
@@ -266,7 +266,7 @@ easy_admin:
 > [Plus d'infos sur la customization d'EasyAdmin sur symfony.com](https://symfony.com/doc/current/bundles/EasyAdminBundle/index.html)
 
 
-## [REDIS](https://redis.io/)
+## [REDIS](https://redis.io/) :zap:
 **Redis** est _un système de gestion de base de données_ clef-valeur hautes performances qui **stocke les informations en mémoire** (Les données sont stockées dans la mémoire et est donc plus rapide qu'une base de données qui stocke les données sur disque dur).
 
 Installation 
@@ -326,7 +326,7 @@ docker-compose stop
 docker-compose up -d 
 ```
 
-## CHEAT SHEET Commands
+## CHEAT SHEET Commands 🔑 💡
 - [The Symfony Framework Best Practices](https://symfony.com/doc/current/best_practices.html)
 - [cheat-sheets.org #Symfony](http://www.cheat-sheets.org/#Symfony)
 - [Symfony Configuration Cheat Sheet - pdf](https://files.ripstech.com/cheatsheets/w_symfony_cheat_sheet.pdf)
@@ -334,47 +334,47 @@ docker-compose up -d
 - [Symfony 4 Cheat Sheet (DRAFT)](https://cheatography.com/pluk77/cheat-sheets/symfony-4/)
 - [Symfony MODEL DATABASE SCHEMA](https://andreiabohner.files.wordpress.com/2007/09/sfmodelsecondpartrefcard.pdf)
 
-### Lancer le serveur symfony en arrière plan
+### Lancer le serveur symfony en arrière plan 🏃
 ``` 
 symfony server:start -d 
 ``` 
-### Ouvrir l'application dans un navigateur 
+### Ouvrir l'application dans un navigateur ➿
 ``` 
 symfony open:local
 ``` 
 
-### Consulter les logs 
+### Consulter les logs 🔍
 ``` 
 symfony server:log
 ``` 
 
-### Consulter les workers en arrière-plan 
+### Consulter les workers en arrière-plan 🔍
 ``` 
 symfony server:status
 ``` 
 
-### Arrêter un worker (pour obtenir **ID_DU_PROCESSUS** : ```server:status```)
+### Arrêter un worker (pour obtenir **ID_DU_PROCESSUS** : ```server:status```) ✋
 ``` 
 kill ID_DU_PROCESSUS  
 ``` 
 
-### Débogage en production (consulter les logs quand le profiler n'est pas disponible)
+### Débogage en production (consulter les logs quand le profiler n'est pas disponible) 💂‍
 ``` 
 symfony logs
 ``` 
 
-### Connexion en SSH au conteneur web
+### Connexion en SSH au conteneur web 📡 
 ``` 
 symfony ssh
 ``` 
 
-### Exposer les variables d'environnements
+### Exposer les variables d'environnements 🔍
 ``` 
 symfony var:export
 ``` 
 
 ## _**HTTPS**_
-### Activer TLS - Installer le certificat avec la commande 
+### Activer TLS - Installer le certificat avec la commande 👀
 ``` 
 symfony server:ca:install 
 ``` 
@@ -420,7 +420,7 @@ docker exec -it database_name_1 psql -U username -W password
 ```symfony run psql < dump.sql```
 
 
-## [SECURITY](https://symfony.com/doc/current/security.html)
+## [SECURITY](https://symfony.com/doc/current/security.html) ⭐⭐
 ### Le Composant [`Symfony Security`](https://symfony.com/doc/current/security.html) : Permet de protéger l'accès de certaines pages du site aux utilisateurs
 ```
 symfony composer req security
@@ -561,7 +561,7 @@ main:
 symfony console make:registration-form
 ```
 
-## [TESTS](https://symfony.com/doc/current/testing.html) 
+## [TESTS](https://symfony.com/doc/current/testing.html) :arrow_forward:
 Symfony utilise [`PHPUnit`](https://symfony.com/doc/current/testing.html)
 ```
 symfony composer req phpunit --dev 
@@ -583,7 +583,7 @@ symfony console make:functional-test Controller\\ConferenceController
 ### Pour ne tester qu'une seule classe précise : (exemple)
 ```symfony php bin/phpunit tests/Controller/ConferenceControllerTest.php``` 
 
-## [FIXTURES](https://symfony.com/doc/current/bundles/DoctrineFixturesBundle/index.html)
+## [FIXTURES](https://symfony.com/doc/current/bundles/DoctrineFixturesBundle/index.html) 
 Les **fixtures** permettent de remplir une base de données avec des données "bidons" afin d'avoir un jeu de données 
 ```
 symfony composer req orm-fixtures --dev
@@ -641,7 +641,7 @@ Activer le listener de  [PHPUnit](https://phpunit.de/) (fichier 'phpunit.xml.dis
 
 `Grace à cette commande, toute modification apportée pendant les tests est automatiquement annulée à la fin de chaque test.` 
 
-## [Messenger](https://symfony.com/doc/current/messenger.html)
+## [Messenger](https://symfony.com/doc/current/messenger.html) :incoming_envelope:
 (**TUTO** [SymfonyCast Messenger](https://symfonycasts.com/screencast/messenger))
 Le composant Messenger aide les applications à envoyer et à recevoir des messages vers/depuis d'autres applications ou via des files d'attente de messages. [Messenger](https://symfony.com/doc/current/messenger.html)
 _NB_ : Le composant [Messenger](https://symfony.com/doc/current/messenger.html) aide les applications à envoyer et à recevoir des messages vers / depuis d'autres applications ou via des files d'attente de messages.
@@ -673,7 +673,7 @@ Afin de faire vraiment de l'asynchrone
 - Redémarrer le serveur (apache ou fermer et relancer le shell) pour prendre en compte la nouvelle extension
 - Vérifier avec `php -m` que l'extension est chargée et qu'aucune erreur de chargement de module php 
 
-### Installation de [RabbitMQ](https://www.rabbitmq.com/documentation.html)
+### Installation de [RabbitMQ](https://www.rabbitmq.com/documentation.html) 🐇
 #### Version `docker`
 
 Se rendre dans le repertoire du projet, modifier (ajouter dans) le fichier `docker-compose.yaml`
