@@ -328,14 +328,27 @@ symfony open:local
 ``` 
 symfony server:log
 ``` 
+
+### Consulter les workers en arrière-plan 
+``` 
+symfony server:status
+``` 
+
+### Arrêter un worker (pour obtenir **ID_DU_PROCESSUS** : ```server:status```)
+``` 
+kill ID_DU_PROCESSUS  
+``` 
+
 ### Débogage en production (consulter les logs quand le profiler n'est pas disponible)
 ``` 
 symfony logs
 ``` 
+
 ### Connexion en SSH au conteneur web
 ``` 
 symfony ssh
 ``` 
+
 ### Exposer les variables d'environnements
 ``` 
 symfony var:export
@@ -685,4 +698,41 @@ framework:
 ```docker-compose stop```
 - Redémarrer docker avec le nouveau service rabbitmq
 ```docker-compose up -d```
+
+- Normalement, l'interface Rabbitmq est accessible `http://127.0.0.1:32784/#/` 
+- Ou disponible avec la commande 
+```
+symfony open:local:rabbitmq
+```
+- **Utilisateur: guest**
+- **Pass: guest**
+
+Pour tester,
+- se rendre par exemple : `https://127.0.0.1:8000/conference/bruxelles-2021` 
+- Compléter le formulaire de commentaire 
+- Soumettre
+- Normalement, le message n'apparait pas, il est en "queue" dans rabbitmq
+- Se rendre à `http://127.0.0.1:32784/#/queues` et constater dans le tableau Overview 1 ligne **messages** avec **Ready** à 1
+- Pour consommer le message, se rendre dans le terminal : 
+```
+symfony console messenger:consume async -vv
+```
+Cette commande devrait immédiatement consommer le message soumis en commentaire  (la console affiche le `messenger worker` en cours d'exécution)
+
+Pour lancer les Workers en arrière plan, éviter d'avoir plein de terminaux ouverts : 
+```
+symfony run -d --watch=config,src,template,vendor symfony console messenger:consume async
+```
+```yaml
+symfony run -d --watch=config,src,template,vendor symfony console messenger:consume async
+
+Stream the logs via symfony.exe server:log
+```
+_info :_ 
+- **l'option --watch dit à Symfony que la commande est à redémarrer à chaque changement dans un des fichiers config/, vendor/, src/ et templates/**
+- Ne pas utiliser le flag -vv afin d'éviter des doublons dans server:log
+
+
+
+
 
