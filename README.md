@@ -25,9 +25,10 @@
   * [dama/doctrine-test-bundle](https://github.com/dmaicher/doctrine-test-bundle)
   
 * Docker Images 
-  * postgres:11-alpine
-  * redis:5-alpine
-  * rabbitmq:3.8-management
+  * [postgres:11-alpine](https://www.postgresql.org/) (Base de données) 
+  * [redis:5-alpine](https://redis.io/) (stockage de données en mémoire [au format Clé=>Valeur] plutot qu'à la manière d'une BDD qui stocke sur Disque Dur
+  * [rabbitmq:3.8-management](https://www.rabbitmq.com/) (Agent de message AMQP, permet de gérer les files de message "Queue" de manière asynchrone)
+  * [schickling/mailcatcher](https://mailcatcher.me/) (MailCatcher exécute un serveur SMTP et permet une visibilité des messages via une interface web)
 	
 * Dépendances diverses
   * [Profiler](https://symfony.com/doc/current/profiler.html)
