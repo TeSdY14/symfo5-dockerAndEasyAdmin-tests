@@ -211,7 +211,7 @@ symfony composer req "twig/intl-extra:^3"
 > Le package **intl-extra** fournit les filtres **_localizeddate_**, **_localizednumber_** et **_localizedcurrency_** 
 
 ```
-symfony composer req "twig/ccsinliner-extra:^3 "twig/inky-extra:^3"
+symfony composer req "twig/cssinliner-extra:^3" "twig/inky-extra:^3"
 ``` 
 Installe des extensions Twig utiles à la gestion des emails (notifications par exemple) 
 
