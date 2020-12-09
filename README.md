@@ -25,9 +25,10 @@
   * [dama/doctrine-test-bundle](https://github.com/dmaicher/doctrine-test-bundle)
   
 * Docker Images 
-  * postgres:11-alpine
-  * redis:5-alpine
-  * rabbitmq:3.8-management
+  * [postgres:11-alpine](https://www.postgresql.org/) (Base de données) 
+  * [redis:5-alpine](https://redis.io/) (stockage de données en mémoire [au format Clé=>Valeur] plutot qu'à la manière d'une BDD qui stocke sur Disque Dur
+  * [rabbitmq:3.8-management](https://www.rabbitmq.com/) (Agent de message AMQP, permet de gérer les files de message "Queue" de manière asynchrone)
+  * [schickling/mailcatcher](https://mailcatcher.me/) (MailCatcher exécute un serveur SMTP et permet une visibilité des messages via une interface web)
 	
 * Dépendances diverses
   * [Profiler](https://symfony.com/doc/current/profiler.html)
@@ -35,7 +36,7 @@
   * [Debug - WARNING Deprecated depuis 4.4 - voir ErrorHandlerComponent](https://github.com/symfony/debug)
   * [ErrorHandler Component](https://symfony.com/components/ErrorHandler)
   * [Maker](https://symfony.com/doc/current/bundles/SymfonyMakerBundle/index.html)
-  * [Twig - official site](https://twig.symfony.com/doc/2.x/filters/index.html), [twig - symfony](https://symfony.com/doc/current/templates.html)
+  * [Twig - official site](https://twig.symfony.com/doc/2.x/filters/index.html), [twig - symfony](https://symfony.com/doc/current/templates.html) 👈:heavy_plus_sign:👉 [Inky](https://get.foundation/emails/docs/inky.html)
   * [Annotations](https://symfony.com/doc/current/routing.html)
   * [Tests PhpUnit](https://symfony.com/doc/current/testing.html)
   * [Fixtures](https://symfony.com/doc/current/bundles/DoctrineFixturesBundle/index.html)
@@ -47,6 +48,7 @@
 ## OUTIL DEVELOPPEMENT : [PHP-FIG](https://www.php-fig.org/psr/)
 **>>> Recommandations relatives aux normes PHP <<<**
   
+  
 ## [PROFILER](https://symfony.com/doc/current/profiler.html)
 ❕Installé uniquement pour l'environnement de développement❕
 ```shell-script
@@ -56,16 +58,20 @@ symfony composer req profiler --dev
 
 Le **[Profiler](https://symfony.com/doc/current/profiler.html)** permet de gagner du temps quand on a besoin de trouver l'origine d'un problème ⌚!
 
+
 ## [LOGGER](https://symfony.com/doc/current/logging.html) 📑
 ```
 symfony composer req logger
 ```
+
+
 ## [PHP-CSF](https://cs.symfony.com/) - PHP Coding Standards Fixer :blue_heart:
 [Plus d'informations sur GitHub](https://github.com/FriendsOfPHP/PHP-CS-Fixer/blob/2.16/doc/installation.rst)
 _Installé uniquement pour l'environnement de développement_ (ajout du flag `--dev`)
 ```
 symfony composer req friendsofphp/php-cs-fixer --dev 
 ```
+
 
 ## [DOCTRINE ORM](https://www.doctrine-project.org/projects/orm.html) :open_file_folder:
 ```
@@ -90,6 +96,7 @@ _SYMFONY supporte le **YAML**, **XML**, **PHP** et les **annotations** comme for
 - Pour la configuration des paquets, **YAML** est préférable 
 - Pour la configuration liées au code PHP, les **annotations** sont plus appropriées, _les informations de configuration sont directement accessibles dans la classe utilisée_. 
 
+
 ## [ANNOTATIONS](https://symfony.com/doc/current/routing.html) :pencil2:
 ```
 symfony composer req annotations
@@ -98,6 +105,7 @@ symfony composer req annotations
 ```
 symfony console debug:router
 ```
+
 
 ## [DEBUG](https://github.com/symfony/debug) ⛔:bug:⛔
 > :warning: **ATTENTION! Deprecated depuis v4.4 :**
@@ -110,6 +118,7 @@ CAUTION: this component is deprecated since Symfony 4.4. Instead, use the ErrorH
 symfony composer req debug --dev
 ```
 Cela permet d'obtenir la **barre de debug** en bas de l'écran du navigateur
+
 
 ## [MAKER](https://symfony.com/doc/current/bundles/SymfonyMakerBundle/index.html) :factory:
 > Installé **uniquement pour l'environnement de développement**
@@ -190,6 +199,7 @@ _Cette liste est normalement affichée dans la console au moment du lancement de
 
 Une fois validée, la commande créera le fichier `./src/EventSubscriber/ExempleTwigEventSubscriber.php`
 
+
 ## [TWIG - official site](https://twig.symfony.com/doc/2.x/filters/index.html) :eyeglasses: :sunglasses: 
 ```
 composer require symfony/twig-bundle
@@ -200,6 +210,13 @@ Cette commande installe le moteur de templte Twig
 symfony composer req "twig/intl-extra:^3"
 ```
 > Le package **intl-extra** fournit les filtres **_localizeddate_**, **_localizednumber_** et **_localizedcurrency_** 
+
+```
+symfony composer req "twig/cssinliner-extra:^3" "twig/inky-extra:^3"
+``` 
+Installe des extensions Twig utiles à la gestion des emails (notifications par exemple) 
+
+[En savoir plus sur Inky](https://get.foundation/emails/docs/inky.html)
 
 
 ## [EASYADMIN](https://symfony.com/doc/current/bundles/EasyAdminBundle/index.html) :cop:
@@ -641,7 +658,7 @@ Activer le listener de  [PHPUnit](https://phpunit.de/) (fichier 'phpunit.xml.dis
 
 `Grace à cette commande, toute modification apportée pendant les tests est automatiquement annulée à la fin de chaque test.` 
 
-## [Messenger](https://symfony.com/doc/current/messenger.html) :incoming_envelope:
+## [MESSENGER](https://symfony.com/doc/current/messenger.html) :incoming_envelope:
 (**TUTO** [SymfonyCast Messenger](https://symfonycasts.com/screencast/messenger))
 Le composant Messenger aide les applications à envoyer et à recevoir des messages vers/depuis d'autres applications ou via des files d'attente de messages. [Messenger](https://symfony.com/doc/current/messenger.html)
 _NB_ : Le composant [Messenger](https://symfony.com/doc/current/messenger.html) aide les applications à envoyer et à recevoir des messages vers / depuis d'autres applications ou via des files d'attente de messages.
