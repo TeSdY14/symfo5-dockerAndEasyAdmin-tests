@@ -1,0 +1,9 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h2>Comment vérifié ! Merci !</h2>
+
+    <p>Transition appliquée : <strong>{{  transition }}</strong></p>
+    <p>Nouvel État : <strong>{{ comment.state }}</strong></p>
+{% endblock %}
+

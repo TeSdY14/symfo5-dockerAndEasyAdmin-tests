@@ -5,18 +5,15 @@ namespace App\Controller;
 use App\Entity\Comment;
 use App\Entity\Conference;
 use App\Form\CommentFormType;
+use App\Message\CommentMessage;
 use App\Repository\CommentRepository;
-use App\SpamChecker;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Messenger\MessageBusInterface;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Contracts\HttpClient\Exception\ClientExceptionInterface;
-use Symfony\Contracts\HttpClient\Exception\RedirectionExceptionInterface;
-use Symfony\Contracts\HttpClient\Exception\ServerExceptionInterface;
-use Symfony\Contracts\HttpClient\Exception\TransportExceptionInterface;
 use Twig\Environment;
 use Twig\Error\LoaderError;
 use Twig\Error\RuntimeError;
@@ -35,11 +32,16 @@ class ConferenceController extends AbstractController
      * @var EntityManagerInterface
      */
     private $em;
+    /**
+     * @var MessageBusInterface
+     */
+    private $bus;
 
-    public function __construct(Environment $twig, EntityManagerInterface $em)
+    public function __construct(Environment $twig, EntityManagerInterface $em, MessageBusInterface $bus)
     {
         $this->twig = $twig;
         $this->em = $em;
+        $this->bus = $bus;
     }
 
     /**
@@ -62,17 +64,13 @@ class ConferenceController extends AbstractController
      * @param Conference $conference
      * @param CommentRepository $commentRepository
      * @param string $photoDir
-     * @param SpamChecker $spamChecker
      * @return Response
      * @throws LoaderError
      * @throws RuntimeError
      * @throws SyntaxError
-     * @throws ClientExceptionInterface
-     * @throws RedirectionExceptionInterface
-     * @throws ServerExceptionInterface
-     * @throws TransportExceptionInterface
      */
-    public function show(Request $request, Conference $conference, CommentRepository $commentRepository, string $photoDir, SpamChecker $spamChecker): Response
+    public function show(Request $request, Conference $conference,
+                         CommentRepository $commentRepository, string $photoDir): Response
     {
         $comment = new Comment();
         $form = $this->createForm(CommentFormType::class, $comment);
@@ -92,18 +90,15 @@ class ConferenceController extends AbstractController
             }
 
             $this->em->persist($comment);
+            $this->em->flush();
 
             $context = [
                 'user_ip' => $request->getClientIp(),
-                'user_agent' => $request->headers->get('user-agent'),
                 'referrer' => $request->headers->get('referer'),
                 'permalink' => $request->getUri(),
             ];
 
-            if (2 === $spamChecker->getSpamScore($comment, $context)) {
-                throw new \RuntimeException('Blatant SPAM, dégage !!!!');
-            }
-            $this->em->flush();
+            $this->bus->dispatch(new CommentMessage($comment->getId(), $context));
 
             return $this->redirectToRoute('conference_show', ['slug' => $conference->getSlug()]);
         }

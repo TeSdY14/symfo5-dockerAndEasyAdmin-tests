@@ -45,12 +45,11 @@ class SpamChecker
     {
         $response = $this->client->request('POST', $this->endpoint, [
             'body' => array_merge($context, [
-                'blog' => 'example.com',
-                'comment_type' => 'akismet-guaranteed-spam',
+                'blog' => 'www.example.com',
+                'comment_type' => 'comment',
                 'comment_author' => $comment->getAuthor(),
                 'comment_author_mail' => $comment->getEmail(),
-//                'comment_content' => $comment->getText(),
-                'comment_content' => 'akismet-guaranteed-spam',
+                'comment_content' => $comment->getText(),
                 'comment_date_gmt' => $comment->getCreatedAt()->format('c'),
                 'blog_lang' => 'en',
                 'blog_charset' => 'UTF-8',
