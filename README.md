@@ -19,7 +19,6 @@
   * [PostgreSQL](https://www.postgresql.org/)
   * [RabbitMQ](https://www.rabbitmq.com/) (faire de l'asynchrone)
   * [Redis](https://redis.io/)
-  * [Inky](https://get.foundation/emails/docs/inky.html)
 
 * Bundles 
   * [EasyAdmin](https://symfony.com/doc/current/bundles/EasyAdminBundle/index.html)
@@ -36,7 +35,7 @@
   * [Debug - WARNING Deprecated depuis 4.4 - voir ErrorHandlerComponent](https://github.com/symfony/debug)
   * [ErrorHandler Component](https://symfony.com/components/ErrorHandler)
   * [Maker](https://symfony.com/doc/current/bundles/SymfonyMakerBundle/index.html)
-  * [Twig - official site](https://twig.symfony.com/doc/2.x/filters/index.html), [twig - symfony](https://symfony.com/doc/current/templates.html)
+  * [Twig - official site](https://twig.symfony.com/doc/2.x/filters/index.html), [twig - symfony](https://symfony.com/doc/current/templates.html) 👈:heavy_plus_sign:👉 [Inky](https://get.foundation/emails/docs/inky.html)
   * [Annotations](https://symfony.com/doc/current/routing.html)
   * [Tests PhpUnit](https://symfony.com/doc/current/testing.html)
   * [Fixtures](https://symfony.com/doc/current/bundles/DoctrineFixturesBundle/index.html)
