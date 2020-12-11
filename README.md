@@ -222,6 +222,28 @@ Installe des extensions Twig utiles à la gestion des emails (notifications par 
 
 [En savoir plus sur Inky](https://get.foundation/emails/docs/inky.html)
 
+## [WEBPACK](https://webpack.js.org/) OU [Symfony Webpack](https://symfony.com/doc/current/frontend.html)
+- Installation 
+``` 
+symfony composer req encore
+``` 
+
+## [SASS](https://sass-lang.com/) OU [Symfony 5 Fast-Track](https://symfony.com/doc/current/the-fast-track/fr/22-encore.html)
+- Utilisation 
+```
+mv assets/styles/app.css assets/styles/app.scss
+```
+- **Installer le loader SASS**
+- [Lien YARN](https://yarnpkg.com/)
+- [Lien NPM](https://www.npmjs.com/)
+```
+yarn add node-sass "sass-loader@^8.0.0" --dev
+```
+
+- Activer dans le `webpack.config.js` : 
+```js
+.enableSassLoader() // décommenté
+```
 
 ## [EASYADMIN](https://symfony.com/doc/current/bundles/EasyAdminBundle/index.html) :cop:
 [Plus d'info sur Symfony.com](https://symfony.com/doc/current/bundles/EasyAdminBundle/index.html)
