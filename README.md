@@ -44,6 +44,7 @@
   * [MakeFile - Developpez.com](https://gl.developpez.com/tutoriel/outil/makefile/)
   * [Messenger - Component](https://symfony.com/doc/current/components/messenger.html) (faire de l'asynchrone)
   * [Workflow - Component](https://symfony.com/doc/current/components/workflow.html)
+  * [Process Component](https://symfony.com/doc/current/components/process.html)
   
 ## OUTIL DEVELOPPEMENT : [PHP-FIG](https://www.php-fig.org/psr/)
 **>>> Recommandations relatives aux normes PHP <<<**
@@ -862,3 +863,14 @@ _L'image du workflow (ici **workflow.png**) est ajouté dans le repertoire coura
 
 ### Utiliser le workflow 
 Voir fichier : `src/MessageHandler/CommentMessageHandler.php`
+
+## [PROCESS](https://symfony.com/doc/current/components/process.html)
+Afin de mettre en cache les opérations coûteuses en CPU/ mémoire => créer une commande qui affiche l'étape en cours sur laquelle nous travaillons (le nom du tag Git attaché au commit actuel). 
+
+Le composant **Symfony Process** permet d'éxécuter une commande et de récupérer le résultat. 
+
+* Installation
+```
+symfony console req process
+```
+_exemple d'utilisation : `src/Command/StepInfoCommand.php`_
