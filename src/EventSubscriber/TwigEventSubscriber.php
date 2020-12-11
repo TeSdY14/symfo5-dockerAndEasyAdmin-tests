@@ -35,9 +35,8 @@ class TwigEventSubscriber implements EventSubscriberInterface
 
     /**
      * Rend accessible la variable "conferences" dans toutes les vues twig (sans même devoir la définir dans les fonctions des controllers).
-     * @param ControllerEvent $event
      */
-    public function onControllerEvent(ControllerEvent $event)
+    public function onControllerEvent()
     {
         $this->twig->addGlobal('conferences', $this->conferenceRepository->findAll());
         $this->twig->addGlobal('TwigGlobalVariable', "<p> >>> Ce message apparait grâce à une Variable rendue disponible \r\n dans \"./src/EventSubscriber/TwigEventSubscriber.php\" ! <<< </p>");
@@ -46,7 +45,7 @@ class TwigEventSubscriber implements EventSubscriberInterface
     /**
      * @return array|string[]
      */
-    public static function getSubscribedEvents()
+    public static function getSubscribedEvents(): array
     {
         return [
             ControllerEvent::class => 'onControllerEvent',

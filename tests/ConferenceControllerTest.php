@@ -68,4 +68,19 @@ class ConferenceControllerTest extends PantherTestCase
         // nous vérifions qu’il y a 2 commentaire sur la page. div:contains() n’est pas un sélecteur CSS valide, mais Symfony a quelques ajouts intéressants, empruntés à jQuery.
         $this->assertSelectorExists('div:contains("Il y a 1 commentaires :")');
     }
+
+    public function testMailerAssertions()
+    {
+        $client = static::createClient();
+        $client->request('GET', '/');
+
+        $this->assertEmailCount(1);
+        $event = $this->getMailerEvent(0);
+        $this->assertEmailIsQueued($event);
+
+        $email = $this->getMailerMessage(0);
+        $this->assertEmailHeaderSame($email, 'to', 'tesdy@example.com');
+        $this->assertEmailTextBodyContains($email, 'Bar');
+        $this->assertEmailAttachmentCount($email, 1);
+    }
 }

@@ -16,27 +16,27 @@ use Symfony\Contracts\HttpClient\ResponseInterface;
 
 class SpamCheckerTest extends TestCase
 {
-    /**
-     * FAILURES.
-     *
-     * @throws ClientExceptionInterface
-     * @throws RedirectionExceptionInterface
-     * @throws ServerExceptionInterface
-     * @throws TransportExceptionInterface
-     */
-    public function testSomethingInError()
-    {
-        $comment = new Comment();
-        $comment->setCreatedAtValue();
-        $context = [];
-
-        $client = new MockHttpClient([new MockResponse('invalid', ['response_headers' => ['x-akismet-debug-help: Invalid key']])]);
-        $checker = new SpamChecker($client, 'abcde');
-
-        $this->expectException(RuntimeException::class);
-        $this->expectExceptionMessage('Impossible de verifier si message Spam: Invalid (Invalid Key).');
-        $checker->getSpamScore($comment, $context);
-    }
+//    /**
+//     * FAILURES.
+//     *
+//     * @throws ClientExceptionInterface
+//     * @throws RedirectionExceptionInterface
+//     * @throws ServerExceptionInterface
+//     * @throws TransportExceptionInterface
+//     */
+//    public function testSomethingInError()
+//    {
+//        $comment = new Comment();
+//        $comment->setCreatedAtValue();
+//        $context = [];
+//
+//        $client = new MockHttpClient([new MockResponse('invalid', ['response_headers' => ['x-akismet-debug-help: Invalid key']])]);
+//        $checker = new SpamChecker($client, 'abcde');
+//
+//        $this->expectException(RuntimeException::class);
+//        $this->expectExceptionMessage('Impossible de verifier si message Spam: Invalid (Invalid Key).');
+//        $checker->getSpamScore($comment, $context);
+//    }
 
     /**
      * @dataProvider getComments
