@@ -271,6 +271,14 @@ Modifier `./assets/app.js`
 + bsCustomFileInput.init();
 ```
 
+**STYLES & SCRIPT DU 'GUESTBOOK' MIS A DISPOSITION PAR SYMFONY**
+```
+php -r "copy('https://symfony.com/uploads/assets/guestbook-5.0.zip',
+'guestbook-5.0.zip');"
+unzip -o guestbook-5.0.zip
+rm guestbook-5.0.zip
+```
+
 ## [EASYADMIN](https://symfony.com/doc/current/bundles/EasyAdminBundle/index.html) :cop:
 [Plus d'info sur Symfony.com](https://symfony.com/doc/current/bundles/EasyAdminBundle/index.html)
 
