@@ -233,9 +233,10 @@ symfony composer req encore
 ```
 mv assets/styles/app.css assets/styles/app.scss
 ```
-- **Installer le loader SASS**
-- [Lien YARN](https://yarnpkg.com/)
-- [Lien NPM](https://www.npmjs.com/)
+#### Installer le loader SASS
+- [utile : Lien Node](https://nodejs.org/en/)
+- [utile : Lien YARN](https://yarnpkg.com/)
+- [utile : Lien NPM](https://www.npmjs.com/)
 ```
 yarn add node-sass "sass-loader@^8.0.0" --dev
 ```
@@ -243,6 +244,31 @@ yarn add node-sass "sass-loader@^8.0.0" --dev
 - Activer dans le `webpack.config.js` : 
 ```js
 .enableSassLoader() // décommenté
+```
+
+- Installer Bootstrap Jquery Popper.js (environnement de développement) 
+```
+yarn add bootstrap jquery popper.js bs-custom-file-input --dev
+```
+
+- Ajouter Bootstrap à l'application 
+
+Modifier `./assets/styles/app.scss`
+```diff
+-body {
+-	background-color: lightgray;
+- }
++ @import '~bootstrap/scss/bootstrap';
+```
+Modifier `./assets/app.js`
+```diff
++ import 'bootstrap';
++ import bsCustomFileInput from 'bs-custom-file-input';
+- // Need jQuery? Install it with "yarn add jquery", then uncomment to import it.
+- // import $ from 'jquery';
+-
+- console.log('Hello Webpack Encore! Edit me in assets/app.js');
++ bsCustomFileInput.init();
 ```
 
 ## [EASYADMIN](https://symfony.com/doc/current/bundles/EasyAdminBundle/index.html) :cop:
