@@ -875,4 +875,4 @@ symfony console req process
 ```
 _exemple d'utilisation : `src/Command/StepInfoCommand.php`_
 
--> Création avec : `symfony console make:command app:step:info`
+-> Création de la classe `StepInfoCommand` avec : `symfony console make:command app:step:info`
