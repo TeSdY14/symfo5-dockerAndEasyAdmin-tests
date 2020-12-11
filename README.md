@@ -874,3 +874,5 @@ Le composant **Symfony Process** permet d'éxécuter une commande et de récupé
 symfony console req process
 ```
 _exemple d'utilisation : `src/Command/StepInfoCommand.php`_
+
+-> Création avec : `symfony console make:command app:step:info`
