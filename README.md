@@ -19,6 +19,8 @@
   * [PostgreSQL](https://www.postgresql.org/)
   * [RabbitMQ](https://www.rabbitmq.com/) (faire de l'asynchrone)
   * [Redis](https://redis.io/)
+  * [Webpack](https://webpack.js.org/)[symfony Webpack](https://symfony.com/doc/current/frontend.html)
+  * [SASS](https://sass-lang.com/)[Symfony 5 Fast-Track](https://symfony.com/doc/current/the-fast-track/fr/22-encore.html)
 
 * Bundles 
   * [EasyAdmin](https://symfony.com/doc/current/bundles/EasyAdminBundle/index.html)
