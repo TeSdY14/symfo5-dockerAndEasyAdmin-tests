@@ -19,8 +19,8 @@
   * [PostgreSQL](https://www.postgresql.org/)
   * [RabbitMQ](https://www.rabbitmq.com/) (faire de l'asynchrone)
   * [Redis](https://redis.io/)
-  * [Webpack](https://webpack.js.org/)[symfony Webpack](https://symfony.com/doc/current/frontend.html)
-  * [SASS](https://sass-lang.com/)[Symfony 5 Fast-Track](https://symfony.com/doc/current/the-fast-track/fr/22-encore.html)
+  * [Webpack](https://webpack.js.org/) OU [symfony Webpack](https://symfony.com/doc/current/frontend.html)
+  * [SASS](https://sass-lang.com/) OU [Symfony 5 Fast-Track](https://symfony.com/doc/current/the-fast-track/fr/22-encore.html)
 
 * Bundles 
   * [EasyAdmin](https://symfony.com/doc/current/bundles/EasyAdminBundle/index.html)
@@ -47,7 +47,7 @@
   * [Messenger - Component](https://symfony.com/doc/current/components/messenger.html) (faire de l'asynchrone)
   * [Workflow - Component](https://symfony.com/doc/current/components/workflow.html)
   * [Process Component](https://symfony.com/doc/current/components/process.html)
-  * [Cache](https://symfony.com/doc/current/components/cache.html)[Symfony 5 Fast-Track](https://symfony.com/doc/current/the-fast-track/fr/21-cache.html)
+  * [Cache](https://symfony.com/doc/current/components/cache.html) OU [Symfony 5 Fast-Track](https://symfony.com/doc/current/the-fast-track/fr/21-cache.html)
   
 ## OUTIL DEVELOPPEMENT : [PHP-FIG](https://www.php-fig.org/psr/)
 **>>> Recommandations relatives aux normes PHP <<<**
