@@ -19,6 +19,8 @@
   * [PostgreSQL](https://www.postgresql.org/)
   * [RabbitMQ](https://www.rabbitmq.com/) (faire de l'asynchrone)
   * [Redis](https://redis.io/)
+  * [Webpack](https://webpack.js.org/) OU [voir sur Symfony](https://symfony.com/doc/current/frontend.html)
+  * [SASS](https://sass-lang.com/) Ou [voir avec Symfony 5 Fast-Track](https://symfony.com/doc/current/the-fast-track/fr/22-encore.html)
 
 * Bundles 
   * [EasyAdmin](https://symfony.com/doc/current/bundles/EasyAdminBundle/index.html)
@@ -26,7 +28,7 @@
   
 * Docker Images 
   * [postgres:11-alpine](https://www.postgresql.org/) (Base de données) 
-  * [redis:5-alpine](https://redis.io/) (stockage de données en mémoire [au format Clé=>Valeur] plutot qu'à la manière d'une BDD qui stocke sur Disque Dur
+  * [redis:5-alpine](https://redis.io/) (stockage de données en mémoire [au format Clé => Valeur] plutot qu'à la manière d'une BDD qui stocke sur Disque Dur
   * [rabbitmq:3.8-management](https://www.rabbitmq.com/) (Agent de message AMQP, permet de gérer les files de message "Queue" de manière asynchrone)
   * [schickling/mailcatcher](https://mailcatcher.me/) (MailCatcher exécute un serveur SMTP et permet une visibilité des messages via une interface web)
 	
@@ -44,6 +46,8 @@
   * [MakeFile - Developpez.com](https://gl.developpez.com/tutoriel/outil/makefile/)
   * [Messenger - Component](https://symfony.com/doc/current/components/messenger.html) (faire de l'asynchrone)
   * [Workflow - Component](https://symfony.com/doc/current/components/workflow.html)
+  * [Process Component](https://symfony.com/doc/current/components/process.html)
+  * [Cache](https://symfony.com/doc/current/components/cache.html) Ou [voir avec Symfony 5 Fast-Track](https://symfony.com/doc/current/the-fast-track/fr/21-cache.html)
   
 ## OUTIL DEVELOPPEMENT : [PHP-FIG](https://www.php-fig.org/psr/)
 **>>> Recommandations relatives aux normes PHP <<<**
@@ -218,6 +222,62 @@ Installe des extensions Twig utiles à la gestion des emails (notifications par 
 
 [En savoir plus sur Inky](https://get.foundation/emails/docs/inky.html)
 
+### [WEBPACK](https://webpack.js.org/) OU [Voir sur Symfony.com](https://symfony.com/doc/current/frontend.html)
+- Installation 
+``` 
+symfony composer req encore
+``` 
+
+### [SASS](https://sass-lang.com/) OU [voir Symfony 5 Fast-Track](https://symfony.com/doc/current/the-fast-track/fr/22-encore.html)
+- Utilisation 
+```
+mv assets/styles/app.css assets/styles/app.scss
+```
+#### Installer le loader SASS
+- [utile : Lien Node](https://nodejs.org/en/)
+- [utile : Lien YARN](https://yarnpkg.com/)
+- [utile : Lien NPM](https://www.npmjs.com/)
+```
+yarn add node-sass "sass-loader@^8.0.0" --dev
+```
+
+- Activer dans le `webpack.config.js` : 
+```js
+.enableSassLoader() // décommenté
+```
+
+- Installer Bootstrap Jquery Popper.js (environnement de développement) 
+```
+yarn add bootstrap jquery popper.js bs-custom-file-input --dev
+```
+
+- Ajouter Bootstrap à l'application 
+
+Modifier `./assets/styles/app.scss`
+```diff
+-body {
+-	background-color: lightgray;
+- }
++ @import '~bootstrap/scss/bootstrap';
+```
+Modifier `./assets/app.js`
+```diff
++ import 'bootstrap';
++ import bsCustomFileInput from 'bs-custom-file-input';
+- // Need jQuery? Install it with "yarn add jquery", then uncomment to import it.
+- // import $ from 'jquery';
+-
+- console.log('Hello Webpack Encore! Edit me in assets/app.js');
++ bsCustomFileInput.init();
+```
+
+**STYLES & SCRIPT DU 'GUESTBOOK' MIS A DISPOSITION PAR SYMFONY**
+```
+php -r "copy('https://symfony.com/uploads/assets/guestbook-5.0.zip',
+'guestbook-5.0.zip');"
+unzip -o guestbook-5.0.zip
+rm guestbook-5.0.zip
+```
 
 ## [EASYADMIN](https://symfony.com/doc/current/bundles/EasyAdminBundle/index.html) :cop:
 [Plus d'info sur Symfony.com](https://symfony.com/doc/current/bundles/EasyAdminBundle/index.html)
@@ -862,3 +922,23 @@ _L'image du workflow (ici **workflow.png**) est ajouté dans le repertoire coura
 
 ### Utiliser le workflow 
 Voir fichier : `src/MessageHandler/CommentMessageHandler.php`
+
+## [PROCESS](https://symfony.com/doc/current/components/process.html)
+Afin de mettre en cache les opérations coûteuses en CPU/ mémoire => créer une commande qui affiche l'étape en cours sur laquelle nous travaillons (le nom du tag Git attaché au commit actuel). 
+
+Le composant **Symfony Process** permet d'éxécuter une commande et de récupérer le résultat. 
+
+* Installation
+```
+symfony console req process
+```
+_exemple d'utilisation : `src/Command/StepInfoCommand.php`_
+
+-> Création de la classe `StepInfoCommand` avec : `symfony console make:command app:step:info`
+
+### Mettre le résultat en cache
+Afin de mettre le résultat en cache, utiliser le cache symfony.
+- Installation
+```
+symfony composer req cache
+```
