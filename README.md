@@ -19,7 +19,7 @@
   * [PostgreSQL](https://www.postgresql.org/)
   * [RabbitMQ](https://www.rabbitmq.com/) (faire de l'asynchrone)
   * [Redis](https://redis.io/)
-  * [Webpack](https://webpack.js.org/) OU [symfony Webpack](https://symfony.com/doc/current/frontend.html)
+  * [Webpack](https://webpack.js.org/) OU [Symfony Webpack](https://symfony.com/doc/current/frontend.html)
   * [SASS](https://sass-lang.com/) OU [Symfony 5 Fast-Track](https://symfony.com/doc/current/the-fast-track/fr/22-encore.html)
 
 * Bundles 
@@ -28,7 +28,7 @@
   
 * Docker Images 
   * [postgres:11-alpine](https://www.postgresql.org/) (Base de données) 
-  * [redis:5-alpine](https://redis.io/) (stockage de données en mémoire [au format Clé=>Valeur] plutot qu'à la manière d'une BDD qui stocke sur Disque Dur
+  * [redis:5-alpine](https://redis.io/) (stockage de données en mémoire [au format Clé => Valeur] plutot qu'à la manière d'une BDD qui stocke sur Disque Dur
   * [rabbitmq:3.8-management](https://www.rabbitmq.com/) (Agent de message AMQP, permet de gérer les files de message "Queue" de manière asynchrone)
   * [schickling/mailcatcher](https://mailcatcher.me/) (MailCatcher exécute un serveur SMTP et permet une visibilité des messages via une interface web)
 	
