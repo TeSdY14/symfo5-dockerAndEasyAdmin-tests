@@ -45,6 +45,7 @@
   * [Messenger - Component](https://symfony.com/doc/current/components/messenger.html) (faire de l'asynchrone)
   * [Workflow - Component](https://symfony.com/doc/current/components/workflow.html)
   * [Process Component](https://symfony.com/doc/current/components/process.html)
+  * [Cache](https://symfony.com/doc/current/components/cache.html)[Symfony 5 Fast-Track](https://symfony.com/doc/current/the-fast-track/fr/21-cache.html)
   
 ## OUTIL DEVELOPPEMENT : [PHP-FIG](https://www.php-fig.org/psr/)
 **>>> Recommandations relatives aux normes PHP <<<**
@@ -876,3 +877,10 @@ symfony console req process
 _exemple d'utilisation : `src/Command/StepInfoCommand.php`_
 
 -> Création de la classe `StepInfoCommand` avec : `symfony console make:command app:step:info`
+
+### Mettre le résultat en cache
+Afin de mettre le résultat en cache, utiliser le cache symfony.
+- Installation
+```
+symfony composer req cache
+```
