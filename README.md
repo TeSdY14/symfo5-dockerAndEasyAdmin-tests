@@ -49,6 +49,7 @@
   * [Process Component](https://symfony.com/doc/current/components/process.html)
   * [Cache](https://symfony.com/doc/current/components/cache.html) Ou [voir avec Symfony 5 Fast-Track](https://symfony.com/doc/current/the-fast-track/fr/21-cache.html)
   * [Imagine](https://imagine.readthedocs.io/en/stable/#) ou [Voir sur packagist.org](https://packagist.org/packages/imagine/imagine)
+  * [Notifier Component](https://symfony.com/components/Notifier)
   
 ## OUTIL DEVELOPPEMENT : [PHP-FIG](https://www.php-fig.org/psr/)
 **>>> Recommandations relatives aux normes PHP <<<**
