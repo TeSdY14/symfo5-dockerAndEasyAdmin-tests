@@ -41,7 +41,7 @@ web:
 
 mounts:
     "/var": { source: local, source_path: var }
-    "public/uploads": { source: local, source_path: uploads }
+    "public/uploads": { source: service, service: files, source_path: uploads }
 
 hooks:
     build: |
@@ -56,6 +56,14 @@ hooks:
 
         (>&2 symfony-deploy)
 
+crons:
+    comment_cleanup:
+        # Nettoyage chaque soir à 11h50 (UTC)
+        spec: '50 23 * * *'
+        cmd: |
+            if [ "$SYMFONY_BRANCH" == "master" ]; then
+                croncape symfony console app:comment:cleanup
+            fi
 workers:
     messages:
         commands:

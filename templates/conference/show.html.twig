@@ -1,10 +1,19 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Conference Guestbook - {{ conference }}{% endblock %}
+{% block title %}Livre d'or des Conférences - {{ conference }}{% endblock %}
 
 {% block body %}
+
+    {% for message in app.flashes('notification') %}
+        <div class="alert alert-info alert-dismissible fade show">
+            {{ message }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    {% endfor %}
     <h2 class="mb-5">
-        {{ conference }} Conference
+        Conference de {{ conference }}
     </h2>
 
     <div class="row">
@@ -15,7 +24,7 @@
                         <div class="comment-img mr-3">
                             {% if comment.photofilename %}
                                 <a href="{{ asset('uploads/photos/' ~ comment.photofilename) }}" target="_blank">
-                                    <img src="{{ asset('uploads/photos/' ~ comment.photofilename) }}" />
+                                    <img src="{{ asset('uploads/photos/' ~ comment.photofilename) }}" alt="{{ comment.photofilename }}"/>
                                 </a>
                             {% endif %}
                         </div>
@@ -37,23 +46,23 @@
                         </div>
                     </div>
                 {% endfor %}
-                <div>There are {{ comments|length }} comments.</div>
+                <div>Il y a {{ comments|length }} commentaires.</div>
                 {% if previous >= 0 %}
-                    <a href="{{ path('conference', { slug: conference.slug, offset: previous }) }}">Previous</a>
+                    <a href="{{ path('conference_show', { slug: conference.slug, offset: previous }) }}">Préc.</a>
                 {% endif %}
                 {% if next < comments|length %}
-                    <a href="{{ path('conference', { slug: conference.slug, offset: next }) }}">Next</a>
+                    <a href="{{ path('conference_show', { slug: conference.slug, offset: next }) }}">Suiv.</a>
                 {% endif %}
             {% else %}
                 <div class="text-center">
-                    No comments have been posted yet for this conference.
+                    Aucun commentaire n'a été posté pour cette conférence.
                 </div>
             {% endif %}
         </div>
         <div class="col-12 col-lg-4">
             <div class="bg-light shadow border rounded-lg p-4">
                 <h3 class="font-weight-light">
-                    Add your own feedback
+                    Ajouter votre propre commentaire
                 </h3>
 
                 {{ form(comment_form) }}

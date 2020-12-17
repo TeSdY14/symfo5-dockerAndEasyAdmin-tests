@@ -15,6 +15,7 @@ use Symfony\Component\Routing\Annotation\Route;
  */
 class CommentController extends AbstractController
 {
+
     /**
      * @Route("/", name="comment_index", methods={"GET"})
      * @param CommentRepository $commentRepository
@@ -22,6 +23,8 @@ class CommentController extends AbstractController
      */
     public function index(CommentRepository $commentRepository): Response
     {
+        $commentRepository->countOldRejected();
+
         return $this->render('comment/index.html.twig', [
             'comments' => $commentRepository->findAll(),
         ]);

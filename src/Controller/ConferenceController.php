@@ -14,7 +14,10 @@ use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Messenger\MessageBusInterface;
+use Symfony\Component\Notifier\Notification\Notification;
+use Symfony\Component\Notifier\NotifierInterface;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Twig\Environment;
 use Twig\Error\LoaderError;
 use Twig\Error\RuntimeError;
@@ -87,14 +90,15 @@ class ConferenceController extends AbstractController
      * @param Request $request
      * @param Conference $conference
      * @param CommentRepository $commentRepository
+     * @param NotifierInterface $notifier
      * @param string $photoDir
      * @return Response
      * @throws LoaderError
      * @throws RuntimeError
      * @throws SyntaxError
      */
-    public function show(Request $request, Conference $conference,
-                         CommentRepository $commentRepository, string $photoDir): Response
+    public function show(Request $request, Conference $conference, CommentRepository $commentRepository,
+                         NotifierInterface $notifier, string $photoDir): Response
     {
         $comment = new Comment();
         $form = $this->createForm(CommentFormType::class, $comment);
@@ -122,9 +126,16 @@ class ConferenceController extends AbstractController
                 'permalink' => $request->getUri(),
             ];
 
-            $this->bus->dispatch(new CommentMessage($comment->getId(), $context));
+            $reviewUrl = $this->generateUrl('review_comment', ['id' => $comment->getId()], UrlGeneratorInterface::ABSOLUTE_URL);
+            $this->bus->dispatch(new CommentMessage($comment->getId(), $reviewUrl, $context));
+
+            $notifier->send(new Notification('Merci pour votre commentaire. Celui-ci sera visible après modération.', ['browser']));
 
             return $this->redirectToRoute('conference_show', ['slug' => $conference->getSlug()]);
+        }
+
+        if ($form->isSubmitted()) {
+            $notifier->send(new Notification('Pouvez-vous vérifier votre commentaire ? Il y a un problème avec.', ['browser']));
         }
 
         $offset = max(0, $request->query->getInt('offset'));
