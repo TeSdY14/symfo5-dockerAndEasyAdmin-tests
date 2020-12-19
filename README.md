@@ -219,13 +219,15 @@ Installe les extensions Twig utiles à la gestion des emails (notifications par 
 
 [En savoir plus sur Inky](https://get.foundation/emails/docs/inky.html)
 
-## [WEBPACK](https://webpack.js.org/) OU [Voir sur Symfony.com](https://symfony.com/doc/current/frontend.html)<a href='#docWebpack' id='docWebpack' class='anchor' aria-hidden='true'></a>
+## [WEBPACK](https://webpack.js.org/)<a href='#docWebpack' id='docWebpack' class='anchor' aria-hidden='true'></a>
+[Voir sur Symfony.com](https://symfony.com/doc/current/frontend.html)
 - Installation 
 ``` 
 symfony composer req encore
 ``` 
 
-## [SASS](https://sass-lang.com/) OU [voir Symfony 5 Fast-Track](https://symfony.com/doc/current/the-fast-track/fr/22-encore.html)<a href='#docSass' id='docSass' class='anchor' aria-hidden='true'></a>
+## [SASS](https://sass-lang.com/)<a href='#docSass' id='docSass' class='anchor' aria-hidden='true'></a 
+[voir Symfony 5 Fast-Track](https://symfony.com/doc/current/the-fast-track/fr/22-encore.html)>
 - Utilisation 
 ```
 mv assets/styles/app.css assets/styles/app.scss
