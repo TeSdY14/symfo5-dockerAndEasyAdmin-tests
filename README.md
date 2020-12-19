@@ -22,8 +22,7 @@
   * [Webpack](https://webpack.js.org/) OU [voir sur Symfony](https://symfony.com/doc/current/frontend.html)
   * [SASS](https://sass-lang.com/) Ou [voir avec Symfony 5 Fast-Track](https://symfony.com/doc/current/the-fast-track/fr/22-encore.html)
   
-  * [SPA](https://redis.io/) Application en vue Single Page Application (voir fin du ReadMe)
-  [Read our installation guide](#installation-guide)
+  * [SPA](https://redis.io/) Application en vue Single Page Application - [voir fin du ReadMe](#spa)
 
 * Bundles 
   * [EasyAdmin](https://symfony.com/doc/current/bundles/EasyAdminBundle/index.html)
@@ -954,4 +953,6 @@ Afin de gérer le redimensionnement d’image
 ```
 symfony composer req "imagine/imagine:^1.2"
 ```
-<a href='#installation-guide' id='installation-guide' class='anchor' aria-hidden='true'>Installation guide</a>
+### <a href='#spa' id='spa' class='anchor' aria-hidden='true'>SPA</a>
+Single Page Application disponible dans `./spa/`
+
