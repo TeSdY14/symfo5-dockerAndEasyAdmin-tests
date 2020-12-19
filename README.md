@@ -512,7 +512,7 @@ security:
 symfony console make:migration 
 symfony console doctrine:migration:migrate -n
 ``` 
-_Flag "-n" => **--no-interaction** ou **-n** : Do not ask any interactive question._
+_Flag "-n" = **--no-interaction** => "Do not ask any interactive question."_
 
 ### Générer un mot de passe encodé : 
 ``` 
