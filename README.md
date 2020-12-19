@@ -13,16 +13,15 @@
   * [PHP Coding Standards Fixer](https://cs.symfony.com/)
   
 * Technos 
-  * [PHP](https://www.php.net/) 7.4 (extenstions => intl, pdo_pgsql, xsl, amqp, gd, openssl, sodium, ...) 
-  * [Symfony](https://symfony.com/) 5 (Moteur de template TWIG)
-  * [Doctrine](https://www.doctrine-project.org/projects/orm.html)
-  * [PostgreSQL](https://www.postgresql.org/)
-  * [RabbitMQ](https://www.rabbitmq.com/) (faire de l'asynchrone)
-  * [Redis](https://redis.io/)
-  * [Webpack](https://webpack.js.org/) OU [voir sur Symfony](https://symfony.com/doc/current/frontend.html)
-  * [SASS](https://sass-lang.com/) Ou [voir avec Symfony 5 Fast-Track](https://symfony.com/doc/current/the-fast-track/fr/22-encore.html)
-  
-  * [SPA](https://redis.io/) Application en vue Single Page Application - [voir fin du ReadMe](#spa)
+	* [PHP](https://www.php.net/) 7.4 (extenstions => intl, pdo_pgsql, xsl, amqp, gd, openssl, sodium, ...)
+	* [Symfony](https://symfony.com/) 5 (Moteur de template TWIG)
+	* [Doctrine](https://www.doctrine-project.org/projects/orm.html)
+	* [PostgreSQL](https://www.postgresql.org/)
+	* [RabbitMQ](https://www.rabbitmq.com/) (faire de l'asynchrone)
+	* [Redis](https://redis.io/)
+	* [Webpack](https://webpack.js.org/) OU [voir sur Symfony](https://symfony.com/doc/current/frontend.html)
+	* [SASS](https://sass-lang.com/) Ou [voir avec Symfony 5 Fast-Track](https://symfony.com/doc/current/the-fast-track/fr/22-encore.html)
+	* [SPA](https://redis.io/) Application en vue Single Page Application - [voir fin du ReadMe](#spa)
 
 * Bundles 
   * [EasyAdmin](https://symfony.com/doc/current/bundles/EasyAdminBundle/index.html)
