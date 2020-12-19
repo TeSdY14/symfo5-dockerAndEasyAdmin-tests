@@ -101,7 +101,7 @@ _SYMFONY supporte le **YAML**, **XML**, **PHP** et les **annotations** comme for
 - Pour la configuration des paquets, **YAML** est préférable 
 - Pour la configuration liées au code PHP, les **annotations** sont plus appropriées, _les informations de configuration sont directement accessibles dans la classe utilisée_. 
 
-## [ANNOTATIONS](https://symfony.com/doc/current/routing.html) :pencil2:
+## [ANNOTATIONS](https://symfony.com/doc/current/routing.html) :pencil2:<a href='#docAnnotations' id='docAnnotations' class='anchor' aria-hidden='true'></a>
 ```
 symfony composer req annotations
 ```
@@ -132,14 +132,14 @@ Le **maker-bundle** permet de générer un grand nombre de classes différentes.
 ```
 symfony console list make 
 ```
-## Commandes courantes du MAKER BUNDLE
+### Commandes courantes du MAKER BUNDLE
 
-### Générer un controller 
+#### Générer un controller 
 ```
 symfony console make:controller FooBarController
 ```
 
-### Générer une entité 
+#### Générer une entité 
 ```
 symfony console make:entity NomEntity
 ```
@@ -153,24 +153,24 @@ Une fois la commande exécutée, deux fichiers sont générés :
 - Repository de l'entité (namespace App\Repository) 
 _Retaper la commande make:entity sur une entité déjà existante permettra d'ajouter de nouveaux champs_
 
-#### Une fois toutes les entités nécessaires générées : ```Générer le fichier de migration```
+**Une fois toutes les entités nécessaires générées : ```Générer le fichier de migration```**
 ```
 symfony console make:migration
 ```
-#### Vérifier les requêtes qui seront exécutées avant de faire la migrations 
+**Vérifier les requêtes qui seront exécutées avant de faire la migrations** 
 > vérifier le contenu du fichier _"./migrations/VersionAnneeMoisJourHeureMinutesSecondes.php"_
-#### ☑️ OK ? 🔄 On migre la BDD 👍 !
+**☑️ OK ? 🔄 On migre la BDD 👍 !**
 ```
 symfony console doctrine:migrations:migrate
 ```
 A la suite de cette commande, la base de données locale sera à jour et prète à stoker des données.
 
-### Générer un formulaire
+#### Générer un formulaire
 ```
 symfony console make:form NomDuForm
 ```
 
-### Générer un CRUD complet 
+#### Générer un CRUD complet 
 ```
 symfony console make:crud NomDuneEntiteDejaCreee
 ```
@@ -186,7 +186,7 @@ Cette commande va générer plusieurs fichiers :
 -  created: templates/nomduneentitedejacreee/show.html.twig
 ``` 
 
-### Générer un [SUBSCRIBER - Events and Event Listeners](https://symfony.com/doc/current/event_dispatcher.html) :clipboard:<a href='#docSubscriber' id='docSubscriber' class='anchor' aria-hidden='true'></a>
+## Générer un [SUBSCRIBER - Events and Event Listeners](https://symfony.com/doc/current/event_dispatcher.html) :clipboard:<a href='#docEvents' id='docEvents' class='anchor' aria-hidden='true'></a>
 
 **Rappel :** 
 
@@ -206,7 +206,7 @@ Une fois validée, la commande créera le fichier [`./src/EventSubscriber/TwigEv
 composer require symfony/twig-bundle
 ```
 Cette commande installe le moteur de templte Twig 
-#### Compléments pour Twig 
+### Compléments pour Twig 
 ```
 symfony composer req "twig/intl-extra:^3"
 ```
@@ -219,18 +219,18 @@ Installe les extensions Twig utiles à la gestion des emails (notifications par 
 
 [En savoir plus sur Inky](https://get.foundation/emails/docs/inky.html)
 
-### [WEBPACK](https://webpack.js.org/) OU [Voir sur Symfony.com](https://symfony.com/doc/current/frontend.html)<a href='#docWebpack' id='docWebpack' class='anchor' aria-hidden='true'></a>
+## [WEBPACK](https://webpack.js.org/) OU [Voir sur Symfony.com](https://symfony.com/doc/current/frontend.html)<a href='#docWebpack' id='docWebpack' class='anchor' aria-hidden='true'></a>
 - Installation 
 ``` 
 symfony composer req encore
 ``` 
 
-### [SASS](https://sass-lang.com/) OU [voir Symfony 5 Fast-Track](https://symfony.com/doc/current/the-fast-track/fr/22-encore.html)<a href='#docSass' id='docSass' class='anchor' aria-hidden='true'></a>
+## [SASS](https://sass-lang.com/) OU [voir Symfony 5 Fast-Track](https://symfony.com/doc/current/the-fast-track/fr/22-encore.html)<a href='#docSass' id='docSass' class='anchor' aria-hidden='true'></a>
 - Utilisation 
 ```
 mv assets/styles/app.css assets/styles/app.scss
 ```
-#### Installer le loader SASS
+### Installer le loader SASS
 - [utile : Lien Node](https://nodejs.org/en/)
 - [utile : Lien YARN](https://yarnpkg.com/)
 - [utile : Lien NPM](https://www.npmjs.com/)
