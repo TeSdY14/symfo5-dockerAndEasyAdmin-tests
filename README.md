@@ -226,8 +226,8 @@ Installe les extensions Twig utiles à la gestion des emails (notifications par 
 symfony composer req encore
 ``` 
 
-## [SASS](https://sass-lang.com/)<a href='#docSass' id='docSass' class='anchor' aria-hidden='true'></a 
-[voir Symfony 5 Fast-Track](https://symfony.com/doc/current/the-fast-track/fr/22-encore.html)>
+## [SASS](https://sass-lang.com/)<a href='#docSass' id='docSass' class='anchor' aria-hidden='true'></a>
+[voir Symfony 5 Fast-Track](https://symfony.com/doc/current/the-fast-track/fr/22-encore.html)
 - Utilisation 
 ```
 mv assets/styles/app.css assets/styles/app.scss
