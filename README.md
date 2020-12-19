@@ -953,6 +953,6 @@ Afin de gérer le redimensionnement d’image
 ```
 symfony composer req "imagine/imagine:^1.2"
 ```
-### <a href='#spa' id='spa' class='anchor' aria-hidden='true'>SPA</a>
+### <section href='#spa' id='spa' class='anchor' aria-hidden='true'>SPA</a>
 Single Page Application disponible dans `./spa/`
 
