@@ -21,7 +21,6 @@
 	* [Redis](https://redis.io/)
 	* [Webpack](https://webpack.js.org/) OU [voir sur Symfony](https://symfony.com/doc/current/frontend.html)
 	* [SASS](https://sass-lang.com/) Ou [voir avec Symfony 5 Fast-Track](https://symfony.com/doc/current/the-fast-track/fr/22-encore.html)
-	
 	* [SPA](https://redis.io/) Application consommée en **S**ingle **P**age **A**pplication - [voir fin du ReadMe](#spa)
 
 * Bundles 
