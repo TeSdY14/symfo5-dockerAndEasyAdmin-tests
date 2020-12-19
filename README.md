@@ -453,6 +453,8 @@ _Le composant Sécurité fournit un système de sécurité complet pour votre ap
 _Il est livré avec des fonctionnalités d'authentification à l'aide de l'authentification de base HTTP, de la connexion par formulaire interactif ou de la connexion par certificat X.509, mais vous permet également de mettre en œuvre vos propres stratégies d'authentification._ 
 
 _En outre, le composant fournit des moyens d'autoriser les utilisateurs authentifiés en fonction de leurs rôles._
+
+- Installation 
 ```
 symfony composer req security
 ```
