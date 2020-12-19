@@ -55,6 +55,45 @@
 ## OUTIL DEVELOPPEMENT : [PHP-FIG](https://www.php-fig.org/psr/)
 **>>> Recommandations relatives aux normes PHP <<<**
   
+## [DOCKER](https://www.docker.com/) 🐋<a href='#docDocker' id='docDocker' class='anchor' aria-hidden='true'></a>
+### Commandes
+#### Démarrer docker-compose en arrière plan 
+```
+docker-compose up -d 
+```
+#### Voir la liste des conteneurs (et leur état)
+```
+docker-compose ps 
+```
+_Commande qui affiche toutes les instances de docker qui tournent actuellement sur l'environnement. 
+Avec l’option `-a` : les containers stoppés seront aussi affichés._
+#### Vérifier les logs
+``` 
+docker-compose logs
+``` 
+
+## Accéder à notre base de données
+Merci à la commande "**symfony**" qui permet de **`détecter automatiquement les services Docker en cours d'utilisation`**. 
+
+Les **variables d'environnement** étant exposées, on peut donc utiliser **psql** pour se connecter à la **BDD**
+```
+symfony run psql
+```
+
+> Si **psql** n'eest pas disponible en local, **Docker** permet aussi de l'exécuter
+```
+docker exec -it database_name_1 psql -U username -W password
+```
+
+`ATTENTION !!!`
+***Ne pas appeller `docker-compose down`*** afin de ne pas perdre les données. Ou faire une sauvegarde au préalable. 
+
+***Utilisez `pg_dump` pour***
+
+- Sauvegarder la base de données :
+```symfony run pg_dump --data-only > dump.sql```
+- Restaurez les données :
+```symfony run psql < dump.sql```
   
 ## [PROFILER](https://symfony.com/doc/current/profiler.html)<a href='#docProfiler' id='docProfiler' class='anchor' aria-hidden='true'></a>
 ❕Installé uniquement pour l'environnement de développement❕
@@ -110,7 +149,7 @@ symfony composer req annotations
 symfony console debug:router
 ```
 
-## _**[HTTPS](https://symfony.com/doc/current/setup/symfony_server.html#enabling-tls)**_<a href='#docHttps' id='docHttps' class='anchor' aria-hidden='true'></a>
+## [HTTPS](https://symfony.com/doc/current/setup/symfony_server.html#enabling-tls)**_<a href='#docHttps' id='docHttps' class='anchor' aria-hidden='true'></a>
 ### Activer TLS - Installer le certificat avec la commande 👀
 ``` 
 symfony server:ca:install 
@@ -408,49 +447,12 @@ docker-compose stop
 docker-compose up -d 
 ```
 
-## [DOCKER](https://www.docker.com/) 🐋<a href='#docDocker' id='docDocker' class='anchor' aria-hidden='true'></a>
-### Commandes
-#### Démarrer docker-compose en arrière plan 
-```
-docker-compose up -d 
-```
-#### Voir la liste des conteneurs (et leur état)
-```
-docker-compose ps 
-```
-_Commande qui affiche toutes les instances de docker qui tournent actuellement sur l'environnement. 
-Avec l’option `-a` : les containers stoppés seront aussi affichés._
-#### Vérifier les logs
-``` 
-docker-compose logs
-``` 
-
-## Accéder à notre base de données
-Merci à la commande "**symfony**" qui permet de **`détecter automatiquement les services Docker en cours d'utilisation`**. 
-
-Les **variables d'environnement** étant exposées, on peut donc utiliser **psql** pour se connecter à la **BDD**
-```
-symfony run psql
-```
-
-> Si **psql** n'eest pas disponible en local, **Docker** permet aussi de l'exécuter
-```
-docker exec -it database_name_1 psql -U username -W password
-```
-
-`ATTENTION !!!`
-***Ne pas appeller `docker-compose down`*** afin de ne pas perdre les données. Ou faire une sauvegarde au préalable. 
-
-***Utilisez `pg_dump` pour***
-
-- Sauvegarder la base de données :
-```symfony run pg_dump --data-only > dump.sql```
-- Restaurez les données :
-```symfony run psql < dump.sql```
-
-
 ## [SECURITY](https://symfony.com/doc/current/security.html) ⭐⭐<a href='#docSecurity' id='docSecurity' class='anchor' aria-hidden='true'></a>
-### Le Composant [`Symfony Security`](https://symfony.com/doc/current/security.html) : Permet de protéger l'accès de certaines pages du site aux utilisateurs
+_Le composant Sécurité fournit un système de sécurité complet pour votre application Web. 
+
+Il est livré avec des fonctionnalités d'authentification à l'aide de l'authentification de base HTTP, de la connexion par formulaire interactif ou de la connexion par certificat X.509, mais vous permet également de mettre en œuvre vos propres stratégies d'authentification. 
+
+En outre, le composant fournit des moyens d'autoriser les utilisateurs authentifiés en fonction de leurs rôles._
 ```
 symfony composer req security
 ```
