@@ -997,3 +997,6 @@ Encore
 ;
 module.exports = Encore.getWebpackConfig();
 ```
+
+#### Création du template principale.
+Voir le fichier : [`./spa/src/index.ejs`](https://github.com/TeSdY14/symfo5-dockerAndEasyAdmin-tests/blob/main/spa/src/index.ejs)
