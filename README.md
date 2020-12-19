@@ -21,6 +21,9 @@
   * [Redis](https://redis.io/)
   * [Webpack](https://webpack.js.org/) OU [voir sur Symfony](https://symfony.com/doc/current/frontend.html)
   * [SASS](https://sass-lang.com/) Ou [voir avec Symfony 5 Fast-Track](https://symfony.com/doc/current/the-fast-track/fr/22-encore.html)
+  
+  * [SPA](https://redis.io/) Application en vue Single Page Application (voir fin du ReadMe)
+  [Ready, set, GO!]
 
 * Bundles 
   * [EasyAdmin](https://symfony.com/doc/current/bundles/EasyAdminBundle/index.html)
@@ -951,3 +954,4 @@ Afin de gérer le redimensionnement d’image
 ```
 symfony composer req "imagine/imagine:^1.2"
 ```
+(#ready-set-go)
