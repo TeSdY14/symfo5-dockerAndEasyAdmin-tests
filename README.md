@@ -110,6 +110,12 @@ symfony composer req annotations
 symfony console debug:router
 ```
 
+## _**[HTTPS](https://symfony.com/doc/current/setup/symfony_server.html#enabling-tls)**_<a href='#docHttps' id='docHttps' class='anchor' aria-hidden='true'></a>
+### Activer TLS - Installer le certificat avec la commande 👀
+``` 
+symfony server:ca:install 
+``` 
+
 ## [DEBUG](https://github.com/symfony/debug) ⛔:bug:⛔<a href='#docDebug' id='docDebug' class='anchor' aria-hidden='true'></a>
 > :warning: **ATTENTION! Deprecated depuis v4.4 :**
 
@@ -401,12 +407,6 @@ docker-compose stop
 ```
 docker-compose up -d 
 ```
-
-## _**HTTPS**_<a href='#docHttps' id='docHttps' class='anchor' aria-hidden='true'></a>
-### Activer TLS - Installer le certificat avec la commande 👀
-``` 
-symfony server:ca:install 
-``` 
 
 ## [DOCKER](https://www.docker.com/) 🐋<a href='#docDocker' id='docDocker' class='anchor' aria-hidden='true'></a>
 ### Commandes
