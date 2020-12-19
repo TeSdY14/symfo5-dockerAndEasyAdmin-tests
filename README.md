@@ -402,14 +402,6 @@ docker-compose stop
 docker-compose up -d 
 ```
 
-## CHEAT SHEET Commands 🔑 💡<a href='#docCheatSheet' id='docCheatSheet' class='anchor' aria-hidden='true'></a>
-- [The Symfony Framework Best Practices](https://symfony.com/doc/current/best_practices.html)
-- [cheat-sheets.org #Symfony](http://www.cheat-sheets.org/#Symfony)
-- [Symfony Configuration Cheat Sheet - pdf](https://files.ripstech.com/cheatsheets/w_symfony_cheat_sheet.pdf)
-- [Symfony Configuration Cheat Sheet - webpage](https://blog.ripstech.com/2018/symfony-configuration-cheat-sheet/)
-- [Symfony 4 Cheat Sheet (DRAFT)](https://cheatography.com/pluk77/cheat-sheets/symfony-4/)
-- [Symfony MODEL DATABASE SCHEMA](https://andreiabohner.files.wordpress.com/2007/09/sfmodelsecondpartrefcard.pdf)
-
 ### Lancer le serveur symfony en arrière plan 🏃
 ``` 
 symfony server:start -d 
@@ -995,3 +987,18 @@ module.exports = Encore.getWebpackConfig();
 
 ### Création du template principale.
 Voir le fichier : [`./spa/src/index.ejs`](https://github.com/TeSdY14/symfo5-dockerAndEasyAdmin-tests/blob/main/spa/src/index.ejs)
+
+
+
+
+
+
+
+
+## CHEAT SHEET Commands 🔑 💡<a href='#docCheatSheet' id='docCheatSheet' class='anchor' aria-hidden='true'></a>
+- [The Symfony Framework Best Practices](https://symfony.com/doc/current/best_practices.html)
+- [cheat-sheets.org #Symfony](http://www.cheat-sheets.org/#Symfony)
+- [Symfony Configuration Cheat Sheet - pdf](https://files.ripstech.com/cheatsheets/w_symfony_cheat_sheet.pdf)
+- [Symfony Configuration Cheat Sheet - webpage](https://blog.ripstech.com/2018/symfony-configuration-cheat-sheet/)
+- [Symfony 4 Cheat Sheet (DRAFT)](https://cheatography.com/pluk77/cheat-sheets/symfony-4/)
+- [Symfony MODEL DATABASE SCHEMA](https://andreiabohner.files.wordpress.com/2007/09/sfmodelsecondpartrefcard.pdf)
