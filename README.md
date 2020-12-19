@@ -72,14 +72,12 @@ Le **[Profiler](https://symfony.com/doc/current/profiler.html)** permet de gagne
 symfony composer req logger
 ```
 
-
 ## [PHP-CSF](https://cs.symfony.com/) - PHP Coding Standards Fixer :blue_heart:
 [Plus d'informations sur GitHub](https://github.com/FriendsOfPHP/PHP-CS-Fixer/blob/2.16/doc/installation.rst)
 _Installé uniquement pour l'environnement de développement_ (ajout du flag `--dev`)
 ```
 symfony composer req friendsofphp/php-cs-fixer --dev 
 ```
-
 
 ## [DOCTRINE ORM](https://www.doctrine-project.org/projects/orm.html) :open_file_folder:
 ```
@@ -104,7 +102,6 @@ _SYMFONY supporte le **YAML**, **XML**, **PHP** et les **annotations** comme for
 - Pour la configuration des paquets, **YAML** est préférable 
 - Pour la configuration liées au code PHP, les **annotations** sont plus appropriées, _les informations de configuration sont directement accessibles dans la classe utilisée_. 
 
-
 ## [ANNOTATIONS](https://symfony.com/doc/current/routing.html) :pencil2:
 ```
 symfony composer req annotations
@@ -113,7 +110,6 @@ symfony composer req annotations
 ```
 symfony console debug:router
 ```
-
 
 ## [DEBUG](https://github.com/symfony/debug) ⛔:bug:⛔
 > :warning: **ATTENTION! Deprecated depuis v4.4 :**
@@ -126,7 +122,6 @@ CAUTION: this component is deprecated since Symfony 4.4. Instead, use the ErrorH
 symfony composer req debug --dev
 ```
 Cela permet d'obtenir la **barre de debug** en bas de l'écran du navigateur
-
 
 ## [MAKER](https://symfony.com/doc/current/bundles/SymfonyMakerBundle/index.html) :factory:
 > Installé **uniquement pour l'environnement de développement**
@@ -207,13 +202,12 @@ _Cette liste est normalement affichée dans la console au moment du lancement de
 
 Une fois validée, la commande créera le fichier `./src/EventSubscriber/ExempleTwigEventSubscriber.php`
 
-
 ## [TWIG - official site](https://twig.symfony.com/doc/2.x/filters/index.html) :eyeglasses: :sunglasses: 
 ```
 composer require symfony/twig-bundle
 ```
 Cette commande installe le moteur de templte Twig 
-#### Complément pour Twig 
+#### Compléments pour Twig 
 ```
 symfony composer req "twig/intl-extra:^3"
 ```
@@ -222,7 +216,7 @@ symfony composer req "twig/intl-extra:^3"
 ```
 symfony composer req "twig/cssinliner-extra:^3" "twig/inky-extra:^3"
 ``` 
-Installe des extensions Twig utiles à la gestion des emails (notifications par exemple) 
+Installe les extensions Twig utiles à la gestion des emails (notifications par exemple) 
 
 [En savoir plus sur Inky](https://get.foundation/emails/docs/inky.html)
 
@@ -245,26 +239,26 @@ mv assets/styles/app.css assets/styles/app.scss
 yarn add node-sass "sass-loader@^8.0.0" --dev
 ```
 
-- Activer dans le `webpack.config.js` : 
+- Activer dans le [`webpack.config.js` : ](https://github.com/TeSdY14/symfo5-dockerAndEasyAdmin-tests/blob/main/webpack.config.js)
 ```js
 .enableSassLoader() // décommenté
 ```
 
-- Installer Bootstrap Jquery Popper.js (environnement de développement) 
+- Installer **Bootstrap Jquery Popper.js** (environnement de développement) 
 ```
 yarn add bootstrap jquery popper.js bs-custom-file-input --dev
 ```
 
 - Ajouter Bootstrap à l'application 
 
-Modifier `./assets/styles/app.scss`
+Modifier [`./assets/styles/app.scss`](https://github.com/TeSdY14/symfo5-dockerAndEasyAdmin-tests/blob/main/assets/styles/app.scss)
 ```diff
 -body {
 -	background-color: lightgray;
 - }
 + @import '~bootstrap/scss/bootstrap';
 ```
-Modifier `./assets/app.js`
+Modifier [`./assets/app.js`](https://github.com/TeSdY14/symfo5-dockerAndEasyAdmin-tests/blob/main/assets/app.js)
 ```diff
 + import 'bootstrap';
 + import bsCustomFileInput from 'bs-custom-file-input';
@@ -291,7 +285,7 @@ rm guestbook-5.0.zip
 symfony composer req "admin:^2"
 ```
 > Un exemple de configurations pour améliorer le design de l'administration 
-_ Éditer le fichier ./config/packages/easy_admin.yaml_
+_ Éditer le fichier [./config/packages/easy_admin.yaml_](https://github.com/TeSdY14/symfo5-dockerAndEasyAdmin-tests/blob/main/config/packages/easy_admin.yaml)
 1. Configuration Basique 
 ``` yaml
 # Config Basic 
@@ -356,7 +350,7 @@ composer require predis/predis
 ```
 Un peu de configuration 
 
-- symfony.cloud.yaml
+- [.symfony.cloud.yaml](https://github.com/TeSdY14/symfo5-dockerAndEasyAdmin-tests/blob/main/.symfony.cloud.yaml)
 ```yaml
 runtime: 
  extension: 
@@ -369,7 +363,7 @@ relationships:
  database: "db:postgresql"
  redis: "rediscache:redis" # LIGNE A AJOUTER 
 ```
-- .symfony/services.yaml
+- [.symfony/services.yaml](https://github.com/TeSdY14/symfo5-dockerAndEasyAdmin-tests/blob/main/.symfony/services.yaml)
 ```yaml
 ...
 # ajouter ce qui suit : 
@@ -377,7 +371,7 @@ rediscache:
  type: redis:5.0
 ```
 
-- config/packages/framework.yaml
+- [config/packages/framework.yaml](https://github.com/TeSdY14/symfo5-dockerAndEasyAdmin-tests/blob/main/config/packages/framework.yaml)
 ```yaml
 ...
 session:
@@ -389,7 +383,7 @@ rediscache:
  type: redis:5.0
 ```
 
-- docker-compose.yaml
+- [docker-compose.yaml](https://github.com/TeSdY14/symfo5-dockerAndEasyAdmin-tests/blob/main/docker-compose.yaml)
 ```yaml
 ...
  redis:
@@ -526,15 +520,15 @@ YES
 
 _**Une fois la commande exécutée, les fichiers suivants seront générés/modifiés.**_ 
 ```yaml
-created: src/Entity/Admin.php
-created: src/Repository/AdminRepository.php
-updated: src/Entity/Admin.php
-updated: config/packages/security.yaml
+created: [src/Entity/Admin.php](https://github.com/TeSdY14/symfo5-dockerAndEasyAdmin-tests/blob/main/src/Entity/Admin.php)
+created: [src/Repository/AdminRepository.php](https://github.com/TeSdY14/symfo5-dockerAndEasyAdmin-tests/blob/main/src/Repository/AdminRepository.php)
+updated: [src/Entity/Admin.php](https://github.com/TeSdY14/symfo5-dockerAndEasyAdmin-tests/blob/main/src/Entity/Admin.php)
+updated: [config/packages/security.yaml](https://github.com/TeSdY14/symfo5-dockerAndEasyAdmin-tests/blob/main/config/packages/security.yaml). 
            
   Success! 
            
 ```
-Attardons nous sur le fichier config/packages/security.yaml. 
+Attardons nous sur le fichier [config/packages/security.yaml](https://github.com/TeSdY14/symfo5-dockerAndEasyAdmin-tests/blob/main/config/packages/security.yaml). 
 
 Les lignes suivantes ont été automatiquement ajoutées au fichier : 
 ```yaml
@@ -606,10 +600,10 @@ Entrée (ou taper 'SecurityController' et Entrée)
  > SeurityController
 Do you want to generate a '/logout' URL? (yes/no) [yes]: Entrée (ou taper 'Yes' et Entrée)
  > Yes
-created: src/Security/AppAuthenticator.php
-updated: config/packages/security.yaml
-created: src/Controller/SecurityController.php
-created: templates/security/login.html.twig
+created: [src/Security/AppAuthenticator.php](https://github.com/TeSdY14/symfo5-dockerAndEasyAdmin-tests/blob/main/src/Security/AppAuthenticator.php)
+updated: [config/packages/security.yaml](https://github.com/TeSdY14/symfo5-dockerAndEasyAdmin-tests/blob/main/config/packages/security.yaml)
+created: [src/Controller/SecurityController.php](https://github.com/TeSdY14/symfo5-dockerAndEasyAdmin-tests/blob/main/src/Controller/SecurityController.php)
+created: [templates/security/login.html.twig](https://github.com/TeSdY14/symfo5-dockerAndEasyAdmin-tests/blob/main/templates/security/login.html.twig)
 
            
   Success! 
@@ -622,7 +616,7 @@ created: templates/security/login.html.twig
 
 ```
 
-De nouvelles lignes sont automatiquement ajoutées au fichier `./config/paclages/security.yaml`
+De nouvelles lignes sont automatiquement ajoutées au fichier [`./config/packages/security.yaml`](https://github.com/TeSdY14/symfo5-dockerAndEasyAdmin-tests/blob/main/config/packages/security.yaml)
 ```
 main:
             anonymous: lazy
@@ -669,7 +663,7 @@ Les **fixtures** permettent de remplir une base de données avec des données "b
 ```
 symfony composer req orm-fixtures --dev
 ```
-_Cette commande génère un répertoire "src/DataFixtures/"
+_Cette commande génère un répertoire ["src/DataFixtures/"](https://github.com/TeSdY14/symfo5-dockerAndEasyAdmin-tests/tree/main/src/DataFixtures)
 
 Une fois la classe de fixture complétée afin d'ajouter de fausses données
 ```
@@ -739,9 +733,9 @@ Le consumer peut s’exécuter sur le même serveur que l’application web, ou 
 C’est très **similaire** à la façon dont les **requêtes HTTP** sont traitées, *sauf que nous n’avons pas de réponse*.
 
 Pour un usage simple, voir les fichiers de ce projet : 
-- `src/Message/CommentMessage.php` - simple classe de données 
-- `src/MessageHandler/CommentMessageHandler.php` - à pour rôle de gestionnaire de messages 
-- `src/Controller/ConferenceController` - Montre comment envoyer un message dans le [bus](https://fr.wikipedia.org/wiki/Enterprise_service_bus), afin que le gestionnaire puisse décider ce qu'il va en faire (ce code ne dépend plus du SpamChecker) 
+- [`src/Message/CommentMessage.php`](https://github.com/TeSdY14/symfo5-dockerAndEasyAdmin-tests/blob/main/src/Message/CommentMessage.php) - simple classe de données 
+- [`src/MessageHandler/CommentMessageHandler.php`](https://github.com/TeSdY14/symfo5-dockerAndEasyAdmin-tests/blob/main/src/MessageHandler/CommentMessageHandler.php) - à pour rôle de gestionnaire de messages 
+- [`src/Controller/ConferenceController`](https://github.com/TeSdY14/symfo5-dockerAndEasyAdmin-tests/blob/main/src/Controller/ConferenceController.php) - Montre comment envoyer un message dans le [bus](https://fr.wikipedia.org/wiki/Enterprise_service_bus), afin que le gestionnaire puisse décider ce qu'il va en faire (ce code ne dépend plus du SpamChecker) 
 
 ## [RabbitMQ](https://www.rabbitmq.com/documentation.html)
 Afin de faire vraiment de l'asynchrone
@@ -757,7 +751,7 @@ Afin de faire vraiment de l'asynchrone
 ### Installation de [RabbitMQ](https://www.rabbitmq.com/documentation.html) 🐇
 #### Version `docker`
 
-Se rendre dans le repertoire du projet, modifier (ajouter dans) le fichier `docker-compose.yaml`
+Se rendre dans le repertoire du projet, modifier (ajouter dans) le fichier [`docker-compose.yaml`](https://github.com/TeSdY14/symfo5-dockerAndEasyAdmin-tests/blob/main/docker-compose.yaml)
 ```yaml
 ...
   redis:
@@ -777,7 +771,7 @@ Se rendre dans le repertoire du projet, modifier (ajouter dans) le fichier `dock
       - RABBITMQ_DEFAULT_PASS=guest
 ```
 
-modifier le fichier `messenger.yaml`
+modifier le fichier [`messenger.yaml`](https://github.com/TeSdY14/symfo5-dockerAndEasyAdmin-tests/blob/main/config/packages/messenger.yaml)
 ```yaml
 framework:
     messenger:
@@ -872,7 +866,7 @@ Installer le composant Workflow de Symfony
 ```
 symfony composer req workflow
 ```
-- Cette commande ajoute le fichier `config/workflow/workflow.yaml` qu'il faut éditer comme suit (pour notre cas ici de gestion de message en queue)
+- Cette commande ajoute le fichier [`config/package/workflow.yaml`](https://github.com/TeSdY14/symfo5-dockerAndEasyAdmin-tests/blob/main/config/packages/workflow.yaml) qu'il faut éditer comme suit (pour notre cas ici de gestion de message en queue)
 ```yaml
 framework:
     workflows:
@@ -922,10 +916,10 @@ Valider le workflow avec
 symfony console workflow:dump comment | dot -Tpng -o workflow.png
 ```
 
-_L'image du workflow (ici **workflow.png**) est ajouté dans le repertoire courant_ 
+_L'image du workflow (ici [**workflow.png**](https://github.com/TeSdY14/symfo5-dockerAndEasyAdmin-tests/blob/main/workflow2.png)) est ajouté dans le repertoire courant_ 
 
 ### Utiliser le workflow 
-Voir fichier : `src/MessageHandler/CommentMessageHandler.php`
+Voir fichier : [`src/MessageHandler/CommentMessageHandler.php`](https://github.com/TeSdY14/symfo5-dockerAndEasyAdmin-tests/blob/main/src/MessageHandler/CommentMessageHandler.php)
 
 ## [PROCESS](https://symfony.com/doc/current/components/process.html)
 Afin de mettre en cache les opérations coûteuses en CPU/ mémoire => créer une commande qui affiche l'étape en cours sur laquelle nous travaillons (le nom du tag Git attaché au commit actuel). 
@@ -936,7 +930,7 @@ Le composant **Symfony Process** permet d'éxécuter une commande et de récupé
 ```
 symfony console req process
 ```
-_exemple d'utilisation : `src/Command/StepInfoCommand.php`_
+_exemple d'utilisation : [_`src/Command/StepInfoCommand.php`_](https://github.com/TeSdY14/symfo5-dockerAndEasyAdmin-tests/blob/main/src/Command/StepInfoCommand.php)
 
 -> Création de la classe `StepInfoCommand` avec : `symfony console make:command app:step:info`
 
