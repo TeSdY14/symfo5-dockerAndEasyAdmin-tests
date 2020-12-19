@@ -950,12 +950,17 @@ module.exports = Encore.getWebpackConfig();
 Voir le fichier : [`./spa/src/index.ejs`](https://github.com/TeSdY14/symfo5-dockerAndEasyAdmin-tests/blob/main/spa/src/index.ejs)
 
 
+---
 
+---
 
+---
 
+---
 
+---
 
-
+---
 ## CHEAT SHEET Commands 🔑 💡<a href='#docCheatSheet' id='docCheatSheet' class='anchor' aria-hidden='true'></a>
 - [The Symfony Framework Best Practices](https://symfony.com/doc/current/best_practices.html)
 - [cheat-sheets.org #Symfony](http://www.cheat-sheets.org/#Symfony)
