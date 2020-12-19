@@ -34,30 +34,29 @@
 	* [schickling/mailcatcher](https://mailcatcher.me/) (MailCatcher exécute un serveur SMTP et permet une visibilité des messages via une interface web)
 	
 * Dépendances diverses
-	* [Profiler](https://symfony.com/doc/current/profiler.html)[ReadMe - PROFILER](#docProfiler)
-	* [Logger](https://symfony.com/doc/current/logging.html)
-	* [Debug - WARNING Deprecated depuis 4.4 - voir ErrorHandlerComponent](https://github.com/symfony/debug)
-	* [ErrorHandler Component](https://symfony.com/components/ErrorHandler)
-	* [Maker](https://symfony.com/doc/current/bundles/SymfonyMakerBundle/index.html)
+	* [Profiler](https://symfony.com/doc/current/profiler.html) OU [ReadMe - PROFILER](#docProfiler)
+	* [Logger](https://symfony.com/doc/current/logging.html) OU [ReadMe - LOGGER](#docLogger)
+	* [Debug - WARNING Deprecated depuis 4.4 - voir ErrorHandlerComponent](https://github.com/symfony/debug) OU [ReadMe - DEBUG](#docDebug)
+	* [ErrorHandler Component](https://symfony.com/components/ErrorHandler) OU [ReadMe - ERROR HANDLER](#docErrorHandler)
+	* [Maker](https://symfony.com/doc/current/bundles/SymfonyMakerBundle/index.html) OU [ReadMe - MAKER](#docMaker)
 	* [Twig - official site](https://twig.symfony.com/doc/2.x/filters/index.html), [twig - symfony](https://symfony.com/doc/current/templates.html) 👈:heavy_plus_sign:👉 [Inky](https://get.foundation/emails/docs/inky.html)
-	* [Annotations](https://symfony.com/doc/current/routing.html)
-	* [Tests PhpUnit](https://symfony.com/doc/current/testing.html)
-	* [Fixtures](https://symfony.com/doc/current/bundles/DoctrineFixturesBundle/index.html)
-	* [Subscriber - Events and Event Listeners](https://symfony.com/doc/current/event_dispatcher.html)
-	* [MakeFile - Developpez.com](https://gl.developpez.com/tutoriel/outil/makefile/)
-	* [Messenger - Component](https://symfony.com/doc/current/components/messenger.html) (faire de l'asynchrone)
-	* [Workflow - Component](https://symfony.com/doc/current/components/workflow.html)
-	* [Process Component](https://symfony.com/doc/current/components/process.html)
-	* [Cache](https://symfony.com/doc/current/components/cache.html) Ou [voir avec Symfony 5 Fast-Track](https://symfony.com/doc/current/the-fast-track/fr/21-cache.html)
-	* [Imagine](https://imagine.readthedocs.io/en/stable/#) ou [Voir sur packagist.org](https://packagist.org/packages/imagine/imagine)
-	* [Notifier Component](https://symfony.com/components/Notifier)
+	* [Annotations](https://symfony.com/doc/current/routing.html) OU [ReadMe - ANNOTATIONS](#docAnnotations)
+	* [Tests PhpUnit](https://symfony.com/doc/current/testing.html) OU [ReadMe - PHPUNTI](#docPhpUnit)
+	* [Fixtures](https://symfony.com/doc/current/bundles/DoctrineFixturesBundle/index.html) OU [ReadMe - FIXTURES](#docFixtures)
+	* [Subscriber - Events and Event Listeners](https://symfony.com/doc/current/event_dispatcher.html) OU [ReadMe - EVENTS](#docEvents)
+	* [MakeFile - Developpez.com](https://gl.developpez.com/tutoriel/outil/makefile/) OU [ReadMe - MAKEFILE](#docMakeFile)
+	* [Messenger - Component](https://symfony.com/doc/current/components/messenger.html) (faire de l'asynchrone) OU [ReadMe - MESSENGER](#docMessenger)
+	* [Workflow - Component](https://symfony.com/doc/current/components/workflow.html) OU [ReadMe - WORKFLOW](#docWorkflow)
+	* [Process Component](https://symfony.com/doc/current/components/process.html) OU [ReadMe - PROCESS](#docProcess)
+	* [Cache](https://symfony.com/doc/current/components/cache.html) Ou [voir avec Symfony 5 Fast-Track](https://symfony.com/doc/current/the-fast-track/fr/21-cache.html) OU [ReadMe - CACHE](#docCache)
+	* [Imagine](https://imagine.readthedocs.io/en/stable/#) ou [Voir sur packagist.org] OU [ReadMe - IMAGINE](#docImagine)(https://packagist.org/packages/imagine/imagine)
+	* [Notifier Component](https://symfony.com/components/Notifier) OU [ReadMe - NOTIFIER](#docNotifier)
   
 ## OUTIL DEVELOPPEMENT : [PHP-FIG](https://www.php-fig.org/psr/)
 **>>> Recommandations relatives aux normes PHP <<<**
   
   
-## [PROFILER](https://symfony.com/doc/current/profiler.html)
-<a href='#docProfiler' id='docProfiler' class='anchor' aria-hidden='true'></a>
+## [PROFILER](https://symfony.com/doc/current/profiler.html)<a href='#docProfiler' id='docProfiler' class='anchor' aria-hidden='true'></a>
 ❕Installé uniquement pour l'environnement de développement❕
 ```shell-script
 symfony composer req profiler --dev
@@ -67,7 +66,7 @@ symfony composer req profiler --dev
 Le **[Profiler](https://symfony.com/doc/current/profiler.html)** permet de gagner du temps quand on a besoin de trouver l'origine d'un problème ⌚!
 
 
-## [LOGGER](https://symfony.com/doc/current/logging.html) 📑
+## [LOGGER](https://symfony.com/doc/current/logging.html) 📑<a href='#docLogger' id='docLogger' class='anchor' aria-hidden='true'></a>
 ```
 symfony composer req logger
 ```
@@ -111,7 +110,7 @@ symfony composer req annotations
 symfony console debug:router
 ```
 
-## [DEBUG](https://github.com/symfony/debug) ⛔:bug:⛔
+## [DEBUG](https://github.com/symfony/debug) ⛔:bug:⛔<a href='#docDebug' id='docDebug' class='anchor' aria-hidden='true'></a>
 > :warning: **ATTENTION! Deprecated depuis v4.4 :**
 
 ```
@@ -123,7 +122,7 @@ symfony composer req debug --dev
 ```
 Cela permet d'obtenir la **barre de debug** en bas de l'écran du navigateur
 
-## [MAKER](https://symfony.com/doc/current/bundles/SymfonyMakerBundle/index.html) :factory:
+## [MAKER](https://symfony.com/doc/current/bundles/SymfonyMakerBundle/index.html) :factory:<a href='#docMaker' id='docMaker' class='anchor' aria-hidden='true'></a>
 > Installé **uniquement pour l'environnement de développement**
 ```
 symfony composer req maker --dev
@@ -187,7 +186,7 @@ Cette commande va générer plusieurs fichiers :
 -  created: templates/nomduneentitedejacreee/show.html.twig
 ``` 
 
-### Générer un [SUBSCRIBER - Events and Event Listeners](https://symfony.com/doc/current/event_dispatcher.html) :clipboard:
+### Générer un [SUBSCRIBER - Events and Event Listeners](https://symfony.com/doc/current/event_dispatcher.html) :clipboard:<a href='#docSubscriber' id='docSubscriber' class='anchor' aria-hidden='true'></a>
 
 **Rappel :** 
 
@@ -202,7 +201,7 @@ _Cette liste est normalement affichée dans la console au moment du lancement de
 
 Une fois validée, la commande créera le fichier [`./src/EventSubscriber/TwigEventSubscriber.php`](https://github.com/TeSdY14/symfo5-dockerAndEasyAdmin-tests/blob/main/src/EventSubscriber/TwigEventSubscriber.php)
 
-## [TWIG - official site](https://twig.symfony.com/doc/2.x/filters/index.html) :eyeglasses: :sunglasses: 
+## [TWIG - official site](https://twig.symfony.com/doc/2.x/filters/index.html) :eyeglasses: :sunglasses: <a href='#docTwig' id='docTwig' class='anchor' aria-hidden='true'></a>
 ```
 composer require symfony/twig-bundle
 ```
@@ -220,13 +219,13 @@ Installe les extensions Twig utiles à la gestion des emails (notifications par 
 
 [En savoir plus sur Inky](https://get.foundation/emails/docs/inky.html)
 
-### [WEBPACK](https://webpack.js.org/) OU [Voir sur Symfony.com](https://symfony.com/doc/current/frontend.html)
+### [WEBPACK](https://webpack.js.org/) OU [Voir sur Symfony.com](https://symfony.com/doc/current/frontend.html)<a href='#docWebpack' id='docWebpack' class='anchor' aria-hidden='true'></a>
 - Installation 
 ``` 
 symfony composer req encore
 ``` 
 
-### [SASS](https://sass-lang.com/) OU [voir Symfony 5 Fast-Track](https://symfony.com/doc/current/the-fast-track/fr/22-encore.html)
+### [SASS](https://sass-lang.com/) OU [voir Symfony 5 Fast-Track](https://symfony.com/doc/current/the-fast-track/fr/22-encore.html)<a href='#docSass' id='docSass' class='anchor' aria-hidden='true'></a>
 - Utilisation 
 ```
 mv assets/styles/app.css assets/styles/app.scss
@@ -277,7 +276,7 @@ unzip -o guestbook-5.0.zip
 rm guestbook-5.0.zip
 ```
 
-## [EASYADMIN](https://symfony.com/doc/current/bundles/EasyAdminBundle/index.html) :cop:
+## [EASYADMIN](https://symfony.com/doc/current/bundles/EasyAdminBundle/index.html) :cop:<a href='#docEasyAdmin' id='docEasyAdmin' class='anchor' aria-hidden='true'></a>
 [Plus d'info sur Symfony.com](https://symfony.com/doc/current/bundles/EasyAdminBundle/index.html)
 
 [Plus d'info sur Github.com](https://github.com/EasyCorp/EasyAdminBundle)
@@ -341,7 +340,7 @@ easy_admin:
 > [Plus d'infos sur la customization d'EasyAdmin sur symfony.com](https://symfony.com/doc/current/bundles/EasyAdminBundle/index.html)
 
 
-## [REDIS](https://redis.io/) :zap:
+## [REDIS](https://redis.io/) :zap:<a href='#docRedis' id='docRedis' class='anchor' aria-hidden='true'></a>
 **Redis** est _un système de gestion de base de données_ clef-valeur hautes performances qui **stocke les informations en mémoire** (Les données sont stockées dans la mémoire et est donc plus rapide qu'une base de données qui stocke les données sur disque dur).
 
 Installation 
@@ -401,7 +400,7 @@ docker-compose stop
 docker-compose up -d 
 ```
 
-## CHEAT SHEET Commands 🔑 💡
+## CHEAT SHEET Commands 🔑 💡<a href='#docCheatSheet' id='docCheatSheet' class='anchor' aria-hidden='true'></a>
 - [The Symfony Framework Best Practices](https://symfony.com/doc/current/best_practices.html)
 - [cheat-sheets.org #Symfony](http://www.cheat-sheets.org/#Symfony)
 - [Symfony Configuration Cheat Sheet - pdf](https://files.ripstech.com/cheatsheets/w_symfony_cheat_sheet.pdf)
@@ -448,13 +447,13 @@ symfony ssh
 symfony var:export
 ``` 
 
-## _**HTTPS**_
+## _**HTTPS**_<a href='#docHttps' id='docHttps' class='anchor' aria-hidden='true'></a>
 ### Activer TLS - Installer le certificat avec la commande 👀
 ``` 
 symfony server:ca:install 
 ``` 
 
-## [DOCKER](https://www.docker.com/) 🐋
+## [DOCKER](https://www.docker.com/) 🐋<a href='#docDocker' id='docDocker' class='anchor' aria-hidden='true'></a>
 ### Commandes
 #### Démarrer docker-compose en arrière plan 
 ```
@@ -495,7 +494,7 @@ docker exec -it database_name_1 psql -U username -W password
 ```symfony run psql < dump.sql```
 
 
-## [SECURITY](https://symfony.com/doc/current/security.html) ⭐⭐
+## [SECURITY](https://symfony.com/doc/current/security.html) ⭐⭐<a href='#docSecurity' id='docSecurity' class='anchor' aria-hidden='true'></a>
 ### Le Composant [`Symfony Security`](https://symfony.com/doc/current/security.html) : Permet de protéger l'accès de certaines pages du site aux utilisateurs
 ```
 symfony composer req security
@@ -636,7 +635,7 @@ main:
 symfony console make:registration-form
 ```
 
-## [TESTS](https://symfony.com/doc/current/testing.html) :arrow_forward:
+## [TESTS](https://symfony.com/doc/current/testing.html) :arrow_forward:<a href='#docPhpUnit' id='docPhpUnit' class='anchor' aria-hidden='true'></a>
 Symfony utilise [`PHPUnit`](https://symfony.com/doc/current/testing.html)
 ```
 symfony composer req phpunit --dev 
