@@ -448,11 +448,11 @@ docker-compose up -d
 ```
 
 ## [SECURITY](https://symfony.com/doc/current/security.html) ⭐⭐<a href='#docSecurity' id='docSecurity' class='anchor' aria-hidden='true'></a>
-_Le composant Sécurité fournit un système de sécurité complet pour votre application Web. 
+_Le composant Sécurité fournit un système de sécurité complet pour votre application Web._ 
 
-Il est livré avec des fonctionnalités d'authentification à l'aide de l'authentification de base HTTP, de la connexion par formulaire interactif ou de la connexion par certificat X.509, mais vous permet également de mettre en œuvre vos propres stratégies d'authentification. 
+_Il est livré avec des fonctionnalités d'authentification à l'aide de l'authentification de base HTTP, de la connexion par formulaire interactif ou de la connexion par certificat X.509, mais vous permet également de mettre en œuvre vos propres stratégies d'authentification._ 
 
-En outre, le composant fournit des moyens d'autoriser les utilisateurs authentifiés en fonction de leurs rôles._
+_En outre, le composant fournit des moyens d'autoriser les utilisateurs authentifiés en fonction de leurs rôles._
 ```
 symfony composer req security
 ```
