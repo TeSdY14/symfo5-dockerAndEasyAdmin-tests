@@ -41,7 +41,7 @@
 	* [Maker](https://symfony.com/doc/current/bundles/SymfonyMakerBundle/index.html) OU [ReadMe - MAKER](#docMaker)
 	* [Twig - official site](https://twig.symfony.com/doc/2.x/filters/index.html), [twig - symfony](https://symfony.com/doc/current/templates.html) 👈:heavy_plus_sign:👉 [Inky](https://get.foundation/emails/docs/inky.html)
 	* [Annotations](https://symfony.com/doc/current/routing.html) OU [ReadMe - ANNOTATIONS](#docAnnotations)
-	* [Tests PhpUnit](https://symfony.com/doc/current/testing.html) OU [ReadMe - PHPUNTI](#docPhpUnit)
+	* [Tests PhpUnit](https://symfony.com/doc/current/testing.html) OU [ReadMe - PHPUNIT](#docPhpUnit)
 	* [Fixtures](https://symfony.com/doc/current/bundles/DoctrineFixturesBundle/index.html) OU [ReadMe - FIXTURES](#docFixtures)
 	* [Subscriber - Events and Event Listeners](https://symfony.com/doc/current/event_dispatcher.html) OU [ReadMe - EVENTS](#docEvents)
 	* [MakeFile - Developpez.com](https://gl.developpez.com/tutoriel/outil/makefile/) OU [ReadMe - MAKEFILE](#docMakeFile)
@@ -657,7 +657,7 @@ symfony console make:functional-test Controller\\ConferenceController
 ### Pour ne tester qu'une seule classe précise : (exemple)
 ```symfony php bin/phpunit tests/Controller/ConferenceControllerTest.php``` 
 
-## [FIXTURES](https://symfony.com/doc/current/bundles/DoctrineFixturesBundle/index.html) 
+## [FIXTURES](https://symfony.com/doc/current/bundles/DoctrineFixturesBundle/index.html) <a href='#docFixtures' id='docFixtures' class='anchor' aria-hidden='true'></a>
 Les **fixtures** permettent de remplir une base de données avec des données "bidons" afin d'avoir un jeu de données 
 ```
 symfony composer req orm-fixtures --dev
@@ -669,7 +669,7 @@ Une fois la classe de fixture complétée afin d'ajouter de fausses données
 symfony console doctrine:fixtures:load
 ```
 
-## Automatiser le Workflow avec un [Makefile](https://gl.developpez.com/tutoriel/outil/makefile/)
+## Automatiser le Workflow avec un [Makefile](https://gl.developpez.com/tutoriel/outil/makefile/)<a href='#docMakeFile' id='docMakeFile' class='anchor' aria-hidden='true'></a>
 1. Installer [GNUWine 32](http://gnuwin32.sourceforge.net/) [ou directement ici](http://gnuwin32.sourceforge.net/packages/make.htm)
 
 2. Sur Windows, ajouter la variable d'environnement 
@@ -715,7 +715,7 @@ Activer le listener de  [PHPUnit](https://phpunit.de/) (fichier 'phpunit.xml.dis
 
 `Grace à cette commande, toute modification apportée pendant les tests est automatiquement annulée à la fin de chaque test.` 
 
-## [MESSENGER](https://symfony.com/doc/current/messenger.html) :incoming_envelope:
+## [MESSENGER](https://symfony.com/doc/current/messenger.html) :incoming_envelope:<a href='#docMessenger' id='docMessenger' class='anchor' aria-hidden='true'></a>
 (**TUTO** [SymfonyCast Messenger](https://symfonycasts.com/screencast/messenger))
 Le composant Messenger aide les applications à envoyer et à recevoir des messages vers/depuis d'autres applications ou via des files d'attente de messages. [Messenger](https://symfony.com/doc/current/messenger.html)
 _NB_ : Le composant [Messenger](https://symfony.com/doc/current/messenger.html) aide les applications à envoyer et à recevoir des messages vers / depuis d'autres applications ou via des files d'attente de messages.
@@ -736,7 +736,7 @@ Pour un usage simple, voir les fichiers de ce projet :
 - [`src/MessageHandler/CommentMessageHandler.php`](https://github.com/TeSdY14/symfo5-dockerAndEasyAdmin-tests/blob/main/src/MessageHandler/CommentMessageHandler.php) - à pour rôle de gestionnaire de messages 
 - [`src/Controller/ConferenceController`](https://github.com/TeSdY14/symfo5-dockerAndEasyAdmin-tests/blob/main/src/Controller/ConferenceController.php) - Montre comment envoyer un message dans le [bus](https://fr.wikipedia.org/wiki/Enterprise_service_bus), afin que le gestionnaire puisse décider ce qu'il va en faire (ce code ne dépend plus du SpamChecker) 
 
-## [RabbitMQ](https://www.rabbitmq.com/documentation.html)
+## [RabbitMQ](https://www.rabbitmq.com/documentation.html)<a href='#docRabbitMq' id='docRabbitMq' class='anchor' aria-hidden='true'></a>
 Afin de faire vraiment de l'asynchrone
 ### "Installation d'[amqp](https://pecl.php.net/package/amqp)"
 - Télécharger l'extension [php_amqp](https://pecl.php.net/package/amqp)
@@ -854,7 +854,7 @@ framework:
             # 'App\Message\YourMessage': async
             App\Message\CommentMessage: async
 ```
-## [WORKFLOW](https://symfony.com/doc/current/components/workflow.html)
+## [WORKFLOW](https://symfony.com/doc/current/components/workflow.html)<a href='#docWorkflow' id='docWorkflow' class='anchor' aria-hidden='true'></a>
 Afin d'avoir une représentation graphique, il faut [Graphviz](https://www.graphviz.org/)
 ```
 choco install graphviz
@@ -920,7 +920,7 @@ _L'image du workflow (ici [**workflow.png**](https://github.com/TeSdY14/symfo5-d
 ### Utiliser le workflow 
 Voir fichier : [`src/MessageHandler/CommentMessageHandler.php`](https://github.com/TeSdY14/symfo5-dockerAndEasyAdmin-tests/blob/main/src/MessageHandler/CommentMessageHandler.php)
 
-## [PROCESS](https://symfony.com/doc/current/components/process.html)
+## [PROCESS](https://symfony.com/doc/current/components/process.html)<a href='#docProcess' id='docProcess' class='anchor' aria-hidden='true'></a>
 Afin de mettre en cache les opérations coûteuses en CPU/ mémoire => créer une commande qui affiche l'étape en cours sur laquelle nous travaillons (le nom du tag Git attaché au commit actuel). 
 
 Le composant **Symfony Process** permet d'éxécuter une commande et de récupérer le résultat. 
@@ -940,32 +940,32 @@ Afin de mettre le résultat en cache, utiliser le cache symfony.
 symfony composer req cache
 ```
 
-### IMAGINE - Gérer les images 
+## IMAGINE - Gérer les images <a href='#docImagine' id='docImagine' class='anchor' aria-hidden='true'></a>
 Afin de gérer le redimensionnement d’image 
 - Installation de la bibliothèque `imagine/imagine`
 ```
 symfony composer req "imagine/imagine:^1.2"
 ```
-### <section href='#spa' id='spa' class='anchor' aria-hidden='true'>Single Page Application</a>
+## <section href='#spa' id='spa' class='anchor' aria-hidden='true'>Single Page Application</a>
 La SPA est disponible dans `./spa/`
-#### Opérations pour sa création (_depuis la racine du repertoire du projet_)
+### Opérations pour sa création (_depuis la racine du repertoire du projet_)
 ```
 mkdir -p spa/src spa/public spa/assets/css
 cp assets/css/*.scss spa/assets/css/
 cd spa
 ```
 
-#### Initialisation du package.json 
+### Initialisation du package.json 
 ```
 yarn init -y
 ```
 
-#### Ajout de dépendances 
+### Ajout de dépendances 
 ```
 yarn add @symfony/webpack-encore @babel/core @babel/preset-env babel-presetpreact preact html-webpack-plugin bootstrap
 ```
 
-#### Création d'un .gitignore : `./spa/.gitignore`
+### Création d'un .gitignore : `./spa/.gitignore`
 ```
 /node_modules
 /public
@@ -974,7 +974,7 @@ yarn add @symfony/webpack-encore @babel/core @babel/preset-env babel-presetpreac
 /app
 ```
 
-#### Configuration de webpack pour la SPA : `./spa/webpack.config.js`
+### Configuration de webpack pour la SPA : `./spa/webpack.config.js`
 ```js
 const Encore = require('@symfony/webpack-encore');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -991,5 +991,5 @@ Encore
 module.exports = Encore.getWebpackConfig();
 ```
 
-#### Création du template principale.
+### Création du template principale.
 Voir le fichier : [`./spa/src/index.ejs`](https://github.com/TeSdY14/symfo5-dockerAndEasyAdmin-tests/blob/main/spa/src/index.ejs)
