@@ -23,7 +23,7 @@
   * [SASS](https://sass-lang.com/) Ou [voir avec Symfony 5 Fast-Track](https://symfony.com/doc/current/the-fast-track/fr/22-encore.html)
   
   * [SPA](https://redis.io/) Application en vue Single Page Application (voir fin du ReadMe)
-  [Ready, set, GO!]
+  [Read our installation guide](#installation-guide)
 
 * Bundles 
   * [EasyAdmin](https://symfony.com/doc/current/bundles/EasyAdminBundle/index.html)
@@ -954,4 +954,4 @@ Afin de gérer le redimensionnement d’image
 ```
 symfony composer req "imagine/imagine:^1.2"
 ```
-(#ready-set-go)
+<a href='#installation-guide' id='installation-guide' class='anchor' aria-hidden='true'>Installation guide</a>
