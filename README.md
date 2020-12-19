@@ -34,7 +34,7 @@
 	* [schickling/mailcatcher](https://mailcatcher.me/) (MailCatcher exécute un serveur SMTP et permet une visibilité des messages via une interface web)
 	
 * Dépendances diverses
-	* [Profiler](https://symfony.com/doc/current/profiler.html)
+	* [Profiler](https://symfony.com/doc/current/profiler.html)[ReadMe - PROFILER](#docProfiler)
 	* [Logger](https://symfony.com/doc/current/logging.html)
 	* [Debug - WARNING Deprecated depuis 4.4 - voir ErrorHandlerComponent](https://github.com/symfony/debug)
 	* [ErrorHandler Component](https://symfony.com/components/ErrorHandler)
@@ -57,6 +57,7 @@
   
   
 ## [PROFILER](https://symfony.com/doc/current/profiler.html)
+<a href='#docProfiler' id='docProfiler' class='anchor' aria-hidden='true'></a>
 ❕Installé uniquement pour l'environnement de développement❕
 ```shell-script
 symfony composer req profiler --dev
@@ -88,7 +89,7 @@ symfony composer req "orm:^2"
 - [Doctrine migrations](https://symfony.com/doc/current/bundles/DoctrineMigrationsBundle/index.html) - Assistant pour construire la BDD
 
 UNE FOIS INSTALLE 
-_Compléter le fichier `.env` avec les informations d'accès à la base de données_
+_Compléter le fichier [`.env`](https://github.com/TeSdY14/symfo5-dockerAndEasyAdmin-tests/blob/main/.env) avec les informations d'accès à la base de données_
 ```yaml 
 #DATABASE_URL="mysql://db_user:db_password@127.0.0.1:3306/db_name?serverVersion=5.7" <<< Ligne commentée
 ```
@@ -151,9 +152,9 @@ symfony console make:entity NomEntity
 Une fois la commande exécutée, deux fichiers sont générés : 
 - Classe de l'entité (namespace App\Entity) 
 - Repository de l'entité (namespace App\Repository) 
-_Retaper la commande make:entity sur une entité déjà existante permettra d'ajouter de nouveaux champs)_
+_Retaper la commande make:entity sur une entité déjà existante permettra d'ajouter de nouveaux champs_
 
-#### Une fois toutes les entités nécessaires générées, Générer le fichier de migration
+#### Une fois toutes les entités nécessaires générées : ```Générer le fichier de migration```
 ```
 symfony console make:migration
 ```
@@ -193,13 +194,13 @@ Cette commande va générer plusieurs fichiers :
 Un [**_subscriber_**](https://symfony.com/doc/current/event_dispatcher.html) est un [**_listener_**](https://symfony.com/doc/current/event_dispatcher.html) qui contient une méthode statique `_getSubscriberEvents()_` qui retourne sa configration, cela permet aux [**_subscriber_**](https://symfony.com/doc/current/event_dispatcher.html) d'être enregistré automatiquement dans le [**_dispatcher_**](https://symfony.com/doc/current/components/event_dispatcher.html) Symfony 
 
 ```
-symfony console make:subscriber ExempleTwigEventSubscriber
+symfony console make:subscriber TwigEventSubscriber
 ```
 > Commande interactive, elle demandera quel événement ecouter [liste des Evenements](https://symfony.com/doc/current/reference/events.html), 
 
 _Cette liste est normalement affichée dans la console au moment du lancement de la commande_
 
-Une fois validée, la commande créera le fichier `./src/EventSubscriber/ExempleTwigEventSubscriber.php`
+Une fois validée, la commande créera le fichier [`./src/EventSubscriber/TwigEventSubscriber.php`](https://github.com/TeSdY14/symfo5-dockerAndEasyAdmin-tests/blob/main/src/EventSubscriber/TwigEventSubscriber.php)
 
 ## [TWIG - official site](https://twig.symfony.com/doc/2.x/filters/index.html) :eyeglasses: :sunglasses: 
 ```
