@@ -2,15 +2,15 @@
 
 ## ENVIRONNEMENT
 * Mon PC (Portable Asus ROG Zephyrus GM501GS-EI003T)
-  * Windows 10
-  * [PHPStorm](https://www.jetbrains.com/fr-fr/phpstorm/)
-  * Terminal : [Hyper](https://hyper.is/) && Phpstorm Terminal
-  * [Git Bash - for Windows](https://gitforwindows.org/)
-  * [Composer](https://getcomposer.org/)
-  * [Chrome](https://www.google.com/intl/fr_fr/chrome/)/[Firefox](https://www.mozilla.org/fr/firefox/new/)/[Edge](https://www.microsoft.com/fr-fr/edge)
-  * [Docker && Docker-compose](https://www.docker.com/) (voir fin du readme pour plus d'infos) 
-  * [Symfony CLI - x64](https://github.com/symfony/cli/releases/download/v4.21.2/symfony_windows_amd64.exe)
-  * [PHP Coding Standards Fixer](https://cs.symfony.com/)
+	* Windows 10
+	* [PHPStorm](https://www.jetbrains.com/fr-fr/phpstorm/)
+	* Terminal : [Hyper](https://hyper.is/) && Phpstorm Terminal
+	* [Git Bash - for Windows](https://gitforwindows.org/)
+	* [Composer](https://getcomposer.org/)
+	* [Chrome](https://www.google.com/intl/fr_fr/chrome/)/[Firefox](https://www.mozilla.org/fr/firefox/new/)/[Edge](https://www.microsoft.com/fr-fr/edge)
+	* [Docker && Docker-compose](https://www.docker.com/) (voir fin du readme pour plus d'infos) 
+	* [Symfony CLI - x64](https://github.com/symfony/cli/releases/download/v4.21.2/symfony_windows_amd64.exe)
+	* [PHP Coding Standards Fixer](https://cs.symfony.com/)
   
 * Technos 
 	* [PHP](https://www.php.net/) 7.4 (extenstions => intl, pdo_pgsql, xsl, amqp, gd, openssl, sodium, ...)
@@ -21,36 +21,37 @@
 	* [Redis](https://redis.io/)
 	* [Webpack](https://webpack.js.org/) OU [voir sur Symfony](https://symfony.com/doc/current/frontend.html)
 	* [SASS](https://sass-lang.com/) Ou [voir avec Symfony 5 Fast-Track](https://symfony.com/doc/current/the-fast-track/fr/22-encore.html)
-	* [SPA](https://redis.io/) Application en vue Single Page Application - [voir fin du ReadMe](#spa)
+	
+	* [SPA](https://redis.io/) Application consommée en **S**ingle **P**age **A**pplication - [voir fin du ReadMe](#spa)
 
 * Bundles 
-  * [EasyAdmin](https://symfony.com/doc/current/bundles/EasyAdminBundle/index.html)
-  * [dama/doctrine-test-bundle](https://github.com/dmaicher/doctrine-test-bundle)
+	* [EasyAdmin](https://symfony.com/doc/current/bundles/EasyAdminBundle/index.html)
+	* [dama/doctrine-test-bundle](https://github.com/dmaicher/doctrine-test-bundle)
   
 * Docker Images 
-  * [postgres:11-alpine](https://www.postgresql.org/) (Base de données) 
-  * [redis:5-alpine](https://redis.io/) (stockage de données en mémoire [au format Clé => Valeur] plutot qu'à la manière d'une BDD qui stocke sur Disque Dur
-  * [rabbitmq:3.8-management](https://www.rabbitmq.com/) (Agent de message AMQP, permet de gérer les files de message "Queue" de manière asynchrone)
-  * [schickling/mailcatcher](https://mailcatcher.me/) (MailCatcher exécute un serveur SMTP et permet une visibilité des messages via une interface web)
+	* [postgres:11-alpine](https://www.postgresql.org/) (Base de données) 
+	* [redis:5-alpine](https://redis.io/) (stockage de données en mémoire [au format Clé => Valeur] plutot qu'à la manière d'une BDD qui stocke sur Disque Dur
+	* [rabbitmq:3.8-management](https://www.rabbitmq.com/) (Agent de message AMQP, permet de gérer les files de message "Queue" de manière asynchrone)
+	* [schickling/mailcatcher](https://mailcatcher.me/) (MailCatcher exécute un serveur SMTP et permet une visibilité des messages via une interface web)
 	
 * Dépendances diverses
-  * [Profiler](https://symfony.com/doc/current/profiler.html)
-  * [Logger](https://symfony.com/doc/current/logging.html)
-  * [Debug - WARNING Deprecated depuis 4.4 - voir ErrorHandlerComponent](https://github.com/symfony/debug)
-  * [ErrorHandler Component](https://symfony.com/components/ErrorHandler)
-  * [Maker](https://symfony.com/doc/current/bundles/SymfonyMakerBundle/index.html)
-  * [Twig - official site](https://twig.symfony.com/doc/2.x/filters/index.html), [twig - symfony](https://symfony.com/doc/current/templates.html) 👈:heavy_plus_sign:👉 [Inky](https://get.foundation/emails/docs/inky.html)
-  * [Annotations](https://symfony.com/doc/current/routing.html)
-  * [Tests PhpUnit](https://symfony.com/doc/current/testing.html)
-  * [Fixtures](https://symfony.com/doc/current/bundles/DoctrineFixturesBundle/index.html)
-  * [Subscriber - Events and Event Listeners](https://symfony.com/doc/current/event_dispatcher.html)
-  * [MakeFile - Developpez.com](https://gl.developpez.com/tutoriel/outil/makefile/)
-  * [Messenger - Component](https://symfony.com/doc/current/components/messenger.html) (faire de l'asynchrone)
-  * [Workflow - Component](https://symfony.com/doc/current/components/workflow.html)
-  * [Process Component](https://symfony.com/doc/current/components/process.html)
-  * [Cache](https://symfony.com/doc/current/components/cache.html) Ou [voir avec Symfony 5 Fast-Track](https://symfony.com/doc/current/the-fast-track/fr/21-cache.html)
-  * [Imagine](https://imagine.readthedocs.io/en/stable/#) ou [Voir sur packagist.org](https://packagist.org/packages/imagine/imagine)
-  * [Notifier Component](https://symfony.com/components/Notifier)
+	* [Profiler](https://symfony.com/doc/current/profiler.html)
+	* [Logger](https://symfony.com/doc/current/logging.html)
+	* [Debug - WARNING Deprecated depuis 4.4 - voir ErrorHandlerComponent](https://github.com/symfony/debug)
+	* [ErrorHandler Component](https://symfony.com/components/ErrorHandler)
+	* [Maker](https://symfony.com/doc/current/bundles/SymfonyMakerBundle/index.html)
+	* [Twig - official site](https://twig.symfony.com/doc/2.x/filters/index.html), [twig - symfony](https://symfony.com/doc/current/templates.html) 👈:heavy_plus_sign:👉 [Inky](https://get.foundation/emails/docs/inky.html)
+	* [Annotations](https://symfony.com/doc/current/routing.html)
+	* [Tests PhpUnit](https://symfony.com/doc/current/testing.html)
+	* [Fixtures](https://symfony.com/doc/current/bundles/DoctrineFixturesBundle/index.html)
+	* [Subscriber - Events and Event Listeners](https://symfony.com/doc/current/event_dispatcher.html)
+	* [MakeFile - Developpez.com](https://gl.developpez.com/tutoriel/outil/makefile/)
+	* [Messenger - Component](https://symfony.com/doc/current/components/messenger.html) (faire de l'asynchrone)
+	* [Workflow - Component](https://symfony.com/doc/current/components/workflow.html)
+	* [Process Component](https://symfony.com/doc/current/components/process.html)
+	* [Cache](https://symfony.com/doc/current/components/cache.html) Ou [voir avec Symfony 5 Fast-Track](https://symfony.com/doc/current/the-fast-track/fr/21-cache.html)
+	* [Imagine](https://imagine.readthedocs.io/en/stable/#) ou [Voir sur packagist.org](https://packagist.org/packages/imagine/imagine)
+	* [Notifier Component](https://symfony.com/components/Notifier)
   
 ## OUTIL DEVELOPPEMENT : [PHP-FIG](https://www.php-fig.org/psr/)
 **>>> Recommandations relatives aux normes PHP <<<**
