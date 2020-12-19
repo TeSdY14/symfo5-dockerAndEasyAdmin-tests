@@ -953,6 +953,47 @@ Afin de gérer le redimensionnement d’image
 ```
 symfony composer req "imagine/imagine:^1.2"
 ```
-### <section href='#spa' id='spa' class='anchor' aria-hidden='true'>SPA</a>
-Single Page Application disponible dans `./spa/`
+### <section href='#spa' id='spa' class='anchor' aria-hidden='true'>Single Page Application</a>
+La SPA est disponible dans `./spa/`
+#### Opérations pour sa création (_depuis la racine du repertoire du projet_)
+```
+mkdir -p spa/src spa/public spa/assets/css
+cp assets/css/*.scss spa/assets/css/
+cd spa
+```
 
+#### Initialisation du package.json 
+```
+yarn init -y
+```
+
+#### Ajout de dépendances 
+```
+yarn add @symfony/webpack-encore @babel/core @babel/preset-env babel-presetpreact preact html-webpack-plugin bootstrap
+```
+
+#### Création d'un .gitignore : `./spa/.gitignore`
+```
+/node_modules
+/public
+/yarn-error.log
+# used later by Cordova
+/app
+```
+
+#### Configuration de webpack pour la SPA : `./spa/webpack.config.js`
+```js
+const Encore = require('@symfony/webpack-encore');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
+Encore
+	.setOutputPath('public/')
+	.setPublicPath('/')
+	.cleanupOutputBeforeBuild()
+	.addEntry('app', './src/app.js')
+	.enablePreactPreset()
+	.enableSingleRuntimeChunk()
+	.addPlugin(new HtmlWebpackPlugin({ template: 'src/index.ejs', alwaysWriteToDisk: true }))
+;
+module.exports = Encore.getWebpackConfig();
+```
