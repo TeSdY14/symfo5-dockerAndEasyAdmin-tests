@@ -402,45 +402,6 @@ docker-compose stop
 docker-compose up -d 
 ```
 
-### Lancer le serveur symfony en arrière plan 🏃
-``` 
-symfony server:start -d 
-``` 
-### Ouvrir l'application dans un navigateur ➿
-``` 
-symfony open:local
-``` 
-
-### Consulter les logs 🔍
-``` 
-symfony server:log
-``` 
-
-### Consulter les workers en arrière-plan 🔍
-``` 
-symfony server:status
-``` 
-
-### Arrêter un worker (pour obtenir **ID_DU_PROCESSUS** : ```server:status```) ✋
-``` 
-kill ID_DU_PROCESSUS  
-``` 
-
-### Débogage en production (consulter les logs quand le profiler n'est pas disponible) 💂‍
-``` 
-symfony logs
-``` 
-
-### Connexion en SSH au conteneur web 📡 
-``` 
-symfony ssh
-``` 
-
-### Exposer les variables d'environnements 🔍
-``` 
-symfony var:export
-``` 
-
 ## _**HTTPS**_<a href='#docHttps' id='docHttps' class='anchor' aria-hidden='true'></a>
 ### Activer TLS - Installer le certificat avec la commande 👀
 ``` 
@@ -1002,3 +963,44 @@ Voir le fichier : [`./spa/src/index.ejs`](https://github.com/TeSdY14/symfo5-dock
 - [Symfony Configuration Cheat Sheet - webpage](https://blog.ripstech.com/2018/symfony-configuration-cheat-sheet/)
 - [Symfony 4 Cheat Sheet (DRAFT)](https://cheatography.com/pluk77/cheat-sheets/symfony-4/)
 - [Symfony MODEL DATABASE SCHEMA](https://andreiabohner.files.wordpress.com/2007/09/sfmodelsecondpartrefcard.pdf)
+
+
+### Lancer le serveur symfony en arrière plan 🏃
+``` 
+symfony server:start -d 
+``` 
+### Ouvrir l'application dans un navigateur ➿
+``` 
+symfony open:local
+``` 
+
+### Consulter les logs 🔍
+``` 
+symfony server:log
+``` 
+
+### Consulter les workers en arrière-plan 🔍
+``` 
+symfony server:status
+``` 
+
+### Arrêter un worker (pour obtenir **ID_DU_PROCESSUS** : ```server:status```) ✋
+``` 
+kill ID_DU_PROCESSUS  
+``` 
+
+### Débogage en production (consulter les logs quand le profiler n'est pas disponible) 💂‍
+``` 
+symfony logs
+``` 
+
+### Connexion en SSH au conteneur web 📡 
+``` 
+symfony ssh
+``` 
+
+### Exposer les variables d'environnements 🔍
+``` 
+symfony var:export
+``` 
+
